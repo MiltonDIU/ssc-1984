@@ -109,13 +109,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#district_addresses" role="tab" data-toggle="tab">
-                    {{ trans('cruds.address.title') }}
+                <a class="nav-link" href="#district_events" role="tab" data-toggle="tab">
+                    {{ trans('cruds.event.title') }}
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#district_events" role="tab" data-toggle="tab">
-                    {{ trans('cruds.event.title') }}
+                <a class="nav-link" href="#district_users" role="tab" data-toggle="tab">
+                    {{ trans('cruds.user.title') }}
                 </a>
             </li>
         </ul>
@@ -123,11 +123,11 @@
             <div class="tab-pane" role="tabpanel" id="district_upazilas">
                 @includeIf('admin.districts.relationships.districtUpazilas', ['upazilas' => $district->districtUpazilas])
             </div>
-            <div class="tab-pane" role="tabpanel" id="district_addresses">
-                @includeIf('admin.districts.relationships.districtAddresses', ['addresses' => $district->districtAddresses])
-            </div>
             <div class="tab-pane" role="tabpanel" id="district_events">
                 @includeIf('admin.districts.relationships.districtEvents', ['events' => $district->districtEvents])
+            </div>
+            <div class="tab-pane" role="tabpanel" id="district_users">
+                @includeIf('admin.districts.relationships.districtUsers', ['users' => $district->districtUsers])
             </div>
         </div>
     </div>

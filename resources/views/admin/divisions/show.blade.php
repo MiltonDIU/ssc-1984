@@ -81,9 +81,10 @@
                     {{ trans('cruds.school.title') }}
                 </a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="#division_addresses" role="tab" data-toggle="tab">
-                    {{ trans('cruds.address.title') }}
+                <a class="nav-link" href="#division_users" role="tab" data-toggle="tab">
+                    {{ trans('cruds.user.title') }}
                 </a>
             </li>
         </ul>
@@ -94,8 +95,8 @@
             <div class="tab-pane" role="tabpanel" id="division_schools">
                 @includeIf('admin.divisions.relationships.divisionSchools', ['schools' => $division->divisionSchools])
             </div>
-            <div class="tab-pane" role="tabpanel" id="division_addresses">
-                @includeIf('admin.divisions.relationships.divisionAddresses', ['addresses' => $division->divisionAddresses])
+            <div class="tab-pane" role="tabpanel" id="division_users">
+                @includeIf('admin.divisions.relationships.divisionUsers', ['users' => $division->divisionUsers])
             </div>
         </div>
     </div>

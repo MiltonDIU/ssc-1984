@@ -93,11 +93,6 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#upazila_addresses" role="tab" data-toggle="tab">
-                    {{ trans('cruds.address.title') }}
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#upazila_users" role="tab" data-toggle="tab">
                     {{ trans('cruds.user.title') }}
                 </a>
@@ -106,9 +101,6 @@
         <div class="tab-content">
             <div class="tab-pane" role="tabpanel" id="upazila_schools">
                 @includeIf('admin.upazilas.relationships.upazilaSchools', ['schools' => $upazila->upazilaSchools])
-            </div>
-            <div class="tab-pane" role="tabpanel" id="upazila_addresses">
-                @includeIf('admin.upazilas.relationships.upazilaAddresses', ['addresses' => $upazila->upazilaAddresses])
             </div>
             <div class="tab-pane" role="tabpanel" id="upazila_users">
                 @includeIf('admin.upazilas.relationships.upazilaUsers', ['users' => $upazila->upazilaUsers])
