@@ -1,0 +1,2007 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+    background-color: #F7F7F7;
+}
+
+.container-fluid {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+/* ---------------------- common css start ---------------------- */
+.content_box {
+    width: 600px;
+    height: 589px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.registration_box {
+    width: 915px;
+    height: 645px;
+    margin: 0 auto;
+}
+
+.white_box {
+    background-color: #fff;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+}
+
+.btn_red {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #fff;
+    background-color: #FF2023;
+    border-radius: 8px;
+    padding: 12px 74px;
+    text-transform: capitalize;
+    transition: all linear .2s;
+}
+
+.btn_red:hover {
+    color: #fff;
+    background-color: #CD3C3E;
+}
+
+.btn_red_large {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    width: 327px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF2023;
+    border: 0.70px solid #C7CAD9;
+    border-radius: 4px;
+    transition: all linear .2s;
+}
+
+.btn_red_large i {
+    margin-left: 13px;
+    font-size: 14px;
+}
+
+.btn_red_large:hover {
+    color: #fff;
+    background-color: #CD3C3E;
+}
+
+.btn_green_large {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    width: 327px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #007D24;
+    border: none;
+    border-radius: 4px;
+    transition: all linear .2s;
+}
+
+.btn_green_large:hover {
+    color: #fff;
+    background-color: #005816;
+}
+
+.font_24 {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #000;
+}
+
+.font_22 {
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1E3354;
+}
+
+.font_16 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.89px;
+    color: #5A5A5A;
+}
+
+.font_14 {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1E3354;
+}
+
+.font_12 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.67px;
+    color: #5A5A5A;
+}
+
+.font_green {
+    color: #008220
+}
+
+.font_green:hover {
+    color: #005816;
+}
+
+.mtn_white_box {
+    margin-top: 53px;
+    margin-bottom: 42px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.mt_15 {
+    margin-top: 15px;
+}
+
+.mt_30 {
+    margin-top: 30px;
+}
+
+.link_underline {
+    text-decoration: underline !important;
+    color: #008220;
+    transition: all linear .2s;
+}
+
+.link_underline:hover {
+    color: #005816;
+}
+
+.text_center {
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+/* ---------------------- common css end ---------------------- */
+
+/* ---------------------- navbar start ---------------------- */
+nav {
+    padding: 17px 0 !important;
+    align-items: center;
+}
+
+nav .nav-item {
+    padding-left: 74px !important;
+}
+
+nav .nav-item .nav-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555555 !important;
+    text-shadow: 0px 3px 6px #00000029;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    transition: all linear .2s;
+}
+
+.top_nav .nav-item .nav-link:hover {
+    color: #005816 !important;
+}
+
+.nav_btn {
+    display: flex;
+}
+/* ---------------------- navbar end ---------------------- */
+
+/* ====================== Select Batch Page Start ====================== */
+
+/* ---------------------- select batch start ---------------------- */
+#select_batch .logo_box {
+    width: 210px;
+    height: 204px;
+    margin: 48px 0 49px 0;
+}
+
+.logo_box img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-select {
+    width: 327px;
+    height: 48px;
+    background: #FFFFFF;
+    color: #7F8E9D;
+    border: 0.70px solid #C7CAD9;
+    border-radius: 4px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    margin: 22px 0 21px 0;
+}
+
+.form-select:focus {
+    border-color: #C7CAD9;
+    outline: 0;
+    box-shadow: none;
+}
+
+#select_batch .font_12{
+    margin-top: 52px;
+    margin-bottom: 53px;
+}
+/* ---------------------- select batch end ---------------------- */
+
+/* ====================== Select Batch Page End ====================== */
+
+/* ====================== Login Page Start ====================== */
+#login .logo_box {
+    width: 190px;
+    height: 183px;
+    margin: 21px 0 30px 0;
+}
+
+.input-box {
+    width: 327px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #BCC5E3;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 50px;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    padding: .375rem .75rem;
+}
+
+.input-box input:focus {
+    background-color: transparent;
+    border-color: transparent;
+    outline: 0;
+    box-shadow: none;
+}
+
+.input-box input:focus-visible {
+    outline: none;
+}
+
+.input_border_bottom {
+    border-bottom: 1px solid #BCC5E3 !important;
+    height: 51px !important;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.input-box input::placeholder {
+    text-align: center;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+#login .btn_green_large {
+    margin-top: 27px;
+    margin-bottom: 26px;
+}
+
+#login .font_12 {
+    margin-top: 28px;
+}
+
+#login .font_14 {
+    margin-top: 20px;
+}
+/* ====================== Login Page End ====================== */
+
+/* ====================== Sign up Page start ====================== */
+#sign_up .logo_box {
+    width: 152px;
+    height: 147px;
+    margin: 17px 0 34px 0;
+}
+
+.social_btn {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1E3354;
+    width: 327px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border: 0.70px solid #C7CAD9;
+    border-radius: 4px;
+    transition: all linear .2s;
+    margin-bottom: 10px;
+}
+
+.social_btn img {
+    height: 16px;
+    width: auto;
+    margin-right: 12px;
+}
+
+.phone_btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    width: 327px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FF2023;
+    border: 0.70px solid #C7CAD9;
+    border-radius: 4px;
+    margin-bottom: 27px;
+    transition: all linear .2s;
+}
+
+.phone_btn:hover {
+    background-color: #CD3C3E;
+    color: #fff;
+}
+
+.phone_btn img {
+    height: 16px;
+    width: auto;
+    margin-right: 10px;
+}
+
+#sign_up .font_16 {
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 112px;
+}
+
+#sign_up .font_16 a {
+    font-weight: 500;
+    color: #000;
+}
+
+/* ====================== Sign up Page end ====================== */
+
+/* ====================== Sign up with phone Page start ====================== */
+#sign_up_phone .logo_box {
+    width: 152px;
+    height: 147px;
+    margin: 17px 0 39px 0;
+}
+
+#sign_up_phone .font_14 {
+    margin-bottom: 10px;
+}
+
+#sign_up_phone .input-box {
+    margin-bottom: 10px;
+}
+
+#sign_up_phone .input-box input {
+    width: 100%;
+    height: 48px;
+    border: none;
+    text-align: left;
+    background-color: transparent;
+    padding: .375rem .75rem;
+}
+
+#sign_up_phone .input-box input::placeholder {
+    text-align: left;
+}
+
+/* Chrome, Safari, Edge, Opera */
+#sign_up_phone input::-webkit-outer-spin-button,
+#sign_up_phone input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+#sign_up_phone input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#sign_up_phone .btn_green_large {
+    margin-bottom: 183px;
+}
+/* ====================== Sign up with phone Page end ====================== */
+
+/* ====================== OTP Phone Sign up Page start ====================== */
+.otp_sign_up_box .font_24 {
+    margin: 35px 0 25px 0
+}
+
+.otp_sign_up_box .img_box img{
+    display: block;
+    width: 140px;
+    height: auto;
+    margin: 20px 0 18px 0;
+}
+
+.otp_input_group {
+    text-align: center;
+}
+
+.otp_input_group input {
+    width: 64px;
+    height: 64px;
+    margin: 0 6px 29px 6px;
+    border-radius: 4px;
+    border: 0.70px solid #C7CAD9;
+    text-align: center;
+}
+
+.otp_input_group input ::placeholder {
+    color: #B7B7B7;
+}
+
+.otp_sign_up_box .btn_green_large {
+    margin-bottom: 32px;
+}
+/* ====================== OTP Phone Sign up Page end ====================== */
+
+/* ====================== Registration-1 Page start ====================== */
+.registration_box .input_box {
+    width: 327px;
+}
+
+.registration_box .font_22 {
+    padding-top: 25px;
+    margin-bottom: 20px;
+}
+
+.registration_box form {
+    margin: 0 70px 44px 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.registration_box form label {
+    margin-bottom: 15px;
+}
+
+.registration_box form input {
+    width: 327px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 0.71px solid #C7CAD9;
+    border-radius: 4px;
+    padding: 16px 8px;
+    margin-bottom: 26px;
+}
+
+.registration_box form input::placeholder {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #7F8E9D;
+}
+
+.input_password {
+    display: flex;
+}
+
+.input_password input {
+    width: 156px !important;
+    margin-right: 15px;
+}
+
+.password_box.toggle_box {
+    position: relative;
+}
+
+.password_box.toggle_box i {
+    position: absolute;
+    right: 24px;
+    top: 45%;
+    cursor: pointer;
+    color: #7F8E9D;
+}
+
+/* image upload and preview start */
+.imagePreview {
+    width: 137px;
+    height: 137px;
+    background-position: center center;
+    background-color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    border: 0.71px solid #C7CAD9;
+}
+
+.btn-primary {
+    border-radius: 0px;
+}
+
+.registration_box .btn-primary input {
+    background: transparent;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+.img_preview_box {
+    margin-bottom: 50px;
+}
+
+.imgUp {
+    margin-bottom: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.del {
+    position: absolute;
+    top: -12px;
+    right: 179px;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 0.71px solid #C7CAD9;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.upload_btn_group .btn-primary {
+    background-color: #008220;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    width: 156px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: all linear .2s;
+}
+
+.upload_btn_group .btn-primary:hover {
+    background-color: #005816;
+    color: #fff;
+}
+
+.registration_box .form-select {
+    margin: 0 0 26px 0;
+}
+
+.address_options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.address_options .form-select {
+    width: 150px;
+}
+/* ====================== Registration-1 Page end ====================== */
+
+/* ====================== Registration-2 Page start ====================== */
+#registration_page_2 .gender_select {
+    width: 100px;
+}
+
+#registration_page_2 .birth_date_input input {
+    width: 204px;
+    color: #7F8E9D;
+    cursor: pointer;
+}
+
+.input_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.registration_box .input_group .area_input input{
+    width: 150px;
+}
+
+.registration_box .input_group .city_input .form-select{
+    width: 150px;
+}
+
+.registration_box form .checkbox_input {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 15px;
+    margin-right: 8px;
+}
+
+.wraper {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.more_info {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1E3354;
+    text-align: center;
+    margin: 30px 0 52px 0;
+}
+
+.btn_group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn_group .back_btn {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    width: 145px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #9F9F9F;
+    border-radius: 4px;
+    transition: all linear .2s;
+}
+
+.btn_group .back_btn:hover {
+    background-color: #656565;
+    color: #fff;
+}
+
+.btn_group .done_btn {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    width: 145px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #007D24;
+    border-radius: 4px;
+    transition: all linear .2s;
+}
+/* ====================== Registration-2 Page end ====================== */
+
+/* ====================== Dashboard landing Page end ====================== */
+.sidenav {
+    padding: 38px 13px 45px 13px;
+    position: fixed;
+}
+
+.sidenav .logo_img {
+    width: 56px;
+    height: auto;
+    margin-left: 23px;
+}
+
+.sidenav_top_text {
+    margin-left: 9px;
+}
+
+.batch_name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #2B2B2B;
+}
+
+.tagline {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2B2B2B;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin: 27px 0 38px 0;
+}
+
+.search_wrap {
+    width: 216px;
+    height: 50px;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.search i {
+    font-size: 23px;
+    color: #ADA7A7;
+    margin: 0 13px;
+}
+
+.search input {
+    background: #FFFFFF;
+    border: none;
+    outline: none;
+    width: 150px;
+}
+
+.sidenav_title {
+    color: rgba(0, 0, 0, .3);
+    margin-left: 19px;
+    margin-bottom: 10px;
+}
+
+.sidenav .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #008220 !important;
+    background-color: #F7F7F7 !important;
+}
+
+.sidenav .nav-pills .nav-link {
+    padding: 14px 18px !important;
+    color: #9F9F9F !important;
+}
+
+.sidenav .nav-link i {
+    margin-right: 10px;
+}
+
+.sidenav .nav-pills .nav-link:hover {
+    color: #008220 !important;
+}
+
+.profile_part .profile_img {
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    margin-left: 19px;
+}
+
+.sidenav_bottom_profile {
+    margin-left: 15px;
+}
+
+.profile_name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.profile_type {
+    color: rgba(0, 0, 0, .65);
+}
+
+.profile_part i {
+    margin-left: 36px;
+    color: rgba(0, 0, 0, .5);
+}
+
+.logout {
+    margin-top: 36px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
+.logout_btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #fff;
+    background-color: #FF2023;
+    border-radius: 8px;
+    padding: 13px 112px 13px 18px;
+    text-transform: capitalize;
+    transition: all linear .2s;
+}
+
+.logout_btn i {
+    margin-right: 16px;
+}
+
+.logout_btn:hover {
+    color: #fff;
+    background-color: #CD3C3E;
+}
+
+.dashboard_content {
+    width: calc(100vw - 278px);
+    margin-left: 278px;
+}
+
+.dashboard_content_top {
+    margin: 40px 39px 40px 105px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Welcome_message {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #3E3B38;
+}
+
+.profile_notification {
+    display: flex;
+}
+
+.profile_notification .notification {
+    width: 52px;
+    height: 52px;
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.profile_notification .notification i {
+    font-size: 20px;
+}
+
+.dashboard_left_top_profile {
+    width: 52px;
+    height: 52px;
+}
+
+
+.dashboard_left_top_profile img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.dashboard_tab {
+    margin: 0 105px;
+}
+
+.dashboard_tab_box {
+    width: 180px;
+    height: 152px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #AAAAAA;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    transition: all linear .3s;
+}
+
+.dashboard_tab_box .dashboard_tab_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #3E3B38;
+    margin-top: 12px;
+    transition: all linear .3s;
+}
+
+.dashboard_tab_friend:hover {
+    background: #532550;
+}
+
+.dashboard_tab_school:hover {
+    background: #FFA800;
+}
+
+.dashboard_tab_event:hover {
+    background: #0089EF;
+}
+
+.dashboard_tab_profile:hover {
+    background: #3A2C60;
+}
+
+.dashboard_tab_box:hover .dashboard_tab_title {
+    color: #fff;
+}
+
+.dashboard_featured_event {
+    width: 880px;
+    height: 399px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    margin: 66px 30px 0 65px;
+}
+
+.featured_top {
+    display: flex;
+    justify-content: space-between;
+    padding: 36px 60px 35px 60px;
+}
+
+.featured_top p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1.25px;
+    color: #3E3B38;
+}
+
+.featured_top a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1.25px;
+    color: #3E3B38;
+}
+
+.event_main {
+    padding: 0 75px 0 75px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.event_box {
+    width: 351px;
+    height: 280px;
+    padding: 14px;
+    background-color: #fff;
+    box-shadow: 0px 2px 48px #0000000A;
+    border-radius: 4px;
+}
+
+.event_banner {
+    width: 100%;
+    height: 179px;
+    padding: 14px;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.event_date {
+    margin-bottom: 29px;
+    width: 55px;
+    height: 71px;
+    padding: 13px;
+    background: #FFFFFFCD;
+    border-radius: 4px;
+    opacity: 1;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    text-align: center;
+}
+
+.event_date .day {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #3E3B38;
+}
+
+.event_date .month {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #3E3B38;
+}
+
+.event_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #3E3B38;
+    letter-spacing: 1.43px;
+    margin-bottom: 4px;
+}
+
+.event_location {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #858382;
+    text-align: center;
+}
+
+.going_box {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.participant_img_count {
+    margin-top: 9px;
+    display: flex;
+}
+
+.participant_img {
+    width: 34px;
+    height: 34px;
+}
+
+.participant_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ml_negative {
+    margin-left: -13PX;
+}
+
+.participant_count {
+    background-color: #008220;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.participant_count p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+}
+
+.going_btn_box {
+    display: flex;
+    align-items: center;
+}
+
+.going_btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 50px;
+    letter-spacing: 1.17px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    background-color: #008220;
+    border-radius: 4px;
+    transition: all linear .2s;
+}
+
+.going_btn:hover {
+    color: #fff;
+    background-color: #005816;
+}
+
+/* ====================== Dashboard landing Page end ====================== */
+
+/* ====================== Dashboard friendlist Page start ====================== */
+.dashboard_search {
+    width: 953px;
+    height: 50px;
+    background: #FFFFFF;
+    border: .71px solid #C7CAD9;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.dashboard_search i {
+    font-size: 20px;
+    color: #C7CAD9;
+}
+
+.dashboard_search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+}
+
+.data_table {
+    margin: 0 39px 0 105px;
+}
+
+.datalist_heading {
+    padding-bottom: 10px;
+    border-bottom: .71px solid #C7CAD9;
+}
+
+.datalist_heading tr th {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.73px;
+    color: #3E3B38;
+}
+
+.data_profile_img {
+    width: 46px;
+    height: 46px;
+    background: #DBD4D0;
+    border: 3px solid #6E2E6B;
+    border-radius: 12px;
+}
+
+.data_profile_img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+}
+
+.data_table .table {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #858382;
+    vertical-align: middle;
+}
+
+.data_table .table-hover>tbody>tr:hover {
+    --bs-table-accent-bg: #fff;
+    cursor: pointer;
+}
+
+.data_name {
+    color: #3E3B38;
+    font-weight: 500;
+}
+
+.request_status {
+    font-size: 14px;
+}
+
+.request_sent a {
+    color: #B5B5B5;
+}
+
+.request_info a {
+    color: #1E3354;
+}
+
+.view_profile a {
+    color: #008220;
+}
+
+.page-link {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #464646;
+    background-color: transparent;
+    border: none;
+}
+
+.page-item.active .page-link {
+    color: #008220;
+    background-color: transparent;
+    border-color: transparent;
+}
+/* ====================== Dashboard friendlist Page end ====================== */
+
+/* ====================== Dashboard profile view Page start ====================== */
+.profile_view .dashboard_content_top {
+    justify-content: flex-end;
+    margin: 40px 39px 5px 105px;
+}
+
+.view_profile_box {
+    width: 840px;
+    height: 622px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+    margin-left: 45px;
+    padding-left: 97px;
+}
+
+.close_option {
+    padding: 16px 24px;
+    text-align: right;
+}
+
+.close_option a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #FF2023;
+}
+
+.profile_basic_info {
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.profile_basic_info .profile_img {
+    width: 122px;
+    height: 122px;
+}
+
+.profile_basic_info .profile_img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #6D85FF;
+    border-radius: 12px;
+}
+
+.profile_basic_info .profile_info {
+    margin-left: 47px;
+}
+
+.profile_basic_info .profile_info .profile_name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #3E3B38;
+    margin-bottom: 8px;
+}
+
+.profile_basic_info .profile_info .profile_location, .profile_school, .profile_student {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1.67px;
+    color: #858382;
+    margin-bottom: 10px;
+}
+
+.white_btn {
+    padding: 14px 17px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000014;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    margin-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+
+.white_btn i {
+    color: #0089EF;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.social_box {
+    margin-top: 30px;
+    display: flex;
+}
+
+.s_box {
+    width: 52px;
+    height: 52px;
+    background: #ECECEC;
+    border: 1px solid #EAEAEA;
+    border-radius: 8px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #858382;
+}
+
+.current_location_box, .school_about {
+    margin-top: 20px;
+}
+
+.current_location_box .location_title, .school_about .about_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #3A3A3A;
+    margin-bottom: 5px;
+}
+
+.current_location_box .location_text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #3A3A3A;
+    margin-bottom: 18px;
+}
+
+.current_location_box hr {
+    width: 601px;
+    color: #3A3A3A;
+}
+
+.job_history_box {
+    margin-top: 20px;
+}
+
+.job_history_box .job_history {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #3A3A3A;
+}
+
+.job_history_box .job_history i {
+    margin-right: 10px;
+}
+
+.job_history_box .step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.step .circle {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 15px;
+    z-index: 100;
+}
+
+.step .circle.current {
+    background-color: #AAAAAA;
+}
+
+.step .circle.previous {
+    background-color: #fff;
+    border: 3px solid #AAAAAA;
+}
+
+.step .previous::after {
+    content: ' ';
+    position: absolute;
+    display: block;
+    bottom: 45px;
+    left: 46%;
+    height: 16px;
+    width: 1px;
+    transform: scale(1, 2);
+    transform-origin: 50% -100%;
+    background-color: #AAAAAA;
+    z-index: -1;
+}
+/* ====================== Dashboard profile view Page end ====================== */
+
+/* ====================== Dashboard school profile Page start ====================== */
+.school_profile .dashboard_search {
+    width: 1030px !important;
+}
+
+.view_school_box {
+    width: 1015px;
+    height: 590px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+    margin-left: 45px;
+    padding-left: 97px;
+}
+
+.school_about .about_text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #858382;
+    margin-bottom: 18px;
+    padding-right: 57px;
+}
+
+.school_profile .dashboard_content_top {
+	margin: 40px 39px 40px 45px !important;
+}
+/* ====================== Dashboard school profile Page end ====================== */
+
+/* ====================== Dashboard event Page start ====================== */
+.btns_group {
+    margin-left: 45px;
+    display: flex;
+}
+
+.btn_wrap {
+    background-color: #fff;
+    width: fit-content;
+    position: relative;
+    margin-right: 22px;
+}
+
+.group_btn {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #646060;
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: transparent;
+    background-color: #fff;
+    transition: all linear .2s;
+}
+
+.group_btn:hover {
+    color: #007D24;
+}
+
+.group_btn_green {
+    background-color: #007D24;
+    color: #fff;
+    transition: all linear .2s;
+}
+
+.group_btn_green i {
+    margin-left: 5px;
+}
+
+.group_btn_green:hover {
+    background-color: #005816;
+    color: #fff;
+}
+
+.group_btn_gray {
+    background-color: #AAAAAA;
+    color: #fff;
+    transition: all linear .2s;
+}
+
+.group_btn_gray:hover {
+    background-color: #656565;
+    color: #fff;
+}
+
+.mid_btn::before {
+    content: '';
+    border-left: 1px solid #AAAAAA;
+    position: absolute;
+    height: 50%;
+    left: 96px;
+    top: 25%;
+}
+
+.mid_btn::after {
+    content: '';
+    border-left: 1px solid #AAAAAA;
+    position: absolute;
+    height: 50%;
+    left: 236px;
+    top: 25%;
+}
+
+.mid_btn.active::after {
+    border: transparent;
+}
+
+.mid_btn.active::before {
+    border: transparent;
+}
+
+.group_btn.active {
+    background-color: #AAAAAA;
+    color: #fff;
+}
+
+.event_box_main {
+    margin: 28px 35px 20px 45px;
+}
+
+.event_box_main .event_box {
+    display: inline-block;
+    margin-right: 34px;
+    margin-bottom: 24px;
+}
+
+.school_event_box .event_date {
+    margin-bottom: 12px !important;
+}
+
+.school_event_box .event_title {
+    margin-bottom: 0 !important;
+}
+
+.event_school_name {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    color: #3E3B38;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+/* ====================== Dashboard event Page end ====================== */
+
+/* ====================== Event Request Page start ====================== */
+
+.event_view .dashboard_content_top {
+    justify-content: flex-end;
+    margin: 40px 39px 5px 105px;
+}
+
+.event_box_large {
+    width: 1015px;
+    height: 635px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+    margin-left: 45px;
+    padding: 0 30px 40px 30px;
+}
+
+.event_page_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1E3354;
+}
+
+.event_box_large .form_top {
+    margin-top: 32px;
+    display: flex;
+}
+
+.event_box_large .input_box {
+    width: 327px;
+    margin-right: 33px;
+}
+
+.event_box_large form label {
+    margin-bottom: 21px;
+}
+
+.event_box_large form input {
+    width: 327px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 0.71px solid #C7CAD9;
+    border-radius: 4px;
+    padding: 16px 8px;
+    margin-bottom: 21px;
+}
+
+.event_box_large form .wraper {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1;
+    margin-top: 58px;
+}
+
+.event_box_large form .checkbox_input {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 15px;
+    margin-right: 8px;
+}
+
+.form_bottom textarea {
+    width: 684px;
+    height: 136px;
+    border: 0.71px solid #C7CAD9;
+    border-radius: 4px;
+    padding: 13px 16px;
+    margin-bottom: 24px;
+}
+
+.event_request_btn {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    width: 368px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #007D24;
+    border: none;
+    border-radius: 4px;
+    transition: all linear .2s;
+}
+
+.event_request_btn:hover {
+    background-color: #005816;
+    color: #fff;
+}
+
+.request_btn {
+    margin-right: 268px;
+    display: flex;
+    justify-content: right;
+}
+/* ====================== Event Request Page end ====================== */
+
+/* ====================== Event view Page start ====================== */
+
+.event_view .close_option {
+    padding: 16px 24px 0 24px;
+    text-align: right;
+}
+
+.event_banner_img {
+    width: 961px;
+    height: 223px;
+    margin: 21px 0 25px 0;
+}
+
+.event_banner_img  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.event_info_box {
+    display: flex;
+}
+
+.event_sub_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3E3B38;
+    margin-bottom: 25px;
+}
+
+.event_date_location_box {
+    width: 330px;
+    height: auto;
+    border: 1px solid #EAEBEC;
+    border-radius: 4px;
+    margin-bottom: 25px;
+}
+
+.event_info_left {
+    margin-right: 40px;
+}
+
+.event_info_inner {
+    margin: 14px 14px 0 14px;
+    padding-bottom: 14px;
+    display: flex;
+    border-bottom: 1px solid #EAEBEC;
+}
+
+.event_info_inner.inner_bottom {
+    border-bottom: transparent;
+}
+
+.icon_box {
+    width: 38px;
+    height: 38px;
+    background: #ECEAF8;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 14px;
+}
+
+.icon_box i {
+    font-size: 20px;
+    color: #7265EB;
+}
+
+.info_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #3E3B38;
+}
+
+.info_text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #858382;
+}
+
+.creator_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #3E3B38;
+}
+
+.event_info_right {
+    width: 572px;
+}
+
+.event_creator {
+    width: 206px;
+    height: 66px;
+    background: #F8F4F2;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.creator_img {
+    width: 34px;
+    height: 34px;
+    margin-right: 9px;
+}
+
+.creator_img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #7265EB;
+    border-radius: 50%;
+}
+
+.event_creator {
+    display: flex;
+    margin-right: 41px;
+}
+
+.cost_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #858382;
+    text-transform: uppercase;
+}
+
+.cost_category {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #FB8B47;
+}
+
+.event_creator_cost_box {
+    display: flex;
+    align-items: center;
+}
+
+.register_btn_box {
+    margin-top: 22px;
+    display: flex;
+    justify-content: right;
+}
+
+.modal-content {
+    width: 386px;
+    height: 279px;
+    background: #FFFFFF;
+    border: 1px solid #DFDFDF;
+    border-radius: 4px;
+    padding: 15px 20px;
+}
+
+.modal-header {
+    border-bottom: transparent;
+}
+
+.modal-footer {
+    border-top: transparent;
+}
+
+.modal-body h5 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    color: #3E3B38;
+    margin-bottom: 25px;
+}
+
+.modal-body p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #858382;
+}
+/* ====================== Event view Page end ====================== */
+
+/* ====================== ticket Page start ====================== */
+.ticket_box {
+    margin-top: 47px;
+    display: flex;
+}
+
+.main_ticket_box {
+    width: 386px;
+    height: 440px;
+    background: #F7F7F7;
+    padding: 15px;
+    margin-left: 30px;
+    margin-right: 223px;
+}
+
+.ticket_event_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #3E3B38;
+    margin-bottom: 28px;
+}
+
+.ticket_sub_title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #858382;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.ticket_text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #3E3B38;
+}
+
+.mr_46 {
+    margin-right: 46px;
+}
+
+.mb_27 {
+    margin-bottom: 27px;
+}
+
+.dots {
+    display: flex;
+    position: relative;
+}
+
+.ticket_dot {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+}
+
+.dot_left {
+    top: 4px;
+    left: -27px;
+}
+
+.dot_right {
+    top: 4px;
+    right: -27px;
+}
+
+.dots hr {
+    border-top: 1px dashed #000;
+    width: 100%;
+    height: 1px;
+    background-color: transparent;
+}
+
+.barcode_box {
+    padding: 0 20px;
+}
+
+.barcode_box img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.barcode_number {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #3E3B38;
+    margin-top: 12px;
+}
+
+.scan_code_box {
+    width: 257px;
+}
+
+.scan_code_info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 29px;
+}
+
+.free_text {
+    color: #FB8B47;
+}
+
+.scan_code_img_box {
+    width: 257px;
+    height: 257px;
+    background-color: #dcdcdc;
+    padding: 32px;
+}
+
+.scan_code_img_box img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/* ====================== ticket Page end ====================== */
+
+/* ====================== edit profile page start ====================== */
+.edit_btn {
+    margin-top: 3px;
+    margin-left: 30px;
+}
+
+.edit_btn i {
+    cursor: pointer;
+    color: #77838F;
+    font-size: 16px;
+}
+/* ====================== edit profile page end ====================== */

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Portal</title>
+    <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+
+    <!-- ---------------------- Google Fonts start ---------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- ---------------------- Google Fonts end ---------------------- -->
+
+    <!-- ---------------------- Bootstrap icon start ---------------------- -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- ---------------------- Bootstrap icon end ---------------------- -->
+
+    <!-- ---------------------- CSS start ---------------------- -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ---------------------- CSS end ---------------------- -->
+</head>
+<body>
+    <section id="dashboard" class="d-flex">
+        <!-- ---------------------- side navbar start ---------------------- -->
+        <div class="sidenav d-flex flex-column flex-shrink-0 bg-white" style="width: 278px; height: 100vh;">
+            <a href="#" class="d-flex align-items-center">
+                <img src="images/logo.png" alt="" class="logo_img">
+                <div class="sidenav_top_text">
+                    <p class="batch_name">SSC-1984 Bangladesh</p>
+                    <p class="tagline">Unity Through Friendship</p>
+                </div>
+            </a>
+    
+            <div class="search">
+                <div class="search_wrap">
+                    <i class="bi bi-search"></i>
+                    <input type="search" placeholder="Search">
+                </div>
+            </div>
+    
+            <ul class="nav nav-pills flex-column mb-auto">
+                <p class="sidenav_title">Menu</p>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" aria-current="page">
+                        <i class="bi bi-house"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link active">
+                        <i class="bi bi-people-fill"></i>
+                        Friends List
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-building"></i>
+                        School
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-calendar-event"></i>
+                        Events
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link">
+                        <i class="bi bi-person-circle"></i>
+                        My Profile
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="profile_part">
+                <p class="sidenav_title">Profile</p>
+                
+                <a href="#" class="d-flex align-items-center">
+                    <img src="images/img.png" alt="" class="profile_img">
+                    <div class="sidenav_bottom_profile">
+                        <p class="profile_name">Amanda</p>
+                        <p class="profile_type font_14">Admin Account</p>
+                    </div>
+                    <span><i class="bi bi-three-dots"></i></span>
+                </a>
+    
+            </div>
+    
+            <div class="logout">
+                <a href="#" class="logout_btn"><i class="bi bi-box-arrow-right"></i>Logout</a>
+            </div>
+        </div>
+        <!-- ---------------------- side navbar end ---------------------- -->
+        
+        <!-- ---------------------- Dashboard content end ---------------------- -->
+        <div class="dashboard_content event_view">
+            <div class="dashboard_content_top">
+                <div class="profile_notification">
+                    <div class="notification">
+                        <i class="bi bi-bell"></i>
+                    </div>
+
+                    <div class="dashboard_left_top_profile">
+                        <img src="images/img.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="event_box_large">
+                <div class="close_option">
+                    <a href="#" class="close_btn">Close</a>
+                </div>
+
+                <p class="event_page_title">Young Festival 2022 Reunion</p>
+
+                <div class="event_banner_img">
+                    <img src="images/gray.png" alt="Event banner">
+                </div>
+
+                <div class="event_info_box">
+                    <div class="event_info_left">
+                        <p class="event_sub_title">School Name: Example School Full Name</p>
+
+                        <div class="event_date_location_box">
+                            <div class="event_info_inner">
+                                <div class="icon_box">
+                                    <i class="bi bi-calendar-event"></i>
+                                </div>
+
+                                <div class="event_info_text">
+                                    <p class="info_title">Wed, 3 May 2022</p>
+                                    <p class="info_text">07:30 PM - 11:30 PM</p>
+                                </div>
+                            </div>
+
+                            <div class="event_info_inner inner_bottom">
+                                <div class="icon_box">
+                                    <i class="bi bi-geo-alt-fill"></i>
+                                </div>
+
+                                <div class="event_info_text">
+                                    <p class="info_title">Get Direction</p>
+                                    <p class="info_text">5543 Jackson Advance, NC</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="event_creator_cost_box">
+                            <div class="event_creator">
+                                <div class="creator_img">
+                                    <img src="images/gray.png">
+                                </div>
+
+                                <div class="creator_text">
+                                    <p class="creator_title">Created By</p>
+                                    <p class="info_text">Spruce Springclean</p>
+                                </div>
+                            </div>
+
+                            <div class="event_cost">
+                                <p class="cost_title">Cost</p>
+                                <p class="cost_category">Free</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event_info_right">
+                        <p class="event_sub_title">Event Detail</p>
+
+                        <p class="info_text">Cras in consequat lacus. Praesent ac urna festival augue. Pellentesque viverra metus sem, eget rutrum erat tincidun non. Vestibulum vel tristique lectus, quis maximus lacus. Cras in consequat lacus. Praesent ac urna festival augue. Pellentesque viverra metus sem, eget rutrum erat tincidun non. Vestibulum vel tristique lectus, quis maximus lacus.Cras in consequat lacus. Praesent ac urna festival augue. Pellentesque viverra metus sem, eget rutrum erat tincidun non. Vestibulum vel tristique lectus, quis maximus lacus.Cras in consequat lacus. Praesent ac urna festival augue. Pellentesque viverra metus sem, eget rutrum erat tincidun non. Vestibulum vel tristique lectus, quis maximus lacus.</p>
+
+                        <div class="register_btn_box">
+                            <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+                                tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>Young Festival 2022</h5>
+                                            <p>Agreement Details and you are agree with this event conditions.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="event_request_btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"
+                                                data-bs-dismiss="modal">CONFIRM REGISTRATION</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+                                tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>CONFIRM REGISTRATION</h5>
+                                            <p>You have successfully complete the registration for event name</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#" class="event_request_btn">VIEW TICKET</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="event_request_btn" data-bs-toggle="modal" href="#exampleModalToggle" role="button">REGISTER NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ---------------------- Dashboard content end ---------------------- -->
+    </section>
+
+    <!-- ---------------------- JS start ---------------------- -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- ---------------------- JS end ---------------------- -->
+</body>
+</html>
+
+
