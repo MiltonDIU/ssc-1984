@@ -99,7 +99,7 @@ class DivisionController extends Controller
     {
         abort_if(Gate::denies('division_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $division->load('divisionDistricts', 'divisionSchools', 'divisionAddresses', 'divisionUsers');
+        $division->load('divisionDistricts', 'divisionSchools', 'divisionUsers');
 
         return view('admin.divisions.show', compact('division'));
     }

@@ -44,11 +44,6 @@ class District extends Model
         return $this->hasMany(Upazila::class, 'district_id', 'id');
     }
 
-    public function districtAddresses()
-    {
-        return $this->hasMany(Address::class, 'district_id', 'id');
-    }
-
     public function districtEvents()
     {
         return $this->hasMany(Event::class, 'district_id', 'id');

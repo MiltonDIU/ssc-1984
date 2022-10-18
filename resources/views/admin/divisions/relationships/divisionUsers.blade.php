@@ -1,61 +1,67 @@
 <div class="m-3">
-    @can('event_create')
+    @can('user_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.events.create') }}">
-                    {{ trans('global.add') }} {{ trans('cruds.event.title_singular') }}
+                <a class="btn btn-success" href="{{ route('admin.users.create') }}">
+                    {{ trans('global.add') }} {{ trans('cruds.user.title_singular') }}
                 </a>
             </div>
         </div>
     @endcan
     <div class="card">
         <div class="card-header">
-            {{ trans('cruds.event.title_singular') }} {{ trans('global.list') }}
+            {{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}
         </div>
 
         <div class="card-body">
             <div class="table-responsive">
-                <table class=" table table-bordered table-striped table-hover datatable datatable-districtEvents">
+                <table class=" table table-bordered table-striped table-hover datatable datatable-divisionUsers">
                     <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.id') }}
+                            {{ trans('cruds.user.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.event_category') }}
+                            {{ trans('cruds.user.fields.name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.name') }}
+                            {{ trans('cruds.user.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.banner') }}
+                            {{ trans('cruds.user.fields.mobile') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.event_date') }}
+                            {{ trans('cruds.user.fields.gender') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.event_time') }}
+                            {{ trans('cruds.user.fields.blood_group') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.event_end_time') }}
+                            {{ trans('cruds.user.fields.avatar') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.address') }}
+                            {{ trans('cruds.user.fields.school') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.district') }}
+                            {{ trans('cruds.user.fields.profession') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.is_free') }}
+                            {{ trans('cruds.user.fields.district') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.price') }}
+                            {{ trans('cruds.user.fields.upazila') }}
                         </th>
                         <th>
-                            {{ trans('cruds.event.fields.is_active') }}
+                            {{ trans('cruds.user.fields.roles') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.user.fields.id_ssc_bd') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.user.fields.id_ssc_district') }}
                         </th>
                         <th>
                             &nbsp;
@@ -63,66 +69,76 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($events as $key => $event)
-                        <tr data-entry-id="{{ $event->id }}">
+                    @foreach($users as $key => $user)
+                        <tr data-entry-id="{{ $user->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $event->id ?? '' }}
+                                {{ $user->id ?? '' }}
                             </td>
                             <td>
-                                {{ $event->event_category->name ?? '' }}
+                                {{ $user->name ?? '' }}
                             </td>
                             <td>
-                                {{ $event->name ?? '' }}
+                                {{ $user->email ?? '' }}
                             </td>
                             <td>
-                                @if($event->banner)
-                                    <a href="{{ $event->banner->getUrl() }}" target="_blank" style="display: inline-block">
-                                        <img src="{{ $event->banner->getUrl('thumb') }}">
+                                {{ $user->mobile ?? '' }}
+                            </td>
+                            <td>
+                                {{ App\Models\User::GENDER_SELECT[$user->gender] ?? '' }}
+                            </td>
+                            <td>
+                                {{ $user->blood_group ?? '' }}
+                            </td>
+                            <td>
+                                @if($user->avatar)
+                                    <a href="{{ $user->avatar->getUrl() }}" target="_blank" style="display: inline-block">
+                                        <img src="{{ $user->avatar->getUrl('thumb') }}">
                                     </a>
                                 @endif
                             </td>
                             <td>
-                                {{ $event->event_date ?? '' }}
+                                {{ $user->school->name ?? '' }}
                             </td>
                             <td>
-                                {{ $event->event_time ?? '' }}
+                                @foreach($user->professions as $key => $item)
+                                    <span class="badge badge-info">{{ $item->name }}</span>
+                                @endforeach
                             </td>
                             <td>
-                                {{ $event->event_end_time ?? '' }}
+                                {{ $user->district->name ?? '' }}
                             </td>
                             <td>
-                                {{ $event->address ?? '' }}
+                                {{ $user->upazila->name ?? '' }}
                             </td>
                             <td>
-                                {{ $event->district->name ?? '' }}
+                                @foreach($user->roles as $key => $item)
+                                    <span class="badge badge-info">{{ $item->title }}</span>
+                                @endforeach
                             </td>
                             <td>
-                                {{ App\Models\Event::IS_FREE_SELECT[$event->is_free] ?? '' }}
+                                {{ $user->id_ssc_bd ?? '' }}
                             </td>
                             <td>
-                                {{ $event->price ?? '' }}
+                                {{ $user->id_ssc_district ?? '' }}
                             </td>
                             <td>
-                                {{ App\Models\Event::IS_ACTIVE_SELECT[$event->is_active] ?? '' }}
-                            </td>
-                            <td>
-                                @can('event_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.events.show', $event->id) }}">
+                                @can('user_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.users.show', $user->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('event_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.events.edit', $event->id) }}">
+                                @can('user_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.users.edit', $user->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('event_delete')
-                                    <form action="{{ route('admin.events.destroy', $event->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('user_delete')
+                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -144,11 +160,11 @@
     <script>
         $(function () {
             let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-            @can('event_delete')
+            @can('user_delete')
             let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
             let deleteButton = {
                 text: deleteButtonTrans,
-                url: "{{ route('admin.events.massDestroy') }}",
+                url: "{{ route('admin.users.massDestroy') }}",
                 className: 'btn-danger',
                 action: function (e, dt, node, config) {
                     var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -179,7 +195,7 @@
                 order: [[ 1, 'desc' ]],
                 pageLength: 100,
             });
-            let table = $('.datatable-districtEvents:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+            let table = $('.datatable-divisionUsers:not(.ajaxTable)').DataTable({ buttons: dtButtons })
             $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
                 $($.fn.dataTable.tables(true)).DataTable()
                     .columns.adjust();

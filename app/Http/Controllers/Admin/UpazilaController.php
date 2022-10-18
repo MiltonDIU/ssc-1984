@@ -124,23 +124,4 @@ class UpazilaController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
-
-
-    //return district wise upazila
-    public function get_by_district(Request $request)
-    {
-        abort_unless(\Gate::allows('district_access'), 401);
-
-        if (!$request->district_id) {
-            $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
-        } else {
-            $html = '';
-            $upazilas = Upazila::where('district_id', $request->district_id)->get();
-            foreach ($upazilas as $city) {
-                $html .= '<option value="'.$city->id.'">'.$city->name.'</option>';
-            }
-        }
-
-        return response()->json(['html' => $html]);
-    }
 }

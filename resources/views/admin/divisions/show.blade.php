@@ -81,7 +81,6 @@
                     {{ trans('cruds.school.title') }}
                 </a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="#division_users" role="tab" data-toggle="tab">
                     {{ trans('cruds.user.title') }}

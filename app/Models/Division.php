@@ -45,11 +45,6 @@ class Division extends Model
         return $this->hasMany(School::class, 'division_id', 'id');
     }
 
-    public function divisionAddresses()
-    {
-        return $this->hasMany(Address::class, 'division_id', 'id');
-    }
-
     public function divisionUsers()
     {
         return $this->hasMany(User::class, 'division_id', 'id');

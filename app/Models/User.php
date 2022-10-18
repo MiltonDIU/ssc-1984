@@ -74,10 +74,6 @@ class User extends Authenticatable implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at',
-        'approved',
-        'verified',
-        'verified_at',
-        'verification_token',
     ];
 
     public function getIsAdminAttribute()

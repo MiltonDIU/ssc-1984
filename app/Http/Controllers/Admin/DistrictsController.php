@@ -104,7 +104,7 @@ class DistrictsController extends Controller
     {
         abort_if(Gate::denies('district_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $district->load('division', 'districtUpazilas', 'districtAddresses', 'districtEvents', 'districtUsers');
+        $district->load('division', 'districtUpazilas', 'districtEvents', 'districtUsers');
 
         return view('admin.districts.show', compact('district'));
     }
@@ -123,23 +123,5 @@ class DistrictsController extends Controller
         District::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
-    }
-
-    //return division wise district
-    public function get_by_division(Request $request)
-    {
-        abort_unless(\Gate::allows('division_access'), 401);
-
-        if (!$request->division_id) {
-            $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
-        } else {
-            $html = '';
-            $districts = District::where('division_id', $request->division_id)->get();
-            foreach ($districts as $city) {
-                $html .= '<option value="'.$city->id.'">'.$city->name.'</option>';
-            }
-        }
-
-        return response()->json(['html' => $html]);
     }
 }
