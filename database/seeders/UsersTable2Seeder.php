@@ -34,9 +34,7 @@ class UsersTable2Seeder extends Seeder
         $district_id = $faker->randomElement(District::where('division_id',$divisions_id)->get()->pluck('id')->toArray());
         $upazila_id = $faker->randomElement(Upazila::where('district_id',$district_id)->get()->pluck('id')->toArray());
         $school_id = $faker->randomElement(School::all()->pluck('id')->toArray());
-
-
-        for ($i = 1; $i < 500; $i++) {
+        for ($i = 1; $i < 50; $i++) {
             $bd_user = User::all();
             $dis_user = User::where('district_id',$district_id)->get();
 
@@ -79,6 +77,7 @@ class UsersTable2Seeder extends Seeder
                 'division_id' => $division_id,
                 'district_id' => $district_id,
                 'upazila_id' => $upazila_id,
+                'user_id' => $user->id,
                 'created_by_id' => $user->id,
             ],
         ];
