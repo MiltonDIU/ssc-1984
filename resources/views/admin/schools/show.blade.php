@@ -65,10 +65,50 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.school.fields.is_active') }}
+                            {{ trans('cruds.school.fields.eiin') }}
                         </th>
                         <td>
-                            {{ App\Models\School::IS_ACTIVE_SELECT[$school->is_active] ?? '' }}
+                            {{ $school->eiin }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.school.fields.mobile') }}
+                        </th>
+                        <td>
+                            {{ $school->mobile }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.school.fields.management') }}
+                        </th>
+                        <td>
+                            {{ $school->management }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.school.fields.mpo') }}
+                        </th>
+                        <td>
+                            {{ $school->mpo }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.school.fields.post_office') }}
+                        </th>
+                        <td>
+                            {{ $school->post_office }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.school.fields.address') }}
+                        </th>
+                        <td>
+                            {{ $school->address }}
                         </td>
                     </tr>
                     <tr>
@@ -77,6 +117,14 @@
                         </th>
                         <td>
                             {{ App\Models\School::IS_APPROVE_SELECT[$school->is_approve] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.school.fields.is_active') }}
+                        </th>
+                        <td>
+                            {{ App\Models\School::IS_ACTIVE_SELECT[$school->is_active] ?? '' }}
                         </td>
                     </tr>
                     </tbody>
@@ -89,7 +137,6 @@
             </div>
         </div>
     </div>
-
     <div class="card">
         <div class="card-header">
             {{ trans('global.relatedData') }}

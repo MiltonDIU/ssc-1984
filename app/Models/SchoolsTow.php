@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class School extends Model
+class SchoolsTow extends Model
 {
     use SoftDeletes;
     use HasFactory;
@@ -22,7 +22,7 @@ class School extends Model
         '0' => 'No',
     ];
 
-    public $table = 'schools';
+    public $table = 'schools_tows';
 
     public static $searchable = [
         'name',
@@ -39,9 +39,8 @@ class School extends Model
     protected $fillable = [
         'name',
         'slug',
-        'division_id',
-        'district_id',
-        'upazila_id',
+        'district',
+        'upazila',
         'eiin',
         'post_office',
         'mobile',
@@ -54,26 +53,6 @@ class School extends Model
         'updated_at',
         'deleted_at',
     ];
-
-    public function schoolUsers()
-    {
-        return $this->hasMany(User::class, 'school_id', 'id');
-    }
-
-    public function division()
-    {
-        return $this->belongsTo(Division::class, 'division_id');
-    }
-
-    public function district()
-    {
-        return $this->belongsTo(District::class, 'district_id');
-    }
-
-    public function upazila()
-    {
-        return $this->belongsTo(Upazila::class, 'upazila_id');
-    }
 
     protected function serializeDate(DateTimeInterface $date)
     {

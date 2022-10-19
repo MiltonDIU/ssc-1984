@@ -37,6 +37,26 @@ class StoreSchoolRequest extends FormRequest
                 'required',
                 'integer',
             ],
+            'eiin' => [
+                'string',
+                'nullable',
+            ],
+            'post_office' => [
+                'string',
+                'nullable',
+            ],
+            'mobile' => [
+                'string',
+                'nullable',
+            ],
+            'management' => [
+                'string',
+                'nullable',
+            ],
+            'mpo' => [
+                'string',
+                'nullable',
+            ],
             'is_active' => [
                 'required',
             ],

@@ -61,11 +61,29 @@ class SchoolsController extends Controller
                 return $row->upazila ? $row->upazila->name : '';
             });
 
-            $table->editColumn('is_active', function ($row) {
-                return $row->is_active ? School::IS_ACTIVE_SELECT[$row->is_active] : '';
+            $table->editColumn('eiin', function ($row) {
+                return $row->eiin ? $row->eiin : '';
+            });
+            $table->editColumn('post_office', function ($row) {
+                return $row->post_office ? $row->post_office : '';
+            });
+            $table->editColumn('mobile', function ($row) {
+                return $row->mobile ? $row->mobile : '';
+            });
+            $table->editColumn('management', function ($row) {
+                return $row->management ? $row->management : '';
+            });
+            $table->editColumn('mpo', function ($row) {
+                return $row->mpo ? $row->mpo : '';
             });
             $table->editColumn('is_approve', function ($row) {
                 return $row->is_approve ? School::IS_APPROVE_SELECT[$row->is_approve] : '';
+            });
+            $table->editColumn('is_active', function ($row) {
+                return $row->is_active ? School::IS_ACTIVE_SELECT[$row->is_active] : '';
+            });
+            $table->editColumn('address', function ($row) {
+                return $row->address ? $row->address : '';
             });
 
             $table->rawColumns(['actions', 'placeholder', 'division', 'district', 'upazila']);

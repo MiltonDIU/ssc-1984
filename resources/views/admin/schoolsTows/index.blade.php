@@ -1,64 +1,61 @@
 @extends('layouts.admin')
 @section('content')
-    @can('school_create')
+    @can('schools_tow_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.schools.create') }}">
-                    {{ trans('global.add') }} {{ trans('cruds.school.title_singular') }}
+                <a class="btn btn-success" href="{{ route('admin.schools-tows.create') }}">
+                    {{ trans('global.add') }} {{ trans('cruds.schoolsTow.title_singular') }}
                 </a>
             </div>
         </div>
     @endcan
     <div class="card">
         <div class="card-header">
-            {{ trans('cruds.school.title_singular') }} {{ trans('global.list') }}
+            {{ trans('cruds.schoolsTow.title_singular') }} {{ trans('global.list') }}
         </div>
 
         <div class="card-body">
-            <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-School">
+            <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-SchoolsTow">
                 <thead>
                 <tr>
                     <th width="10">
 
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.id') }}
+                        {{ trans('cruds.schoolsTow.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.name') }}
+                        {{ trans('cruds.schoolsTow.fields.name') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.division') }}
+                        {{ trans('cruds.schoolsTow.fields.district') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.district') }}
+                        {{ trans('cruds.schoolsTow.fields.upazila') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.upazila') }}
+                        {{ trans('cruds.schoolsTow.fields.eiin') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.eiin') }}
+                        {{ trans('cruds.schoolsTow.fields.mobile') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.mobile') }}
+                        {{ trans('cruds.schoolsTow.fields.management') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.management') }}
+                        {{ trans('cruds.schoolsTow.fields.mpo') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.mpo') }}
+                        {{ trans('cruds.schoolsTow.fields.post_office') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.post_office') }}
+                        {{ trans('cruds.schoolsTow.fields.address') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.address') }}
+                        {{ trans('cruds.schoolsTow.fields.is_approve') }}
                     </th>
                     <th>
-                        {{ trans('cruds.school.fields.is_approve') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.school.fields.is_active') }}
+                        {{ trans('cruds.schoolsTow.fields.is_active') }}
                     </th>
                     <th>
                         &nbsp;
@@ -77,11 +74,11 @@
     <script>
         $(function () {
             let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-            @can('school_delete')
+            @can('schools_tow_delete')
             let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
             let deleteButton = {
                 text: deleteButtonTrans,
-                url: "{{ route('admin.schools.massDestroy') }}",
+                url: "{{ route('admin.schools-tows.massDestroy') }}",
                 className: 'btn-danger',
                 action: function (e, dt, node, config) {
                     var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
@@ -113,14 +110,13 @@
                 serverSide: true,
                 retrieve: true,
                 aaSorting: [],
-                ajax: "{{ route('admin.schools.index') }}",
+                ajax: "{{ route('admin.schools-tows.index') }}",
                 columns: [
                     { data: 'placeholder', name: 'placeholder' },
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
-                    { data: 'division_name', name: 'division.name' },
-                    { data: 'district_name', name: 'district.name' },
-                    { data: 'upazila_name', name: 'upazila.name' },
+                    { data: 'district', name: 'district' },
+                    { data: 'upazila', name: 'upazila' },
                     { data: 'eiin', name: 'eiin' },
                     { data: 'mobile', name: 'mobile' },
                     { data: 'management', name: 'management' },
@@ -135,7 +131,7 @@
                 order: [[ 1, 'desc' ]],
                 pageLength: 100,
             };
-            let table = $('.datatable-School').DataTable(dtOverrideGlobals);
+            let table = $('.datatable-SchoolsTow').DataTable(dtOverrideGlobals);
             $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
                 $($.fn.dataTable.tables(true)).DataTable()
                     .columns.adjust();

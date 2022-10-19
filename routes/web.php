@@ -36,6 +36,10 @@ use App\Http\Controllers\Alumni\FrontendController;
 
 
 
+Route::get('admin/csv', [\App\Http\Controllers\HomeController::class,'readCsbForm'])->name('admin.csv');
+Route::post('admin/csv', [\App\Http\Controllers\HomeController::class,'readCsb'])->name('admin.csv');
+
+
 
 Route::redirect('/', '/login');
 
@@ -140,8 +144,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::post('settings/ckmedia', [SettingsController::class, 'storeCKEditorImages'])->name('settings.storeCKEditorImages');
     Route::get('settings', [SettingsController::class, 'edit'])->name('settings.edit');
     Route::put('settings', [SettingsController::class, 'update'])->name('settings.update');
-});
 
+
+
+
+
+});
 
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth']], function () {
     // Change password
