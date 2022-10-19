@@ -26,7 +26,16 @@ class User extends Authenticatable implements HasMedia
         'Male'   => 'Male',
         'Female' => 'Female',
     ];
-
+    public const BLOOD_GROUP_SELECT = [
+        'A+'  => 'A+',
+        'A-'  => 'A-',
+        'B+'  => 'B+',
+        'B-'  => 'B-',
+        'O+'  => 'O+',
+        'O-'  => 'O-',
+        'AB+' => 'AB+',
+        'AB-' => 'AB-',
+    ];
     public $table = 'users';
 
     public static $searchable = [

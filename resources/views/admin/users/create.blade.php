@@ -62,14 +62,24 @@
                     @endif
                     <span class="help-block">{{ trans('cruds.user.fields.date_of_birth_helper') }}</span>
                 </div>
+
+
                 <div class="form-group">
-                    <label for="blood_group">{{ trans('cruds.user.fields.blood_group') }}</label>
-                    <input class="form-control {{ $errors->has('blood_group') ? 'is-invalid' : '' }}" type="text" name="blood_group" id="blood_group" value="{{ old('blood_group', '') }}">
+                    <label>{{ trans('cruds.user.fields.blood_group') }}</label>
+                    <select class="form-control {{ $errors->has('blood_group') ? 'is-invalid' : '' }}" name="blood_group" id="blood_group">
+                        <option value disabled {{ old('blood_group', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                        @foreach(App\Models\User::BLOOD_GROUP_SELECT as $key => $label)
+                            <option value="{{ $key }}" {{ old('blood_group', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                        @endforeach
+                    </select>
                     @if($errors->has('blood_group'))
                         <span class="text-danger">{{ $errors->first('blood_group') }}</span>
                     @endif
                     <span class="help-block">{{ trans('cruds.user.fields.blood_group_helper') }}</span>
                 </div>
+
+
+
                 <div class="form-group">
                     <label for="avatar">{{ trans('cruds.user.fields.avatar') }}</label>
                     <div class="needsclick dropzone {{ $errors->has('avatar') ? 'is-invalid' : '' }}" id="avatar-dropzone">
@@ -123,44 +133,11 @@
 
 
 
-                <div class="form-group">
-                    <label for="district_id">{{ trans('cruds.address.fields.district') }}</label>
-                    <select class="form-control select2 {{ $errors->has('district') ? 'is-invalid' : '' }}" name="district_id" id="district_id">
-                        @foreach($districts as $id => $entry)
-                            <option value="{{ $id }}" {{ old('district_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('district'))
-                        <div class="invalid-feedback">
-                            {{ $errors->first('district') }}
-                        </div>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.address.fields.district_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label for="upazila_id">{{ trans('cruds.address.fields.upazila') }}</label>
-                    <select class="form-control select2 {{ $errors->has('upazila') ? 'is-invalid' : '' }}" name="upazila_id" id="upazila_id">
-                        @foreach($upazilas as $id => $entry)
-                            <option value="{{ $id }}" {{ old('upazila_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('upazila'))
-                        <div class="invalid-feedback">
-                            {{ $errors->first('upazila') }}
-                        </div>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.address.fields.upazila_helper') }}</span>
-                </div>
-
-
-
 
                 <div class="form-group">
                     <label class="required" for="district_id">{{ trans('cruds.user.fields.district') }}</label>
                     <select class="form-control select2 {{ $errors->has('district') ? 'is-invalid' : '' }}" name="district_id" id="district_id" required>
-                        @foreach($districts as $id => $entry)
-                            <option value="{{ $id }}" {{ old('district_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                        @endforeach
+                            <option value="">{{ trans('global.pleaseSelect') }}</option>
                     </select>
                     @if($errors->has('district'))
                         <span class="text-danger">{{ $errors->first('district') }}</span>
@@ -170,15 +147,15 @@
                 <div class="form-group">
                     <label class="required" for="upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
                     <select class="form-control select2 {{ $errors->has('upazila') ? 'is-invalid' : '' }}" name="upazila_id" id="upazila_id" required>
-                        @foreach($upazilas as $id => $entry)
-                            <option value="{{ $id }}" {{ old('upazila_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                        @endforeach
+                        <option value="">{{ trans('global.pleaseSelect') }}</option>
                     </select>
                     @if($errors->has('upazila'))
                         <span class="text-danger">{{ $errors->first('upazila') }}</span>
                     @endif
                     <span class="help-block">{{ trans('cruds.user.fields.upazila_helper') }}</span>
                 </div>
+
+
                 <div class="form-group">
                     <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
                     <div style="padding-bottom: 4px">
@@ -195,6 +172,8 @@
                     @endif
                     <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
                 </div>
+
+
                 <div class="form-group">
                     <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
                     <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password" required>
@@ -287,5 +266,26 @@
             }
         }
 
+    </script>
+    <script type="text/javascript">
+        $("#division_id").change(function(){
+            $.ajax({
+                url: "{{ route('admin.district.get_by_division') }}?division_id=" + $(this).val(),
+                method: 'GET',
+                success: function(data) {
+                    $('#district_id').html(data.html);
+                }
+            });
+        });
+
+        $("#district_id").change(function(){
+            $.ajax({
+                url: "{{ route('admin.upazila.get_by_district') }}?district_id=" + $(this).val(),
+                method: 'GET',
+                success: function(data) {
+                    $('#upazila_id').html(data.html);
+                }
+            });
+        });
     </script>
 @endsection
