@@ -135,6 +135,7 @@ class DistrictsController extends Controller
         } else {
             $html = '';
             $districts = District::where('division_id', $request->division_id)->get();
+            $html .= '<option value="">Please select district/city</option>';
             foreach ($districts as $city) {
                 $html .= '<option value="'.$city->id.'">'.$city->name.'</option>';
             }

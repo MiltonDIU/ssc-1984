@@ -8,9 +8,11 @@ use App\Http\Requests\MassDestroyUpazilaRequest;
 use App\Http\Requests\StoreUpazilaRequest;
 use App\Http\Requests\UpdateUpazilaRequest;
 use App\Models\District;
+use App\Models\School;
 use App\Models\Upazila;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -134,8 +136,30 @@ class UpazilaController extends Controller
         } else {
             $html = '';
             $upazilas = Upazila::where('district_id', $request->district_id)->get();
+            $html .= '<option value="">Please select upazila/thana/area</option>';
             foreach ($upazilas as $city) {
+
                 $html .= '<option value="'.$city->id.'">'.$city->name.'</option>';
+            }
+        }
+
+        return response()->json(['html' => $html]);
+    }
+
+    //return district wise upazila
+    public function school_get_by_upazila(Request $request)
+    {
+        abort_unless(\Gate::allows('school_access'), 401);
+
+        if (!$request->upazila_id) {
+            $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
+        } else {
+            $html = '';
+            $schools = School::where('upazila_id', $request->upazila_id)->get();
+            $html .= '<option value="">Please select school</option>';
+            foreach ($schools as $school) {
+
+                $html .= '<option value="'.$school->id.'">'.Str::ucfirst(Str::lower($school->name)).'</option>';
             }
         }
 

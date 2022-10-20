@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Address;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\Profession;
@@ -16,6 +17,7 @@ use App\Models\Upazila;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -154,6 +156,14 @@ class UsersController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $user->id]);
         }
 
+        $address['division_id'] = $request->input('address_division_id');
+        $address['district_id'] = $request->input('address_district_id');
+        $address['upazila_id'] = $request->input('address_upazila_id');
+        $address['area'] = $request->input('area');
+        $address['user_id'] = $user->id;
+        $address['created_by_id'] = Auth::id();
+        $address['type_of_address'] = 'Present';
+        Address::create($address);
         return redirect()->route('admin.users.index');
     }
 

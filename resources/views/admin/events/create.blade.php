@@ -9,147 +9,202 @@
         <div class="card-body">
             <form method="POST" action="{{ route("admin.events.store") }}" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group">
-                    <label class="required" for="event_category_id">{{ trans('cruds.event.fields.event_category') }}</label>
-                    <select class="form-control select2 {{ $errors->has('event_category') ? 'is-invalid' : '' }}" name="event_category_id" id="event_category_id" required>
-                        @foreach($event_categories as $id => $entry)
-                            <option value="{{ $id }}" {{ old('event_category_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('event_category'))
-                        <span class="text-danger">{{ $errors->first('event_category') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.event_category_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label class="required" for="name">{{ trans('cruds.event.fields.name') }}</label>
-                    <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
-                    @if($errors->has('name'))
-                        <span class="text-danger">{{ $errors->first('name') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.name_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label class="required" for="slug">{{ trans('cruds.event.fields.slug') }}</label>
-                    <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}" required>
-                    @if($errors->has('slug'))
-                        <span class="text-danger">{{ $errors->first('slug') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.slug_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label class="required" for="banner">{{ trans('cruds.event.fields.banner') }}</label>
-                    <div class="needsclick dropzone {{ $errors->has('banner') ? 'is-invalid' : '' }}" id="banner-dropzone">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="required" for="event_category_id">{{ trans('cruds.event.fields.event_category') }}</label>
+                                    <select class="form-control select2 {{ $errors->has('event_category') ? 'is-invalid' : '' }}" name="event_category_id" id="event_category_id" required>
+                                        @foreach($event_categories as $id => $entry)
+                                            <option value="{{ $id }}" {{ old('event_category_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if($errors->has('event_category'))
+                                        <span class="text-danger">{{ $errors->first('event_category') }}</span>
+                                    @endif
+                                    <span class="help-block">{{ trans('cruds.event.fields.event_category_helper') }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="required" for="name">{{ trans('cruds.event.fields.name') }}</label>
+                                    <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
+                                    @if($errors->has('name'))
+                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                    @endif
+                                    <span class="help-block">{{ trans('cruds.event.fields.name_helper') }}</span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="required" for="event_date">{{ trans('cruds.event.fields.event_date') }}</label>
+                                    <input class="form-control date {{ $errors->has('event_date') ? 'is-invalid' : '' }}" type="text" name="event_date" id="event_date" value="{{ old('event_date') }}" required>
+                                    @if($errors->has('event_date'))
+                                        <span class="text-danger">{{ $errors->first('event_date') }}</span>
+                                    @endif
+                                    <span class="help-block">{{ trans('cruds.event.fields.event_date_helper') }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="required" for="event_time">{{ trans('cruds.event.fields.event_time') }}</label>
+                                    <input class="form-control timepicker {{ $errors->has('event_time') ? 'is-invalid' : '' }}" type="text" name="event_time" id="event_time" value="{{ old('event_time') }}" required>
+                                    @if($errors->has('event_time'))
+                                        <span class="text-danger">{{ $errors->first('event_time') }}</span>
+                                    @endif
+                                    <span class="help-block">{{ trans('cruds.event.fields.event_time_helper') }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="required" for="event_end_time">{{ trans('cruds.event.fields.event_end_time') }}</label>
+                                    <input class="form-control timepicker {{ $errors->has('event_end_time') ? 'is-invalid' : '' }}" type="text" name="event_end_time" id="event_end_time" value="{{ old('event_end_time') }}" required>
+                                    @if($errors->has('event_end_time'))
+                                        <span class="text-danger">{{ $errors->first('event_end_time') }}</span>
+                                    @endif
+                                    <span class="help-block">{{ trans('cruds.event.fields.event_end_time_helper') }}</span>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="details">{{ trans('cruds.event.fields.details') }}</label>
+                                    <textarea class="form-control ckeditor {{ $errors->has('details') ? 'is-invalid' : '' }}" name="details" id="details">{!! old('details') !!}</textarea>
+                                    @if($errors->has('details'))
+                                        <span class="text-danger">{{ $errors->first('details') }}</span>
+                                    @endif
+                                    <span class="help-block">{{ trans('cruds.event.fields.details_helper') }}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="required" for="district_id">{{ trans('cruds.event.fields.district') }}</label>
+                                        <select class="form-control select2 {{ $errors->has('district') ? 'is-invalid' : '' }}" name="district_id" id="district_id" required>
+                                            @foreach($districts as $id => $entry)
+                                                <option value="{{ $id }}" {{ old('district_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if($errors->has('district'))
+                                            <span class="text-danger">{{ $errors->first('district') }}</span>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.event.fields.district_helper') }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>{{ trans('cruds.event.fields.is_free') }}</label>
+                                        <select class="form-control {{ $errors->has('is_free') ? 'is-invalid' : '' }}" name="is_free" id="is_free">
+                                            <option value disabled {{ old('is_free', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                                            @foreach(App\Models\Event::IS_FREE_SELECT as $key => $label)
+                                                <option value="{{ $key }}" {{ old('is_free', '1') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if($errors->has('is_free'))
+                                            <span class="text-danger">{{ $errors->first('is_free') }}</span>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.event.fields.is_free_helper') }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="address">{{ trans('cruds.event.fields.address') }}</label>
+                                        <textarea class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" name="address" id="address">{{ old('address') }}</textarea>
+                                        @if($errors->has('address'))
+                                            <span class="text-danger">{{ $errors->first('address') }}</span>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.event.fields.address_helper') }}</span>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="price">{{ trans('cruds.event.fields.price') }}</label>
+                                            <input class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" type="text" name="price" id="price" value="{{ old('price', '') }}">
+                                            @if($errors->has('price'))
+                                                <span class="text-danger">{{ $errors->first('price') }}</span>
+                                            @endif
+                                            <span class="help-block">{{ trans('cruds.event.fields.price_helper') }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="required">{{ trans('cruds.event.fields.is_active') }}</label>
+                                            <select class="form-control {{ $errors->has('is_active') ? 'is-invalid' : '' }}" name="is_active" id="is_active" required>
+                                                <option value disabled {{ old('is_active', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                                                @foreach(App\Models\Event::IS_ACTIVE_SELECT as $key => $label)
+                                                    <option value="{{ $key }}" {{ old('is_active', '1') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if($errors->has('is_active'))
+                                                <span class="text-danger">{{ $errors->first('is_active') }}</span>
+                                            @endif
+                                            <span class="help-block">{{ trans('cruds.event.fields.is_active_helper') }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
-                    @if($errors->has('banner'))
-                        <span class="text-danger">{{ $errors->first('banner') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.banner_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label for="details">{{ trans('cruds.event.fields.details') }}</label>
-                    <textarea class="form-control ckeditor {{ $errors->has('details') ? 'is-invalid' : '' }}" name="details" id="details">{!! old('details') !!}</textarea>
-                    @if($errors->has('details'))
-                        <span class="text-danger">{{ $errors->first('details') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.details_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label class="required" for="event_date">{{ trans('cruds.event.fields.event_date') }}</label>
-                    <input class="form-control date {{ $errors->has('event_date') ? 'is-invalid' : '' }}" type="text" name="event_date" id="event_date" value="{{ old('event_date') }}" required>
-                    @if($errors->has('event_date'))
-                        <span class="text-danger">{{ $errors->first('event_date') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.event_date_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label class="required" for="event_time">{{ trans('cruds.event.fields.event_time') }}</label>
-                    <input class="form-control timepicker {{ $errors->has('event_time') ? 'is-invalid' : '' }}" type="text" name="event_time" id="event_time" value="{{ old('event_time') }}" required>
-                    @if($errors->has('event_time'))
-                        <span class="text-danger">{{ $errors->first('event_time') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.event_time_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label class="required" for="event_end_time">{{ trans('cruds.event.fields.event_end_time') }}</label>
-                    <input class="form-control timepicker {{ $errors->has('event_end_time') ? 'is-invalid' : '' }}" type="text" name="event_end_time" id="event_end_time" value="{{ old('event_end_time') }}" required>
-                    @if($errors->has('event_end_time'))
-                        <span class="text-danger">{{ $errors->first('event_end_time') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.event_end_time_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label for="address">{{ trans('cruds.event.fields.address') }}</label>
-                    <textarea class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" name="address" id="address">{{ old('address') }}</textarea>
-                    @if($errors->has('address'))
-                        <span class="text-danger">{{ $errors->first('address') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.address_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label class="required" for="district_id">{{ trans('cruds.event.fields.district') }}</label>
-                    <select class="form-control select2 {{ $errors->has('district') ? 'is-invalid' : '' }}" name="district_id" id="district_id" required>
-                        @foreach($districts as $id => $entry)
-                            <option value="{{ $id }}" {{ old('district_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('district'))
-                        <span class="text-danger">{{ $errors->first('district') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.district_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label>{{ trans('cruds.event.fields.is_free') }}</label>
-                    <select class="form-control {{ $errors->has('is_free') ? 'is-invalid' : '' }}" name="is_free" id="is_free">
-                        <option value disabled {{ old('is_free', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                        @foreach(App\Models\Event::IS_FREE_SELECT as $key => $label)
-                            <option value="{{ $key }}" {{ old('is_free', '1') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('is_free'))
-                        <span class="text-danger">{{ $errors->first('is_free') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.is_free_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label for="price">{{ trans('cruds.event.fields.price') }}</label>
-                    <input class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" type="text" name="price" id="price" value="{{ old('price', '') }}">
-                    @if($errors->has('price'))
-                        <span class="text-danger">{{ $errors->first('price') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.price_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label class="required">{{ trans('cruds.event.fields.is_active') }}</label>
-                    <select class="form-control {{ $errors->has('is_active') ? 'is-invalid' : '' }}" name="is_active" id="is_active" required>
-                        <option value disabled {{ old('is_active', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                        @foreach(App\Models\Event::IS_ACTIVE_SELECT as $key => $label)
-                            <option value="{{ $key }}" {{ old('is_active', '1') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('is_active'))
-                        <span class="text-danger">{{ $errors->first('is_active') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.is_active_helper') }}</span>
-                </div>
-                <div class="form-group">
-                    <label for="users">{{ trans('cruds.event.fields.user') }}</label>
-                    <div style="padding-bottom: 4px">
-                        <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
-                        <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="required" for="banner">{{ trans('cruds.event.fields.banner') }}</label>
+                            <div class="needsclick dropzone {{ $errors->has('banner') ? 'is-invalid' : '' }}" id="banner-dropzone">
+                            </div>
+                            @if($errors->has('banner'))
+                                <span class="text-danger">{{ $errors->first('banner') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.event.fields.banner_helper') }}</span>
+                        </div>
                     </div>
-                    <select class="form-control select2 {{ $errors->has('users') ? 'is-invalid' : '' }}" name="users[]" id="users" multiple>
-                        @foreach($users as $id => $user)
-                            <option value="{{ $id }}" {{ in_array($id, old('users', [])) ? 'selected' : '' }}>{{ $user }}</option>
-                        @endforeach
-                    </select>
-                    @if($errors->has('users'))
-                        <span class="text-danger">{{ $errors->first('users') }}</span>
-                    @endif
-                    <span class="help-block">{{ trans('cruds.event.fields.user_helper') }}</span>
+
                 </div>
+
+
+{{--                <div class="form-group">--}}
+{{--                    <label class="required" for="slug">{{ trans('cruds.event.fields.slug') }}</label>--}}
+{{--                    <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}" required>--}}
+{{--                    @if($errors->has('slug'))--}}
+{{--                        <span class="text-danger">{{ $errors->first('slug') }}</span>--}}
+{{--                    @endif--}}
+{{--                    <span class="help-block">{{ trans('cruds.event.fields.slug_helper') }}</span>--}}
+{{--                </div>--}}
+
+
+
+
+
+{{--                --}}
+{{--                <div class="form-group">--}}
+{{--                    <label for="users">{{ trans('cruds.event.fields.user') }}</label>--}}
+{{--                    <div style="padding-bottom: 4px">--}}
+{{--                        <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>--}}
+{{--                        <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>--}}
+{{--                    </div>--}}
+{{--                    <select class="form-control select2 {{ $errors->has('users') ? 'is-invalid' : '' }}" name="users[]" id="users" multiple>--}}
+{{--                        @foreach($users as $id => $user)--}}
+{{--                            <option value="{{ $id }}" {{ in_array($id, old('users', [])) ? 'selected' : '' }}>{{ $user }}</option>--}}
+{{--                        @endforeach--}}
+{{--                    </select>--}}
+{{--                    @if($errors->has('users'))--}}
+{{--                        <span class="text-danger">{{ $errors->first('users') }}</span>--}}
+{{--                    @endif--}}
+{{--                    <span class="help-block">{{ trans('cruds.event.fields.user_helper') }}</span>--}}
+{{--                </div>--}}
                 <div class="form-group">
-                    <button class="btn btn-danger" type="submit">
+                    <button class="btn btn-primary" type="submit">
                         {{ trans('global.save') }}
                     </button>
                 </div>

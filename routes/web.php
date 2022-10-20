@@ -136,6 +136,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
 
     Route::get('district/get_by_division', [DistrictsController::class,'get_by_division'])->name('district.get_by_division');
     Route::get('upazila/get_by_district', [UpazilaController::class,'get_by_district'])->name('upazila.get_by_district');
+    Route::get('school/get_by_upazila', [UpazilaController::class,'school_get_by_upazila'])->name('schools.get_by_upazila');
 
     // Audit Logs
     Route::resource('audit-logs', AuditLogsController::class, ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
