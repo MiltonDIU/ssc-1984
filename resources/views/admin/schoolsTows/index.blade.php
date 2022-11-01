@@ -6,6 +6,10 @@
                 <a class="btn btn-success" href="{{ route('admin.schools-tows.create') }}">
                     {{ trans('global.add') }} {{ trans('cruds.schoolsTow.title_singular') }}
                 </a>
+                <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
+                    {{ trans('global.app_csvImport') }}
+                </button>
+                @include('csvImport.modal', ['model' => 'SchoolsTow', 'route' => 'admin.schools-tows.parseCsvImport'])
             </div>
         </div>
     @endcan

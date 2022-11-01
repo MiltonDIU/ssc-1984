@@ -57,7 +57,7 @@ class EventsTableSeeder extends Seeder
        $upazila_id = $faker->randomElement(Upazila::where('district_id',$district_id)->get()->pluck('id')->toArray());
        $school_id = $faker->randomElement(School::all()->pluck('id')->toArray());
        $usersIds = array();
-       for ($i = 1; $i < 5000; $i++) {
+       for ($i = 1; $i < 500; $i++) {
            $bd_user = User::all();
            $dis_user = User::where('district_id',$district_id)->get();
            $user = [

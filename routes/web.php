@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\UpazilaController;
 use App\Http\Controllers\Admin\ProfessionsController;
 use App\Http\Controllers\Alumni\DashboardController as AlumniDashboardController;
 use App\Http\Controllers\Alumni\FrontendController;
-
+use App\Http\Controllers\Admin\SchoolsTowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +60,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
         'divisions' => DivisionController::class,
         'districts' => DistrictsController::class,
         'schools' => SchoolsController::class,
+        'schools-tows' => SchoolsTowController::class,
         'addresses' => AddressesController::class,
         'event-categories' => EventCategoriesController::class,
         'events' => EventsController::class,
@@ -108,6 +109,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::post('schools/ckmedia',[SchoolsController::class, 'storeCKEditorImages'])->name('schools.storeCKEditorImages');
     Route::post('schools/parse-csv-import',[SchoolsController::class, 'parseCsvImport'])->name('schools.parseCsvImport');
     Route::post('schools/process-csv-import',[SchoolsController::class, 'processCsvImport'])->name('schools.processCsvImport');
+
+    // Schools -tows
+    Route::delete('schools-tows/destroy',[SchoolsTowController::class, 'massDestroy'])->name('schools-tows.massDestroy');
+    Route::post('schools-tows/media',[SchoolsTowController::class, 'storeMedia'])->name('schools-tows.storeMedia');
+    Route::post('schools-tows/ckmedia',[SchoolsTowController::class, 'storeCKEditorImages'])->name('schools-tows.storeCKEditorImages');
+    Route::post('schools-tows/parse-csv-import',[SchoolsTowController::class, 'parseCsvImport'])->name('schools-tows.parseCsvImport');
+    Route::post('schools-tows/process-csv-import',[SchoolsTowController::class, 'processCsvImport'])->name('schools-tows.processCsvImport');
+
 
 
     // Addresses

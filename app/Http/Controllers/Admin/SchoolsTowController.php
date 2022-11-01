@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\CsvImportTrait;
 use App\Http\Requests\MassDestroySchoolsTowRequest;
 use App\Http\Requests\StoreSchoolsTowRequest;
 use App\Http\Requests\UpdateSchoolsTowRequest;
@@ -14,6 +15,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class SchoolsTowController extends Controller
 {
+    use CsvImportTrait;
     public function index(Request $request)
     {
         abort_if(Gate::denies('schools_tow_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
