@@ -181,7 +181,16 @@
                            </div>
                            <select class="form-control select2 {{ $errors->has('professions') ? 'is-invalid' : '' }}" name="professions[]" id="professions" multiple required>
                                @foreach($professions as $id => $profession)
+
+
                                    <option value="{{ $id }}" {{ in_array($id, old('professions', [])) ? 'selected' : '' }}>{{ $profession }}</option>
+
+                                   @if(count(\App\Models\Profession::parentProfession($id))>0)
+                                    @include('admin.professions.parent-profession',['id'=>$id,'profession'=>$profession,'user'=>null])
+                                   @endif
+
+
+
                                @endforeach
                            </select>
                            @if($errors->has('professions'))
@@ -349,7 +358,7 @@
     <script>
         Dropzone.options.avatarDropzone = {
             url: '{{ route('admin.users.storeMedia') }}',
-            maxFilesize: 1, // MB
+            maxFilesize: 2, // MB
             acceptedFiles: '.jpeg,.jpg,.png,.gif',
             maxFiles: 1,
             addRemoveLinks: true,
@@ -357,7 +366,7 @@
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
             },
             params: {
-                size: 1,
+                size: 2,
                 width: 4096,
                 height: 4096
             },

@@ -129,8 +129,7 @@ class UsersController extends Controller
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $schools = School::get();
-
-        $professions = Profession::pluck('name', 'id');
+        $professions = Profession::where('profession_parrent',0)->pluck('name', 'id');
 
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -173,7 +172,7 @@ class UsersController extends Controller
 
         $schools = School::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $professions = Profession::pluck('name', 'id');
+        $professions = Profession::where('profession_parrent',0)->pluck('name', 'id');
 
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 

@@ -151,7 +151,23 @@
             </div>
         </div>
     </div>
-
+    <div class="card">
+        <div class="card-header">
+            {{ trans('global.relatedData') }}
+        </div>
+        <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="#event_users" role="tab" data-toggle="tab">
+                    {{ trans('cruds.user.name') }}
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" role="tabpanel" id="event_users">
+                @includeIf('admin.events.relationships.members', ['users' => $event->users])
+            </div>
+        </div>
+    </div>
 
 
 @endsection

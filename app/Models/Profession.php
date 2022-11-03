@@ -48,4 +48,9 @@ class Profession extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public static function parentProfession($id){
+        $professions = Profession::where('profession_parrent',$id)->pluck('name', 'id');
+        return $professions;
+    }
 }
