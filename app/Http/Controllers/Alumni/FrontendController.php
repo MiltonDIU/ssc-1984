@@ -8,24 +8,24 @@ use Illuminate\Http\Request;
 class FrontendController extends Controller
 {
 public function register(){
-    return view('alumni.auth.register');
+    return view('member.auth.register');
 }
 public function otp(){
-    return view('alumni.auth.otp');
+    return view('member.auth.otp');
 }
 
 public function otpVerify(){
-    return view('alumni.auth.otp-verify');
+    return view('member.auth.otp-verify');
 }
 
 public function registration1(){
-    return view('alumni.auth.reg-step-1');
+    return view('member.auth.reg-step-1');
 }
 
 public function registration2(){
-    return view('alumni.auth.reg-step-2');
+    return view('member.auth.reg-step-2');
 }
     public function profile(){
-        return view('alumni.profile');
+        return view('member.profile');
     }
 }

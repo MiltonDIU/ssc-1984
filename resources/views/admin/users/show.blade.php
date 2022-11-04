@@ -15,12 +15,35 @@
                 </div>
                 <table class="table table-bordered table-striped">
                     <tbody>
+                    <tr style="background: #6f42c1">
+                        <td colspan="2" style="color: white; font-weight: bolder"> Personal Information</td>
+                    </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.id') }}
+                            {{ trans('cruds.user.fields.id_ssc_bd') }}
                         </th>
                         <td>
-                            {{ $user->id }}
+                            {{ $user->id_ssc_bd }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.id_ssc_district') }}
+                        </th>
+                        <td>
+                            {{ $user->id_ssc_district }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.avatar') }}
+                        </th>
+                        <td>
+                            @if($user->avatar)
+                                <a href="{{ $user->avatar->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $user->avatar->getUrl('thumb') }}">
+                                </a>
+                            @endif
                         </td>
                     </tr>
                     <tr>
@@ -31,6 +54,7 @@
                             {{ $user->name }}
                         </td>
                     </tr>
+
                     <tr>
                         <th>
                             {{ trans('cruds.user.fields.email') }}
@@ -79,25 +103,33 @@
                             {{ $user->blood_group }}
                         </td>
                     </tr>
+                    <tr style="background: #6f42c1">
+                        <td colspan="2" style="color: white; font-weight: bolder"> Reference By</td>
+                    </tr>
+
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.avatar') }}
+                            {{ "Name and Represent District" }}
                         </th>
                         <td>
-                            @if($user->avatar)
-                                <a href="{{ $user->avatar->getUrl() }}" target="_blank" style="display: inline-block">
-                                    <img src="{{ $user->avatar->getUrl('thumb') }}">
-                                </a>
-                            @endif
+                            {{ $user->created_by->name??"" }}, {{ $user->created_by?$user->created_by->district?$user->created_by->district->name:"":"" }}
                         </td>
+                    </tr>
+
+
+                    <tr style="background: #6f42c1">
+                        <td colspan="2" style="color: white; font-weight: bolder"> School Information</td>
                     </tr>
                     <tr>
                         <th>
                             {{ trans('cruds.user.fields.school') }}
                         </th>
                         <td>
-                            {{ $user->school->name ?? '' }}
+                            {{ $user->school->name ?? '' }} -- {{ $user->school->upazila->name ?? '' }}, {{ $user->school->district->name ?? '' }}, {{ $user->school->division->name ?? '' }}
                         </td>
+                    </tr>
+                    <tr style="background: #6f42c1">
+                        <td colspan="2" style="color: white; font-weight: bolder"> Professions Information</td>
                     </tr>
                     <tr>
                         <th>
@@ -108,6 +140,9 @@
                                 <span class="label label-info">{{ $profession->name }}</span>
                             @endforeach
                         </td>
+                    </tr>
+                    <tr style="background: #6f42c1">
+                        <td colspan="2" style="color: white; font-weight: bolder"> Represent Information</td>
                     </tr>
                     <tr>
                         <th>
@@ -133,6 +168,52 @@
                             {{ $user->upazila->name ?? '' }}
                         </td>
                     </tr>
+
+                    <tr style="background: #6f42c1">
+                        <td colspan="2" style="color: white; font-weight: bolder"> Member Present Address</td>
+                    </tr>
+
+                    <tr>
+                        <th>
+                            {{ trans('cruds.address.fields.division') }}
+                        </th>
+                        <td>
+                            {{ $user->userAddresses[0]->division->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.address.fields.district') }}
+                        </th>
+                        <td>
+                            {{ $user->userAddresses[0]->district->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.address.fields.upazila') }}
+                        </th>
+                        <td>
+                            {{ $user->userAddresses[0]->upazila->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.address.fields.area') }}
+                        </th>
+                        <td>
+                            {!! $user->userAddresses[0]->area !!}
+                        </td>
+                    </tr>
+
+
+                    <tr style="background: #6f42c1">
+                        <td colspan="2" style="color: white; font-weight: bolder"> User Roll</td>
+                    </tr>
+
+
+
+
                     <tr>
                         <th>
                             {{ trans('cruds.user.fields.roles') }}
@@ -143,30 +224,7 @@
                             @endforeach
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.user.fields.email_verified_at') }}
-                        </th>
-                        <td>
-                            {{ $user->email_verified_at }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.user.fields.id_ssc_bd') }}
-                        </th>
-                        <td>
-                            {{ $user->id_ssc_bd }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.user.fields.id_ssc_district') }}
-                        </th>
-                        <td>
-                            {{ $user->id_ssc_district }}
-                        </td>
-                    </tr>
+
                     </tbody>
                 </table>
                 <div class="form-group">
@@ -177,31 +235,4 @@
             </div>
         </div>
     </div>
-
-    <div class="card">
-        <div class="card-header">
-            {{ trans('global.relatedData') }}
-        </div>
-        <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
-            <li class="nav-item">
-                <a class="nav-link" href="#user_addresses" role="tab" data-toggle="tab">
-                    {{ trans('cruds.address.title') }}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#user_events" role="tab" data-toggle="tab">
-                    {{ trans('cruds.event.title') }}
-                </a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane" role="tabpanel" id="user_addresses">
-                @includeIf('admin.users.relationships.userAddresses', ['addresses' => $user->userAddresses])
-            </div>
-            <div class="tab-pane" role="tabpanel" id="user_events">
-                @includeIf('admin.users.relationships.userEvents', ['events' => $user->userEvents])
-            </div>
-        </div>
-    </div>
-
 @endsection

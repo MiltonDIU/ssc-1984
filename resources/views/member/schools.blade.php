@@ -1,4 +1,4 @@
-@extends('alumni.layouts.master')
+@extends('member.layouts.master')
 @section('top_content')
     <div class="dashboard_search">
         <input type="search" placeholder="Search among 3032 Schools">
@@ -42,7 +42,7 @@
                 <td class="data_name">School Full Name</td>
                 <td>Upozila, Zila</td>
                 <td>2343432</td>
-                <td class="view_profile"><a href="{{ route('alumni.schoolProfile',['name']) }}">View School.</a></td>
+                <td class="view_profile"><a href="{{ route('member.schoolProfile',['name']) }}">View School.</a></td>
             </tr>
 
             <tr>

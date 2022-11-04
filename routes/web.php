@@ -174,9 +174,11 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
 
 });
 
+Auth::routes([
+    'register' => false, // Registration Routes...
+]);
 
-
-Route::group(['prefix' => 'alumni', 'as' => 'alumni.'], function () {
+Route::group(['prefix' => 'member', 'as' => 'member.'], function () {
     Route::get('/', [AlumniDashboardController::class, 'index'])->name('dashboard');
     Route::get('/batch-mate', [AlumniDashboardController::class, 'batchMate'])->name('batch-mate');
     Route::get('/batch-mate/{profile}', [AlumniDashboardController::class, 'batchMateProfile'])->name('batch-mate.profile');

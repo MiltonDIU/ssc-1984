@@ -117,14 +117,14 @@
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="required" for="sdivision_id">{{ trans('cruds.user.fields.division') }}</label>
-                            <select class="form-control select2 {{ $errors->has('division') ? 'is-invalid' : '' }}" name="sdivision_id" id="sdivision_id" required>
+                            <label class="required" for="school_division_id">{{ trans('cruds.user.fields.division') }}</label>
+                            <select class="form-control select2 {{ $errors->has('division') ? 'is-invalid' : '' }}" name="school_division_id" id="school_division_id" required>
                                 @foreach($divisions as $id => $entry)
                                     <option value="{{ $id }}" {{ old('division_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                                 @endforeach
                             </select>
-                            @if($errors->has('sdivision'))
-                                <span class="text-danger">{{ $errors->first('sdivision') }}</span>
+                            @if($errors->has('school_division'))
+                                <span class="text-danger">{{ $errors->first('school_division') }}</span>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.division_helper') }}</span>
                         </div>
@@ -134,23 +134,23 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label class="required" for="ddistrict_id">{{ trans('cruds.user.fields.district') }}</label>
-                            <select class="form-control select2 {{ $errors->has('sdistrict') ? 'is-invalid' : '' }}" name="sdistrict_id" id="sdistrict_id" required>
+                            <select class="form-control select2 {{ $errors->has('school_district') ? 'is-invalid' : '' }}" name="school_district_id" id="school_district_id" required>
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
-                            @if($errors->has('sdistrict'))
-                                <span class="text-danger">{{ $errors->first('sdistrict') }}</span>
+                            @if($errors->has('school_district'))
+                                <span class="text-danger">{{ $errors->first('school_district') }}</span>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.district_helper') }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="required" for="supazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
-                            <select class="form-control select2 {{ $errors->has('supazila') ? 'is-invalid' : '' }}" name="supazila_id" id="supazila_id" required>
+                            <label class="required" for="school_upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
+                            <select class="form-control select2 {{ $errors->has('school_upazila') ? 'is-invalid' : '' }}" name="school_upazila_id" id="school_upazila_id" required>
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
-                            @if($errors->has('supazila'))
-                                <span class="text-danger">{{ $errors->first('supazila') }}</span>
+                            @if($errors->has('school_upazila'))
+                                <span class="text-danger">{{ $errors->first('school_upazila') }}</span>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.upazila_helper') }}</span>
                         </div>
@@ -454,26 +454,26 @@
 
 
         //schools information
-        $("#sdivision_id").change(function(){
+        $("#school_division_id").change(function(){
             $.ajax({
                 url: "{{ route('admin.district.get_by_division') }}?division_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
-                    $('#sdistrict_id').html(data.html);
+                    $('#school_district_id').html(data.html);
                 }
             });
         });
 
-        $("#sdistrict_id").change(function(){
+        $("#school_district_id").change(function(){
             $.ajax({
                 url: "{{ route('admin.upazila.get_by_district') }}?district_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
-                    $('#supazila_id').html(data.html);
+                    $('#school_upazila_id').html(data.html);
                 }
             });
         });
-        $("#supazila_id").change(function(){
+        $("#school_upazila_id").change(function(){
             $.ajax({
                 url: "{{ route('admin.schools.get_by_upazila') }}?upazila_id=" + $(this).val(),
                 method: 'GET',

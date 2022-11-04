@@ -128,7 +128,7 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $schools = School::get();
+       // $schools = School::get();
         $professions = Profession::where('profession_parrent',0)->pluck('name', 'id');
 
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
@@ -139,12 +139,41 @@ class UsersController extends Controller
 
         $roles = Role::pluck('title', 'id');
 
-        return view('admin.users.create', compact('districts', 'divisions', 'professions', 'roles', 'schools', 'upazilas'));
+        return view('admin.users.create', compact('districts', 'divisions', 'professions', 'roles', 'upazilas'));
     }
 
     public function store(StoreUserRequest $request)
     {
-        $user = User::create($request->all());
+
+        $totalUsers = User::where('id_ssc_bd','!=',null)->where('id_ssc_district','!=',null)->get()->count();
+        $dis_user = User::where('district_id',$request->input('district_id'))->get()->count();
+
+        $userData = $request->only(['name','email','mobile','telephone_number','gender','date_of_birth','blood_group','division_id',
+            'district_id','upazila_id','password']);
+
+        $userData['approved']=1;
+        $userData['verified']=1;
+        $userData['id_ssc_bd']=User::ID_SELECT['bd']+$totalUsers+1;
+        $userData['id_ssc_district']=User::ID_SELECT['zila']+$dis_user+1;
+        $userData['created_by_id'] = Auth::id();
+
+        $school = School::where('division_id',$request->input('school_division_id'))
+            ->where('district_id',$request->input('school_district_id'))
+            ->where('upazila_id',$request->input('school_upazila_id'))
+            ->where('id',$request->input('school_id'))
+        ->first();
+
+
+        if ($school){
+            $userData['school_id']=$request->input('school_id');
+        }else{
+            $schools = $request->input(['school_division_id','school_district_id','school_upazila_id','school_id']);
+            $school = School::create($schools);
+            $userData['school_id']=$school->id;
+        }
+
+        $user = User::create($userData);
+
         $user->professions()->sync($request->input('professions', []));
         $user->roles()->sync($request->input('roles', []));
         if ($request->input('avatar', false)) {
@@ -170,8 +199,6 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $schools = School::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
         $professions = Profession::where('profession_parrent',0)->pluck('name', 'id');
 
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
@@ -184,14 +211,38 @@ class UsersController extends Controller
 
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
 
-        return view('admin.users.edit', compact('districts', 'divisions', 'professions', 'roles', 'schools', 'upazilas', 'user'));
+        return view('admin.users.edit', compact('districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
     {
-        $user->update($request->all());
+//        $user->update($request->all());
+//        $user->professions()->sync($request->input('professions', []));
+//        $user->roles()->sync($request->input('roles', []));
+//
+
+        $userData = $request->only(['name','email','mobile','telephone_number','gender','date_of_birth','blood_group','division_id',
+            'district_id','upazila_id','password']);
+
+        $school = School::where('division_id',$request->input('school_division_id'))
+            ->where('district_id',$request->input('school_district_id'))
+            ->where('upazila_id',$request->input('school_upazila_id'))
+            ->where('id',$request->input('school_id'))
+            ->first();
+
+
+        if ($school){
+            $userData['school_id']=$request->input('school_id');
+        }else{
+            $schools = $request->input(['school_division_id','school_district_id','school_upazila_id','school_id']);
+            $school = School::create($schools);
+            $userData['school_id']=$school->id;
+        }
+
+        $user->update($userData);
         $user->professions()->sync($request->input('professions', []));
         $user->roles()->sync($request->input('roles', []));
+
         if ($request->input('avatar', false)) {
             if (!$user->avatar || $request->input('avatar') !== $user->avatar->file_name) {
                 if ($user->avatar) {
@@ -202,6 +253,20 @@ class UsersController extends Controller
         } elseif ($user->avatar) {
             $user->avatar->delete();
         }
+
+        $existingAddress = Address::where('user_id',$user->id)->where('type_of_address','Present')->first();
+        $address['division_id'] = $request->input('address_division_id');
+        $address['district_id'] = $request->input('address_district_id');
+        $address['upazila_id'] = $request->input('address_upazila_id');
+        $address['area'] = $request->input('area');
+        $address['user_id'] = $user->id;
+        $address['created_by_id'] = $existingAddress?$existingAddress->created_by_id:Auth::id();
+        $address['type_of_address'] = 'Present';
+    if ($existingAddress){
+    $existingAddress->update($address);
+    }else{
+    Address::create($address);
+}
 
         return redirect()->route('admin.users.index');
     }

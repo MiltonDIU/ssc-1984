@@ -117,15 +117,15 @@
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="required" for="sdivision_id">{{ trans('cruds.user.fields.division') }}</label>
-                            <select class="form-control select2 {{ $errors->has('division') ? 'is-invalid' : '' }}" name="sdivision_id" id="sdivision_id" required>
+                            <label class="required" for="school_division_id">{{ trans('cruds.user.fields.division') }}</label>
+                            <select class="form-control select2 {{ $errors->has('division') ? 'is-invalid' : '' }}" name="school_division_id" id="school_division_id" required>
                                 @foreach($divisions as $id => $entry)
-                                    <option value="{{ $id }}" {{ (old('division_id') ? old('division_id') : $user->division->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                                    <option value="{{ $id }}" {{ (old('division_id') ? old('division_id') : $user->school->division_id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
 
                                 @endforeach
                             </select>
-                            @if($errors->has('sdivision'))
-                                <span class="text-danger">{{ $errors->first('sdivision') }}</span>
+                            @if($errors->has('school_division'))
+                                <span class="text-danger">{{ $errors->first('school_division') }}</span>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.division_helper') }}</span>
                         </div>
@@ -135,27 +135,27 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label class="required" for="ddistrict_id">{{ trans('cruds.user.fields.district') }}</label>
-                            <select class="form-control select2 {{ $errors->has('sdistrict') ? 'is-invalid' : '' }}" name="sdistrict_id" id="sdistrict_id" required>
-                                <option value="{{ $user->district->id }}" {{ (old('district_id') ? old('district_id') : $user->district->id ?? '') == $id ? 'selected' : '' }}>{{ $user->district->name }}</option>
+                            <select class="form-control select2 {{ $errors->has('school_district') ? 'is-invalid' : '' }}" name="school_district_id" id="school_district_id" required>
+                                <option value="{{ $user->school->district_id }}" {{ (old('school_district_id') ? old('school_district_id') : $user->school->district_id ?? '') == $id ? 'selected' : '' }}>{{ $user->school->district->name }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
-                            @if($errors->has('sdistrict'))
-                                <span class="text-danger">{{ $errors->first('sdistrict') }}</span>
+                            @if($errors->has('school_district'))
+                                <span class="text-danger">{{ $errors->first('school_district') }}</span>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.district_helper') }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="required" for="supazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
-                            <select class="form-control select2 {{ $errors->has('supazila') ? 'is-invalid' : '' }}" name="supazila_id" id="supazila_id" required>
-                                <option value="{{ $user->upazila->id }}" {{ (old('upazila_id') ? old('upazila_id') : $user->upazila->id ?? '') == $id ? 'selected' : '' }}>{{ $user->upazila->name }}</option>
+                            <label class="required" for="school_upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
+                            <select class="form-control select2 {{ $errors->has('school_upazila') ? 'is-invalid' : '' }}" name="school_upazila_id" id="school_upazila_id" required>
+                                <option value="{{ $user->school->upazila_id }}" {{ (old('school_upazila_id') ? old('school_upazila_id') : $user->school->upazila_id ?? '') == $id ? 'selected' : '' }}>{{ $user->school->upazila->name }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
-                            @if($errors->has('supazila'))
-                                <span class="text-danger">{{ $errors->first('supazila') }}</span>
+                            @if($errors->has('school_upazila'))
+                                <span class="text-danger">{{ $errors->first('school_upazila') }}</span>
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.upazila_helper') }}</span>
                         </div>
@@ -259,7 +259,7 @@
                             <label class="required" for="division_id">{{ trans('cruds.user.fields.division') }}</label>
                             <select class="form-control select2 {{ $errors->has('address_division') ? 'is-invalid' : '' }}" name="address_division_id" id="address_division_id" required>
                                 @foreach($divisions as $id => $entry)
-                                    <option value="{{ $id }}" {{ (old('division_id') ? old('division_id') : $user->userAddresses[0]->division_id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                                    <option value="{{ $id }}" {{ (old('address_division_id') ? old('address_division_id') : $user->userAddresses[0]->division_id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                                 @endforeach
                             </select>
                             @if($errors->has('address_division'))
@@ -272,7 +272,7 @@
                         <div class="form-group">
                             <label class="required" for="address_district_id">{{ trans('cruds.user.fields.district') }}</label>
                             <select class="form-control select2 {{ $errors->has('address_district') ? 'is-invalid' : '' }}" name="address_district_id" id="address_district_id" required>
-                                <option value="{{ $user->userAddresses[0]->district_id }}" {{ (old('district_id') ? old('district_id') : $user->userAddresses[0]->district_id ?? '') == $id ? 'selected' : '' }}>{{ $user->userAddresses[0]->district->name }}</option>
+                                <option value="{{ $user->userAddresses[0]->district_id }}" {{ (old('address_district_id') ? old('address_district_id') : $user->userAddresses[0]->district_id ?? '') == $id ? 'selected' : '' }}>{{ $user->userAddresses[0]->district->name }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
@@ -286,7 +286,7 @@
                         <div class="form-group">
                             <label class="required" for="upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
                             <select class="form-control select2 {{ $errors->has('address_upazila') ? 'is-invalid' : '' }}" name="address_upazila_id" id="address_upazila_id" required>
-                                <option value="{{ $user->upazila->id }}" {{ (old('upazila_id') ? old('upazila_id') : $user->userAddresses[0]->upazila_id ?? '') == $id ? 'selected' : '' }}>{{ $user->upazila->name }}</option>
+                                <option value="{{ $user->upazila->id }}" {{ (old('address_upazila_id') ? old('address_upazila_id') : $user->userAddresses[0]->upazila_id ?? '') == $id ? 'selected' : '' }}>{{ $user->userAddresses[0]->upazila->name }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
@@ -299,7 +299,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="area">{{ trans('cruds.address.fields.area') }}</label>
-                            <textarea class="form-control ckeditor {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{!! old('area') !!}</textarea>
+                            <textarea class="form-control ckeditor {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{!! old('area', $user->userAddresses[0]->area) !!}</textarea>
                             @if($errors->has('area'))
                                 <span class="text-danger">{{ $errors->first('area') }}</span>
                             @endif
@@ -476,26 +476,26 @@
 
 
         //schools information
-        $("#sdivision_id").change(function(){
+        $("#school_division_id").change(function(){
             $.ajax({
                 url: "{{ route('admin.district.get_by_division') }}?division_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
-                    $('#sdistrict_id').html(data.html);
+                    $('#school_district_id').html(data.html);
                 }
             });
         });
 
-        $("#sdistrict_id").change(function(){
+        $("#school_district_id").change(function(){
             $.ajax({
                 url: "{{ route('admin.upazila.get_by_district') }}?district_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
-                    $('#supazila_id').html(data.html);
+                    $('#school_upazila_id').html(data.html);
                 }
             });
         });
-        $("#supazila_id").change(function(){
+        $("#school_upazila_id").change(function(){
             $.ajax({
                 url: "{{ route('admin.schools.get_by_upazila') }}?upazila_id=" + $(this).val(),
                 method: 'GET',

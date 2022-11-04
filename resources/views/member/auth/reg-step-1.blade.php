@@ -1,4 +1,4 @@
-@extends('alumni.layouts.registration')
+@extends('member.layouts.registration')
 @section('content')
     <!-- ---------------------- login end ---------------------- -->
     <section id="registration_page_1" class="mtn_white_box">
@@ -95,7 +95,7 @@
                             </div>
                         </div>
 
-                        <a href="{{ route('alumni.reg.step2') }}" class="btn_green_large">Next</a>
+                        <a href="{{ route('member.reg.step2') }}" class="btn_green_large">Next</a>
                     </div>
                 </form>
             </div>

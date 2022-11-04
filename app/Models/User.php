@@ -26,6 +26,11 @@ class User extends Authenticatable implements HasMedia
         'Male'   => 'Male',
         'Female' => 'Female',
     ];
+
+    public const ID_SELECT = [
+        'bd'   => 1984000000,
+        'zila' => 1984000000,
+    ];
     public const BLOOD_GROUP_SELECT = [
         'A+'  => 'A+',
         'A-'  => 'A-',
@@ -41,6 +46,7 @@ class User extends Authenticatable implements HasMedia
     public static $searchable = [
         'name',
         'mobile',
+        'email',
         'blood_group',
         'id_ssc_bd',
         'id_ssc_district',
@@ -83,6 +89,9 @@ class User extends Authenticatable implements HasMedia
         'created_at',
         'updated_at',
         'deleted_at',
+        'approved',
+        'verified',
+        'created_by_id'
     ];
 
     public function getIsAdminAttribute()
@@ -183,5 +192,10 @@ class User extends Authenticatable implements HasMedia
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    public function created_by()
+    {
+        return $this->belongsTo(User::class, 'created_by_id');
     }
 }

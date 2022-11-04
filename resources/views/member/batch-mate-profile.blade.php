@@ -1,4 +1,4 @@
-@extends('alumni.layouts.master')
+@extends('member.layouts.master')
 @section('top_content')
     <div class="dashboard_search">
         <input type="search" placeholder="Search">

@@ -131,16 +131,16 @@
                             {{ App\Models\Event::IS_ACTIVE_SELECT[$event->is_active] ?? '' }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.event.fields.user') }}
-                        </th>
-                        <td>
-                            @foreach($event->users as $key => $user)
-                                <span class="label label-info">{{ $user->name }}</span>
-                            @endforeach
-                        </td>
-                    </tr>
+{{--                    <tr>--}}
+{{--                        <th>--}}
+{{--                            {{ trans('cruds.event.fields.user') }}--}}
+{{--                        </th>--}}
+{{--                        <td>--}}
+{{--                            @foreach($event->users as $key => $user)--}}
+{{--                                <span class="label label-info">{{ $user->name }}</span>--}}
+{{--                            @endforeach--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
                     </tbody>
                 </table>
                 <div class="form-group">

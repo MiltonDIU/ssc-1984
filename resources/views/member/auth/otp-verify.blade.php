@@ -1,4 +1,4 @@
-@extends('alumni.layouts.login')
+@extends('member.layouts.login')
 @section('content')
     <!-- ---------------------- sign up start ---------------------- -->
     <form action="">
@@ -9,7 +9,7 @@
             <input type="number" placeholder="-">
         </div>
 {{--        <button type="submit" class="btn_green_large">Verify</button>--}}
-        <a  href="{{ route('alumni.registration1') }}" class="btn_green_large">Verify</a>
+        <a  href="{{ route('member.registration1') }}" class="btn_green_large">Verify</a>
     </form>
 
     <p class="font_12">Code expires in : <span class="font_green">00 : 56</span></p>

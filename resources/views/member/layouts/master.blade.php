@@ -48,31 +48,31 @@
         <ul class="nav nav-pills flex-column mb-auto">
             <p class="sidenav_title">Menu</p>
             <li class="nav-item">
-                <a href="{{ route('alumni.dashboard') }}" class="nav-link active" aria-current="page">
+                <a href="{{ route('member.dashboard') }}" class="nav-link active" aria-current="page">
                     <i class="bi bi-house"></i>
                     Home
                 </a>
             </li>
             <li>
-                <a href="{{ route('alumni.batch-mate') }}" class="nav-link">
+                <a href="{{ route('member.batch-mate') }}" class="nav-link">
                     <i class="bi bi-people-fill"></i>
                     Friends List
                 </a>
             </li>
             <li>
-                <a href="{{ route('alumni.schools') }}" class="nav-link">
+                <a href="{{ route('member.schools') }}" class="nav-link">
                     <i class="bi bi-building"></i>
                     School
                 </a>
             </li>
             <li>
-                <a href="{{ route('alumni.events') }}" class="nav-link">
+                <a href="{{ route('member.events') }}" class="nav-link">
                     <i class="bi bi-calendar-event"></i>
                     Events
                 </a>
             </li>
             <li>
-                <a href="{{ route('alumni.profile') }}" class="nav-link">
+                <a href="{{ route('member.profile') }}" class="nav-link">
                     <i class="bi bi-person-circle"></i>
                     My Profile
                 </a>

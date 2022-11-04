@@ -1,13 +1,4 @@
 <div class="m-3">
-    @can('user_create')
-        <div style="margin-bottom: 10px;" class="row">
-            <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.users.create') }}">
-                    {{ trans('global.add') }} {{ trans('cruds.user.title_singular') }}
-                </a>
-            </div>
-        </div>
-    @endcan
     <div class="card">
         <div class="card-header">
             {{ trans('cruds.user.title_singular') }} {{ trans('global.list') }}
@@ -45,9 +36,9 @@
                         <th>
                             {{ trans('cruds.user.fields.school') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.user.fields.profession') }}
-                        </th>
+{{--                        <th>--}}
+{{--                            {{ trans('cruds.user.fields.profession') }}--}}
+{{--                        </th>--}}
                         <th>
                             {{ trans('cruds.user.fields.district') }}
                         </th>
@@ -102,11 +93,11 @@
                             <td>
                                 {{ $user->school->name ?? '' }}
                             </td>
-                            <td>
-                                @foreach($user->professions as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name }}</span>
-                                @endforeach
-                            </td>
+{{--                            <td>--}}
+{{--                                @foreach($user->professions as $key => $item)--}}
+{{--                                    <span class="badge badge-info">{{ $item->name }}</span>--}}
+{{--                                @endforeach--}}
+{{--                            </td>--}}
                             <td>
                                 {{ $user->district->name ?? '' }}
                             </td>

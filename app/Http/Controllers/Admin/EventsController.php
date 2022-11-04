@@ -83,7 +83,7 @@ class EventsController extends Controller
             });
 
             $table->editColumn('is_free', function ($row) {
-                return $row->is_free ? Event::IS_FREE_SELECT[$row->is_free] : '';
+                return $row->is_free==1?"Yes":"No";
             });
             $table->editColumn('price', function ($row) {
                 return $row->price ? $row->price : '';
@@ -116,7 +116,7 @@ class EventsController extends Controller
     public function store(StoreEventRequest $request)
     {
         $event = Event::create($request->all());
-        $event->users()->sync($request->input('users', []));
+//        $event->users()->sync($request->input('users', []));
         if ($request->input('banner', false)) {
             $event->addMedia(storage_path('tmp/uploads/' . basename($request->input('banner'))))->toMediaCollection('banner');
         }
@@ -146,7 +146,7 @@ class EventsController extends Controller
     public function update(UpdateEventRequest $request, Event $event)
     {
         $event->update($request->all());
-        $event->users()->sync($request->input('users', []));
+        //$event->users()->sync($request->input('users', []));
         if ($request->input('banner', false)) {
             if (!$event->banner || $request->input('banner') !== $event->banner->file_name) {
                 if ($event->banner) {

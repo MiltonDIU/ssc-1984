@@ -1,4 +1,4 @@
-@extends('alumni.layouts.master')
+@extends('member.layouts.master')
 @section('top_content')
     <div class="dashboard_search">
         <input type="search" placeholder="Search among 3032 Schools">
@@ -29,7 +29,7 @@
     </div>
 
 
-@include('alumni.section.event')
+@include('member.section.event')
 
 
 

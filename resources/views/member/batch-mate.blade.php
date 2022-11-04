@@ -1,4 +1,4 @@
-@extends('alumni.layouts.master')
+@extends('member.layouts.master')
 @section('top_content')
     <div class="dashboard_search">
         <input type="search" placeholder="Search">
@@ -56,7 +56,7 @@
                     <td class="data_name">Mr. Batch Mate</td>
                     <td>Upozila, Zila</td>
                     <td>School Name</td>
-                    <td class="request_status view_profile"><a href="{{ route('alumni.batch-mate.profile',['profile']) }}">View Profile.</a></td>
+                    <td class="request_status view_profile"><a href="{{ route('member.batch-mate.profile',['profile']) }}">View Profile.</a></td>
                 </tr>
 
                 <tr>

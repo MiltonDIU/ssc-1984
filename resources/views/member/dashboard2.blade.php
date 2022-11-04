@@ -1,4 +1,4 @@
-@extends('alumni.layouts.master')
+@extends('member.layouts.master')
 @section('top_content')
     <h2 class="Welcome_message font_22">Hi, <span>{{ auth()->user()->name??'' }}</span>, We have found your <span>{{ $total_users??'' }}</span> friends 👋</h2>
 @endsection
@@ -40,39 +40,49 @@
             </div>
         </a>
     </div>
-
     <div class="dashboard_featured_event">
         <div class="featured_top">
             <p>Featured Events</p>
-            <a href="{{ route('alumni.events') }}">See All</a>
+            <a href="#">See All</a>
         </div>
 
         <div class="event_main">
-            @foreach($events as $event)
             <div class="event_box">
                 <div class="event_banner" style="background: url({{ url('assets/alumni/images/gray.png') }});">
                     <div class="event_date">
-                        <p class="day"> {{ date('j ', strtotime($event->event_date))  }}</p>
-                        <p class="month">{{ date('M ', strtotime($event->event_date))  }}</p>
-
+                        <p class="day">8</p>
+                        <p class="month">May</p>
                     </div>
+
                     <div class="event_details">
-                        <p class="event_title">{{ $event->event_category->name }}</p>
-                        <p class="event_location">{{ $event->address }}</p>
+                        <p class="event_title">Reunion 2022</p>
+                        <p class="event_location">Park Hight, Dhanmondi 27, Dhaka 1203</p>
                     </div>
                 </div>
+
                 <div class="going_box">
                     <div class="participant_box">
                         <p>Going</p>
 
                         <div class="participant_img_count">
-                            @foreach($event->users as $user)
                             <div class="participant_img">
                                 <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
                             </div>
-                            @endforeach
+
+                            <div class="participant_img ml_negative">
+                                <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
+                            </div>
+
+                            <div class="participant_img ml_negative">
+                                <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
+                            </div>
+
+                            <div class="participant_img ml_negative">
+                                <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
+                            </div>
+
                             <div class="participant_img participant_count ml_negative">
-                                <p>{{ count($event->users) }}</p>
+                                <p>180+</p>
                             </div>
                         </div>
                     </div>
@@ -82,7 +92,52 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+
+            <div class="event_box">
+                <div class="event_banner" style="background: url({{ url('assets/alumni/images/gray.png') }});">
+                    <div class="event_date">
+                        <p class="day">8</p>
+                        <p class="month">May</p>
+                    </div>
+
+                    <div class="event_details">
+                        <p class="event_title">Reunion 2022</p>
+                        <p class="event_location">Park Hight, Dhanmondi 27, Dhaka 1203</p>
+                    </div>
+                </div>
+
+                <div class="going_box">
+                    <div class="participant_box">
+                        <p>Going</p>
+
+                        <div class="participant_img_count">
+                            <div class="participant_img">
+                                <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
+                            </div>
+
+                            <div class="participant_img ml_negative">
+                                <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
+                            </div>
+
+                            <div class="participant_img ml_negative">
+                                <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
+                            </div>
+
+                            <div class="participant_img ml_negative">
+                                <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
+                            </div>
+
+                            <div class="participant_img participant_count ml_negative">
+                                <p>180+</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="going_btn_box">
+                        <a href="#" class="going_btn">Going</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

@@ -52,14 +52,17 @@ class EventsTableSeeder extends Seeder
 
    public function newUser($event){
        $faker = Factory::create();
-       $divisions_id = $faker->randomElement(Division::all()->pluck('id')->toArray());
-       $district_id = $faker->randomElement(District::where('division_id',$divisions_id)->get()->pluck('id')->toArray());
-       $upazila_id = $faker->randomElement(Upazila::where('district_id',$district_id)->get()->pluck('id')->toArray());
-       $school_id = $faker->randomElement(School::all()->pluck('id')->toArray());
+
        $usersIds = array();
-       for ($i = 1; $i < 500; $i++) {
-           $bd_user = User::all();
-           $dis_user = User::where('district_id',$district_id)->get();
+       for ($i = 1; $i < 50; $i++) {
+           $divisions_id = $faker->randomElement(Division::all()->pluck('id')->toArray());
+           $district_id = $faker->randomElement(District::where('division_id',$divisions_id)->get()->pluck('id')->toArray());
+           $upazila_id = $faker->randomElement(Upazila::where('district_id',$district_id)->get()->pluck('id')->toArray());
+           $school_id = $faker->randomElement(School::all()->pluck('id')->toArray());
+           $totalUsers = User::where('id_ssc_bd','!=',null)->where('id_ssc_district','!=',null)->get()->count();
+           $dis_user = User::where('district_id',$district_id)->get()->count();
+
+
            $user = [
                'name'               => $faker->name,
                'email'              => $faker->companyEmail,
@@ -78,8 +81,8 @@ class EventsTableSeeder extends Seeder
                'district_id'           => $district_id,
                'upazila_id'           => $upazila_id,
                'school_id'          => $school_id,
-               'id_ssc_bd'          =>  count($bd_user)+1,
-               'id_ssc_district'    => count($dis_user)+1,
+               'id_ssc_bd'          =>  User::ID_SELECT['bd']+$totalUsers+1,
+               'id_ssc_district'    => User::ID_SELECT['zila']+$dis_user+1,
            ];
            $user = User::create($user);
            array_push($usersIds,$user->id);
