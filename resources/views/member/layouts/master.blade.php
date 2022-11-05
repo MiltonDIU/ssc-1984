@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ url('assets/alumni/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/alumni/css/style.css') }}">
     <!-- ---------------------- CSS end ---------------------- -->
+
+    @stack('style')
 </head>
 <body>
 <section id="dashboard" class="d-flex">
@@ -56,7 +58,7 @@
             <li>
                 <a href="{{ route('member.batch-mate') }}" class="nav-link">
                     <i class="bi bi-people-fill"></i>
-                    Friends List
+                    Batch Mate
                 </a>
             </li>
             <li>
@@ -83,9 +85,19 @@
             <p class="sidenav_title">Profile</p>
 
             <a href="#" class="d-flex align-items-center">
-                <img src="{{ url('assets/alumni/images/img.png') }}" alt="" class="profile_img">
+
+                @if(auth()->user()->avatar)
+                    <img src="{{ auth()->user()->avatar->getUrl('thumb') }}" alt="{{ auth()->user()->name }}" class="profile_img">
+                @else
+                    <img src="{{ url('assets/alumni/images/My profile.png') }}" alt="" class="profile_img">
+                @endif
+{{--                --}}
+{{--                <img src="{{ url('assets/alumni/images/img.png') }}" alt="" class="profile_img">--}}
+{{--                --}}
+{{--                --}}
+
                 <div class="sidenav_bottom_profile">
-                    <p class="profile_name">Amanda</p>
+                    <p class="profile_name"> {{ auth()->user()->name??"" }}</p>
                     <p class="profile_type font_14">Admin Account</p>
                 </div>
                 <span><i class="bi bi-three-dots"></i></span>
@@ -134,6 +146,8 @@
 <script src="{{ url('assets/alumni/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ url('assets/alumni/js/script.js') }}"></script>
 <!-- ---------------------- JS end ---------------------- -->
+
+@stack('script')
 </body>
 </html>
 

@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                     <label for="area">{{ trans('cruds.address.fields.area') }}</label>
-                    <textarea class="form-control ckeditor {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{!! old('area') !!}</textarea>
+                    <textarea class="form-control {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{!! old('area') !!}</textarea>
                     @if($errors->has('area'))
                         <span class="text-danger">{{ $errors->first('area') }}</span>
                     @endif

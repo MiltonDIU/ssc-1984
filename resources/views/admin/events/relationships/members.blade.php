@@ -18,6 +18,10 @@
                         <th>
                             {{ trans('cruds.user.fields.name') }}
                         </th>
+
+                        <th>
+                            {{ "Approved" }}
+                        </th>
                         <th>
                             {{ trans('cruds.user.fields.email') }}
                         </th>
@@ -70,6 +74,10 @@
                             </td>
                             <td>
                                 {{ $user->name ?? '' }}
+                            </td>
+
+                            <td>
+                                {{ $user->event->pivot ?? '' }}
                             </td>
                             <td>
                                 {{ $user->email ?? '' }}

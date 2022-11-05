@@ -181,11 +181,13 @@ Auth::routes([
 Route::group(['prefix' => 'member', 'as' => 'member.'], function () {
     Route::get('/', [AlumniDashboardController::class, 'index'])->name('dashboard');
     Route::get('/batch-mate', [AlumniDashboardController::class, 'batchMate'])->name('batch-mate');
-    Route::get('/batch-mate/{profile}', [AlumniDashboardController::class, 'batchMateProfile'])->name('batch-mate.profile');
+    Route::get('/batch-mate/{profile}/{name}', [AlumniDashboardController::class, 'batchMateProfile'])->name('batch-mate.profile');
     Route::get('/schools', [AlumniDashboardController::class, 'schools'])->name('schools');
-    Route::get('/school/{name}', [AlumniDashboardController::class, 'schoolProfile'])->name('schoolProfile');
+    Route::get('/school/{id}/{name}', [AlumniDashboardController::class, 'schoolProfile'])->name('schoolProfile');
     Route::get('/events', [AlumniDashboardController::class, 'events'])->name('events');
-    Route::get('/school/{name}', [AlumniDashboardController::class, 'schoolProfile'])->name('schoolProfile');
+    Route::get('/events/{id}/confirm', [AlumniDashboardController::class, 'eventConfirm'])->name('eventConfirm');
+    Route::post('/events/{id}/confirm', [AlumniDashboardController::class, 'eventConfirmSubmit'])->name('eventConfirmSubmit');
+    Route::get('/events/{id}/{name}', [AlumniDashboardController::class, 'eventDetails'])->name('eventDetails');
 
     Route::get('/register', [FrontendController::class, 'register'])->name('register');
     Route::get('/otp', [FrontendController::class, 'otp'])->name('otp');
@@ -194,6 +196,11 @@ Route::group(['prefix' => 'member', 'as' => 'member.'], function () {
     Route::get('/registration-step2', [FrontendController::class, 'registration2'])->name('reg.step2');
     Route::get('/profile', [FrontendController::class, 'profile'])->name('profile');
 
+
+
+    //dropzone upload
+    Route::put('/spouse-picture-upload', [MemberController::class,'profilePictureUpdate'])->name('spouse-picture-upload');
+    Route::post('/spouse-picture-upload', [MemberController::class,'storeMedia'])->name('spouse.storeMedia');
 });
 
 

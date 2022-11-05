@@ -51,9 +51,8 @@ p {
 }
 
 .registration_box {
-    width: 915px;
-    height: 645px;
     margin: 0 auto;
+    padding: 10px 30px 30px 30px;
 }
 
 .white_box {
@@ -214,6 +213,20 @@ input[type=number] {
 label {
     display: block;
 }
+
+.form-select {
+	width: 327px;
+	height: 48px;
+	background: #FFFFFF;
+	color: #7F8E9D;
+	border: 0.70px solid #C7CAD9;
+	border-radius: 4px;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-size: 16px 12px;
+	margin: 22px 0 21px 0;
+}
 /* ---------------------- common css end ---------------------- */
 
 /* ---------------------- navbar start ---------------------- */
@@ -245,50 +258,6 @@ nav .nav-item .nav-link {
     display: flex;
 }
 /* ---------------------- navbar end ---------------------- */
-
-/* ====================== Select Batch Page Start ====================== */
-
-/* ---------------------- select batch start ---------------------- */
-#select_batch .logo_box {
-    width: 210px;
-    height: 204px;
-    margin: 48px 0 49px 0;
-}
-
-.logo_box img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.form-select {
-    width: 327px;
-    height: 48px;
-    background: #FFFFFF;
-    color: #7F8E9D;
-    border: 0.70px solid #C7CAD9;
-    border-radius: 4px;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right .75rem center;
-    background-size: 16px 12px;
-    margin: 22px 0 21px 0;
-}
-
-.form-select:focus {
-    border-color: #C7CAD9;
-    outline: 0;
-    box-shadow: none;
-}
-
-#select_batch .font_12{
-    margin-top: 52px;
-    margin-bottom: 53px;
-}
-/* ---------------------- select batch end ---------------------- */
-
-/* ====================== Select Batch Page End ====================== */
 
 /* ====================== Login Page Start ====================== */
 #login .logo_box {
@@ -428,99 +397,18 @@ input:focus::placeholder {
 
 /* ====================== Sign up Page end ====================== */
 
-/* ====================== Sign up with phone Page start ====================== */
-#sign_up_phone .logo_box {
-    width: 152px;
-    height: 147px;
-    margin: 17px 0 39px 0;
-}
-
-#sign_up_phone .font_14 {
-    margin-bottom: 10px;
-}
-
-#sign_up_phone .input-box {
-    margin-bottom: 10px;
-}
-
-#sign_up_phone .input-box input {
-    width: 100%;
-    height: 48px;
-    border: none;
-    text-align: left;
-    background-color: transparent;
-    padding: .375rem .75rem;
-}
-
-#sign_up_phone .input-box input::placeholder {
-    text-align: left;
-}
-
-/* Chrome, Safari, Edge, Opera */
-#sign_up_phone input::-webkit-outer-spin-button,
-#sign_up_phone input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-#sign_up_phone input[type=number] {
-  -moz-appearance: textfield;
-}
-
-#sign_up_phone .btn_green_large {
-    margin-bottom: 183px;
-}
-/* ====================== Sign up with phone Page end ====================== */
-
-/* ====================== OTP Phone Sign up Page start ====================== */
-.otp_sign_up_box .font_24 {
-    margin: 35px 0 25px 0
-}
-
-.otp_sign_up_box .img_box img{
-    display: block;
-    width: 140px;
-    height: auto;
-    margin: 20px 0 18px 0;
-}
-
-.otp_input_group {
-    text-align: center;
-}
-
-.otp_input_group input {
-    width: 64px;
-    height: 64px;
-    margin: 0 6px 29px 6px;
-    border-radius: 4px;
-    border: 0.70px solid #C7CAD9;
-    text-align: center;
-}
-
-.otp_input_group input ::placeholder {
-    color: #B7B7B7;
-}
-
-.otp_sign_up_box .btn_green_large {
-    margin-bottom: 32px;
-}
-/* ====================== OTP Phone Sign up Page end ====================== */
-
 /* ====================== Registration-1 Page start ====================== */
-.registration_box .input_box {
-    width: 327px;
-}
-
 .registration_box .font_22 {
     padding-top: 25px;
     margin-bottom: 20px;
 }
 
-.registration_box form {
-    margin: 0 70px 44px 70px;
+#registration_page_1 .input_box {
     display: flex;
-    justify-content: space-between;
+}
+
+#registration_page_1 .input_group {
+    margin-right: 45px;
 }
 
 .registration_box form label {
@@ -542,15 +430,6 @@ input:focus::placeholder {
     font-size: 14px;
     font-weight: 400;
     color: #7F8E9D;
-}
-
-.input_password {
-    display: flex;
-}
-
-.input_password input {
-    width: 156px !important;
-    margin-right: 15px;
 }
 
 .password_box.toggle_box {
@@ -575,6 +454,7 @@ input:focus::placeholder {
     background-repeat: no-repeat;
     display: inline-block;
     border: 0.71px solid #C7CAD9;
+    margin-right: 35px;
 }
 
 .btn-primary {
@@ -589,10 +469,6 @@ input:focus::placeholder {
     border: none;
     border-radius: 0;
     padding: 0;
-}
-
-.img_preview_box {
-    margin-bottom: 50px;
 }
 
 .imgUp {
@@ -650,14 +526,12 @@ input:focus::placeholder {
 .address_options .form-select {
     width: 150px;
 }
-/* ====================== Registration-1 Page end ====================== */
 
-/* ====================== Registration-2 Page start ====================== */
-#registration_page_2 .gender_select {
+#registration_page_1 .gender_select {
     width: 100px;
 }
 
-#registration_page_2 .birth_date_input input {
+#registration_page_1 .birth_date_input input {
     width: 204px;
     color: #7F8E9D;
     cursor: pointer;
@@ -666,6 +540,7 @@ input:focus::placeholder {
 .input_wrap {
     display: flex;
     justify-content: space-between;
+    width: 327px;
 }
 
 .registration_box .input_group .area_input input{
@@ -722,7 +597,7 @@ input:focus::placeholder {
     color: #fff;
 }
 
-.btn_group .done_btn {
+.submit_btn .save_btn {
     font-family: 'Lato', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -735,8 +610,54 @@ input:focus::placeholder {
     background: #007D24;
     border-radius: 4px;
     transition: all linear .2s;
+    border: none;
 }
-/* ====================== Registration-2 Page end ====================== */
+
+.submit_btn .save_btn:hover {
+    color: #fff;
+    background-color: #005816;
+}
+
+.place_input {
+    margin-right: 20px;
+}
+
+.place_input .form-select {
+    width: 290px;
+}
+
+.professional_info .form-select {
+    width: 910px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    display: none;
+}
+
+.select2-container--default .select2-selection--single {
+	height: 48px;
+	background: #FFFFFF;
+	color: #7F8E9D;
+	border: 0.70px solid #C7CAD9;
+	border-radius: 4px;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-size: 16px 12px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+	line-height: 48px;
+}
+
+.select2-container--default .select2-selection--multiple {
+	height: 48px;
+	background: #FFFFFF;
+	border: 0.71px solid #C7CAD9;
+	border-radius: 4px;
+	padding: 8px;
+}
+/* ====================== Registration-1 Page end ====================== */
 
 /* ====================== Dashboard landing Page end ====================== */
 .sidenav {
@@ -1577,22 +1498,28 @@ input:focus::placeholder {
     font-weight: 600;
     margin-bottom: 4px;
 }
+
+.btns_group .r_btn_wrap {
+    margin-top: 11px;
+}
+
+.btns_group .r_btn_wrap .group_btn_green {
+    padding: 12px 16px;
+}
 /* ====================== Dashboard event Page end ====================== */
 
 /* ====================== Event Request Page start ====================== */
-
 .event_view .dashboard_content_top {
     justify-content: flex-end;
     margin: 40px 39px 5px 105px;
 }
 
 .event_box_large {
-    width: 1015px;
-    height: 635px;
+    width: 1156px;
     background: #FFFFFF;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 8px;
-    margin-left: 45px;
+    margin: 20px 0 30px 45px;
     padding: 0 30px 40px 30px;
 }
 
@@ -1603,14 +1530,20 @@ input:focus::placeholder {
     color: #1E3354;
 }
 
-.event_box_large .form_top {
+.event_box_large .form_left {
     margin-top: 32px;
-    display: flex;
 }
 
 .event_box_large .input_box {
-    width: 327px;
+    display: flex;
+}
+
+.event_box_large .input_group {
     margin-right: 33px;
+}
+
+.event_box_large form {
+    display: flex;
 }
 
 .event_box_large form label {
@@ -1627,21 +1560,79 @@ input:focus::placeholder {
     margin-bottom: 21px;
 }
 
+.event_box_large form input#event_date {
+    width: 207px;
+}
+
+.event_box_large form .event_time {
+    width: 207px;
+}
+
+.form_left_box .input_group select {
+    width: 207px;
+}
+
+.form_left_box .input_group input {
+    width: 207px;
+}
+
 .event_box_large form .wraper {
     display: flex;
     align-items: flex-start;
     line-height: 1;
-    margin-top: 58px;
+    margin-top: 10px;
 }
 
-.event_box_large form .checkbox_input {
-    width: 16px;
-    height: 16px;
-    margin-bottom: 15px;
-    margin-right: 8px;
+.event_box_large .btn-primary input {
+    background: transparent;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+    padding: 0;
 }
 
-.form_bottom textarea {
+.event_box_large .imgUp {
+	margin-bottom: 15px;
+	position: relative;
+	display: block;
+}
+
+.event_box_large .imagePreview {
+	width: 371px;
+	height: 145px;
+	background-position: center center;
+	background-color: #fff;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: inline-block;
+	border: 0.71px solid #C7CAD9;
+	margin-right: 0;
+	margin-bottom: 10px;
+}
+
+.event_box_large .del {
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	width: 24px;
+	height: 24px;
+	background-color: #fff;
+	border-radius: 50%;
+	border: 0.71px solid #C7CAD9;
+	font-size: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.event_box_large .upload_btn_group {
+    margin-top: 30px;
+}
+
+.form_left_box textarea {
     width: 684px;
     height: 136px;
     border: 0.71px solid #C7CAD9;
@@ -1672,9 +1663,7 @@ input:focus::placeholder {
 }
 
 .request_btn {
-    margin-right: 268px;
-    display: flex;
-    justify-content: right;
+    margin-top: 20px;
 }
 /* ====================== Event Request Page end ====================== */
 
@@ -2005,3 +1994,41 @@ input:focus::placeholder {
     font-size: 16px;
 }
 /* ====================== edit profile page end ====================== */
+.spouse_info .imagePreview {
+    width: 137px;
+    height: 137px;
+    background-position: center center;
+    background-color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    border: 0.71px solid #C7CAD9;
+    margin-right: 35px;
+}
+
+.spouse_info .imgUp {
+    margin-bottom: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.spouse_info .del {
+    position: absolute;
+    top: -12px;
+    right: 179px;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 0.71px solid #C7CAD9;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.spouse_info .upload_btn_group {
+    margin-top: 0;
+}

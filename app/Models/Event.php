@@ -102,11 +102,23 @@ class Event extends Model implements HasMedia
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('approved_by');
     }
-
+    public function lastFiveusers()
+    {
+        return $this->belongsToMany(User::class)->orderBy('id','desc')->take(10);
+    }
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+//    public static function enrollment($event_id){
+//
+//        if (count(auth()->user()->userEvents()->where('id', $event_id)->get())>0){
+//            return true;
+//        }else{
+//            return false;
+//        }
+//    }
 }

@@ -112,7 +112,7 @@ class User extends Authenticatable implements HasMedia
 
     public function userEvents()
     {
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class)->withPivot('approved_by');;
     }
 
     public function getDateOfBirthAttribute($value)

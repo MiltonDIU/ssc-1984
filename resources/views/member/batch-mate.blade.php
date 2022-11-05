@@ -18,129 +18,31 @@
                     <th scope="col">Name</th>
                     <th scope="col">Location</th>
                     <th scope="col">School Name</th>
-                    <th scope="col">Request</th>
+                    <th scope="col">Profile</th>
                 </tr>
                 </thead>
-
                 <tbody>
+                @foreach($users as $user)
                 <tr>
                     <th scope="row">
                         <div class="data_profile_img">
-                            <img src="images/gray.png" alt="">
+                            @if($user->avatar)
+                                <img src="{{ $user->avatar->getUrl('thumb') }}" alt="{{ $user->name }}">
+                            @else
+                                <img src="{{ url('assets/alumni/images/My profile.png') }}" alt="">
+                            @endif
                         </div>
                     </th>
-                    <td class="data_name " >Mr. Batch Mate</td>
-                    <td>Upozila, Zila</td>
-                    <td>School Name</td>
-                    <td class="request_status request_sent"><a href="">Request Sent.</a></td>
+                    <td class="data_name " >{{ $user->name??"" }}</td>
+                    <td>{{ $user->upazila->name??"" }}, {{ $user->district->name??"" }}</td>
+                    <td>{{ $user->school->name??"" }}</td>
+                    <td class="request_status request_sent"><a href="{{ route('member.batch-mate.profile',[$user->id,$user->name]) }}">View Profile</a></td>
                 </tr>
-
-                <tr>
-                    <th scope="row">
-                        <div class="data_profile_img">
-                            <img src="images/gray.png" alt="">
-                        </div>
-                    </th>
-                    <td class="data_name">Mr. Batch Mate</td>
-                    <td>Upozila, Zila</td>
-                    <td>School Name</td>
-                    <td class="request_status request_info"><a href="#">Request Info.</a></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">
-                        <div class="data_profile_img">
-                            <img src="images/gray.png" alt="">
-                        </div>
-                    </th>
-                    <td class="data_name">Mr. Batch Mate</td>
-                    <td>Upozila, Zila</td>
-                    <td>School Name</td>
-                    <td class="request_status view_profile"><a href="{{ route('member.batch-mate.profile',['profile']) }}">View Profile.</a></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">
-                        <div class="data_profile_img">
-                            <img src="images/gray.png" alt="">
-                        </div>
-                    </th>
-                    <td class="data_name">Mr. Batch Mate</td>
-                    <td>Upozila, Zila</td>
-                    <td>School Name</td>
-                    <td class="request_status request_info"><a href="#">Request Info.</a></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">
-                        <div class="data_profile_img">
-                            <img src="images/gray.png" alt="">
-                        </div>
-                    </th>
-                    <td class="data_name">Mr. Batch Mate</td>
-                    <td>Upozila, Zila</td>
-                    <td>School Name</td>
-                    <td class="request_status request_info"><a href="#">Request Info.</a></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">
-                        <div class="data_profile_img">
-                            <img src="images/gray.png" alt="">
-                        </div>
-                    </th>
-                    <td class="data_name">Mr. Batch Mate</td>
-                    <td>Upozila, Zila</td>
-                    <td>School Name</td>
-                    <td class="request_status request_info"><a href="#">Request Info.</a></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">
-                        <div class="data_profile_img">
-                            <img src="images/gray.png" alt="">
-                        </div>
-                    </th>
-                    <td class="data_name">Mr. Batch Mate</td>
-                    <td>Upozila, Zila</td>
-                    <td>School Name</td>
-                    <td class="request_status request_info"><a href="#">Request Info.</a></td>
-                </tr>
-
-                <tr>
-                    <th scope="row">
-                        <div class="data_profile_img">
-                            <img src="images/gray.png" alt="">
-                        </div>
-                    </th>
-                    <td class="data_name">Mr. Batch Mate</td>
-                    <td>Upozila, Zila</td>
-                    <td>School Name</td>
-                    <td class="request_status request_info"><a href="#">Request Info.</a></td>
-                </tr>
+                @endforeach
                 </tbody>
             </table>
-
-            <nav aria-label="...">
-                <ul class="pagination pagination-sm justify-content-end">
-                    <li class="page-item active" aria-current="page">
-                        <span class="page-link">1</span>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">6</a></li>
-                    <li class="page-item"><a class="page-link" href="#">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#">12</a></li>
-                    <li class="page-item"><a class="page-link" href="#">13</a></li>
-                </ul>
-            </nav>
+            {{ $users->links('vendor.pagination.bootstrap-5')}}
         </div>
-
     <!-- ---------------------- Dashboard content end ---------------------- -->
 @endsection
-@section('scripts')
-    @parent
 
-@endsection
