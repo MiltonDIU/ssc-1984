@@ -19,3 +19,14 @@
 .event_box_main{
     margin: 10px;
 }
+.dashboard_content_top {
+    margin: 30px 9px 35px 9px;
+}
+.dashboard_search{
+    width: 100%;
+}
+.select2-container--default .select2-selection--single{
+    border: 1px solid #aaa;
+    height: 50px !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{ line-height: 45px}

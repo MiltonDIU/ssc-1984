@@ -29,8 +29,12 @@ class UsersTableSeeder extends Seeder
                 'verified'           => 1,
                 'verified_at'        => '2022-08-02 04:35:32',
                 'verification_token' => '',
-                'id_ssc_bd'          => '000001',
-                'id_ssc_district'    => '00001',
+                'id_ssc_bd'          => '',
+                'id_ssc_district'    => '',
+                'division_id'    => '1',
+                'district_id'    => '1',
+                'upazila_id'    => '1',
+                'school_id'    => '1',
             ],
             [
                 'name'               => 'Alumni',
@@ -48,6 +52,10 @@ class UsersTableSeeder extends Seeder
                 'verification_token' => '',
                 'id_ssc_bd'          => '000002',
                 'id_ssc_district'    => '00002',
+                'division_id'    => '1',
+                'district_id'    => '1',
+                'upazila_id'    => '1',
+                'school_id'    => '1',
             ],
         ];
 

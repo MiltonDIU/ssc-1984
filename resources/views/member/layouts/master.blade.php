@@ -24,6 +24,7 @@
     <!-- ---------------------- CSS start ---------------------- -->
     <link rel="stylesheet" href="{{ url('assets/alumni/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/alumni/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/alumni/css/responsive.css') }}">
     <!-- ---------------------- CSS end ---------------------- -->
 <style>
     .dashboard_content{ padding: 25px}
@@ -31,112 +32,100 @@
     @stack('style')
 </head>
 <body>
-<section id="dashboard" class="d-flex">
-    <!-- ---------------------- side navbar start ---------------------- -->
-    <div class="sidenav d-flex flex-column flex-shrink-0 bg-white" style="width: 278px; height: 100vh;">
-        <a href="{{ route('member.dashboard') }}" class="d-flex align-items-center">
-            <img src="{{ url('assets/alumni/images/logo.png') }}" alt="" class="logo_img">
-            <div class="sidenav_top_text">
-                <p class="batch_name">SSC-1984 Bangladesh</p>
-                <p class="tagline">Unity Through Friendship</p>
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <!-- ---------------------- side navbar start ---------------------- -->
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white">
+            <div class="d-flex flex-column align-items-center align-items-sm-start text-white min-vh-100">
+
+                <ul class="nav sidenav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                            <a href="{{ route('member.dashboard') }}" class="d-flex align-items-center">
+                                <img src="{{ url('assets/alumni/images/logo.png') }}" alt="" class="logo_img">
+                            <div class="sidenav_top_text sm_d_none">
+                                <p class="batch_name">SSC-1984 Bangladesh</p>
+                                <p class="tagline">Unity Through Friendship</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="w_100">
+                        <ul class="nav nav-pills flex-column mb-auto a_center">
+                    <li class="nav-item">
+                        <a href="{{ route('member.dashboard') }}" class="nav-link active" aria-current="page">
+                            <i class="bi bi-house"></i>
+                            <span class="sm_d_none">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('member.batch-mate') }}" class="nav-link">
+                            <i class="bi bi-people-fill"></i>
+                            <span class="sm_d_none">Friends List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('member.schools') }}" class="nav-link">
+                            <i class="bi bi-building"></i>
+                            <span class="sm_d_none">School</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('member.events') }}" class="nav-link">
+                            <i class="bi bi-calendar-event"></i>
+                            <span class="sm_d_none">Events</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('member.profile') }}" class="nav-link">
+                            <i class="bi bi-person-circle"></i>
+                            <span class="sm_d_none">My Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('member.my-reference-member') }}" class="nav-link">
+                            <i class="bi bi-people-fill"></i>
+                            <span class="sm_d_none">  My Reference</span>
+                        </a>
+                    </li>
+                </ul>
+
+                    </li>
+                    <div class="profile_part">
+                        <p class="sidenav_title"><span class="My Profile">Profile</span></p>
+
+                        <a href="{{ route('member.settings') }}"  class="d-flex align-items-center">
+                            @if(auth()->user()->avatar)
+                                <img src="{{ auth()->user()->avatar->getUrl('thumb') }}" alt="{{ auth()->user()->name }}" class="profile_img">
+                            @else
+                                <img src="{{ url('assets/alumni/images/My profile.png') }}" alt="" class="profile_img">
+                            @endif
+                            <div class="sidenav_bottom_profile">
+                                <p class="profile_name"> <span class="sm_d_none">{{ auth()->user()->name??"" }}</span></p>
+                                <p class="profile_type font_14"><span class="sm_d_none">Account Settings</span></p>
+                            </div>
+                            <span class="sm_d_none"><i class="bi bi-three-dots"></i></span>
+                        </a>
+                    </div>
+
+
+                    <div class="logout">
+                        <a href="#" class="logout_btn" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"><i class="bi bi-box-arrow-right"></i><span class="sm_d_none">Logout</span></a>
+                    </div>
+
+                    <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </ul>
             </div>
-        </a>
-
-{{--        <div class="search">--}}
-{{--            <div class="search_wrap">--}}
-{{--                <i class="bi bi-search"></i>--}}
-{{--                <input type="search" placeholder="Search">--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-        <ul class="nav nav-pills flex-column mb-auto">
-{{--            <p class="sidenav_title">Menu</p>--}}
-            <li class="nav-item" style="margin-top: 20px">
-                <a href="{{ route('member.dashboard') }}" class="nav-link active" aria-current="page">
-                    <i class="bi bi-house"></i>
-                    Home
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('member.batch-mate') }}" class="nav-link">
-                    <i class="bi bi-people-fill"></i>
-                    Batch Mate
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('member.schools') }}" class="nav-link">
-                    <i class="bi bi-building"></i>
-                    School
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('member.events') }}" class="nav-link">
-                    <i class="bi bi-calendar-event"></i>
-                    Events
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('member.profile') }}" class="nav-link">
-                    <i class="bi bi-person-circle"></i>
-                    My Profile
-                </a>
-            </li>
-
-            <li>
-                <a href="{{ route('member.my-reference-member') }}" class="nav-link">
-                    <i class="bi bi-person-circle"></i>
-                    My Reference
-                </a>
-            </li>
-        </ul>
-
-        <div class="profile_part">
-{{--            <p class="sidenav_title">Profile</p>--}}
-
-            <a href="{{ route('member.settings') }}" class="d-flex align-items-center">
-
-                @if(auth()->user()->avatar)
-                    <img src="{{ auth()->user()->avatar->getUrl('thumb') }}" alt="{{ auth()->user()->name }}" class="profile_img">
-                @else
-                    <img src="{{ url('assets/alumni/images/My profile.png') }}" alt="" class="profile_img">
-                @endif
-{{--                --}}
-{{--                <img src="{{ url('assets/alumni/images/img.png') }}" alt="" class="profile_img">--}}
-{{--                --}}
-{{--                --}}
-
-                <div class="sidenav_bottom_profile">
-                    <p class="profile_name"> {{ auth()->user()->name??"" }}</p>
-                    <p class="profile_type font_14">Account Settings</p>
-                </div>
-                <span><i class="bi bi-three-dots"></i></span>
-            </a>
-
         </div>
-
-        <div class="logout">
-            <a href="#" class="logout_btn" onclick="event.preventDefault(); document.getElementById('logoutform').submit();"><i class="bi bi-box-arrow-right"></i>Logout</a>
+        <!-- ---------------------- Dashboard content start ---------------------- -->
+        <div class="col py-3">
+            <div class="dashboard_content {{ $page_class??'' }}">
+                @yield('content')
+            </div>
         </div>
-
-
-        <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
-
-
-
+        <!-- ---------------------- Dashboard content end ---------------------- -->
     </div>
-    <!-- ---------------------- side navbar end ---------------------- -->
-
-    <!-- ---------------------- Dashboard content end ---------------------- -->
-    <div class="dashboard_content {{ $page_class??'' }}">
-
-      @yield('content')
-    </div>
-    <!-- ---------------------- Dashboard content end ---------------------- -->
-</section>
-
-
+</div>
 <!-- ---------------------- JS start ---------------------- -->
 <script src="{{ url('assets/alumni/js/jquery-1.12.4.min.js') }}"></script>
 <script src="{{ url('assets/alumni/js/bootstrap.bundle.min.js') }}"></script>

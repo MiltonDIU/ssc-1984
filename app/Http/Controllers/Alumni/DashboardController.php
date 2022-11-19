@@ -39,8 +39,16 @@ class DashboardController extends Controller
 
     public function settings()
     {
-       // abort_if(Gate::denies('member_settings'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('member_settings'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return view('member.settings');
+    }
+
+    public function settingsUpdate(Request $request)
+    {
+        abort_if(Gate::denies('member_settings'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $user = User::findorFail(auth()->id());
+        $user->update($request->all());
+        return redirect()->route('member.settings')->with('message', __('Update successfully'));
     }
 
     public function index()
@@ -48,9 +56,8 @@ class DashboardController extends Controller
         abort_if(Gate::denies('member_dashboard'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $events = Event::where('is_active', '1')->where('event_date', '<', date('Y-m-d', strtotime(Carbon::now())))->get();
-
-//        return view('member.dashboard',compact('total_users','events'));
-        return view('member.dashboard', compact('events'));
+        $total_users = count(User::where('id_ssc_bd','!=',null)->where('id_ssc_district','!=',null)->get());
+        return view('member.dashboard', compact('events','total_users'));
     }
 
     public function batchMate()
@@ -148,8 +155,7 @@ class DashboardController extends Controller
         $districts = District::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $upazilas = Upazila::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $roles = Role::pluck('title', 'id');
+        $roles = Role::where('id', 2)->pluck('title', 'id');
 
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
 
@@ -187,7 +193,25 @@ class DashboardController extends Controller
     public function profile()
     {
         abort_if(Gate::denies('member_profile'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        return view('member.profile');
+
+        $user = User::findorFail(auth()->id());
+
+        $professions = Profession::where('profession_parrent', 0)->pluck('name', 'id');
+
+        $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $districts = District::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $upazilas = Upazila::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $roles = Role::where('id', 2)->pluck('title', 'id');
+
+        $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
+
+        return view('member.profile', compact('districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
+
+
+
     }
 
 
@@ -251,4 +275,96 @@ class DashboardController extends Controller
         }
         return response()->json(['html' => $html]);
     }
+
+
+    private $models = [
+        'School'        => 'cruds.school.title',
+//        'User'        => 'cruds.school.title',
+    ];
+
+    public function schoolSearch(Request $request)
+    {
+        $search = $request->input('search');
+
+        if ($search === null || !isset($search['term'])) {
+            abort(400);
+        }
+
+        $term           = $search['term'];
+        $searchableData = [];
+        foreach ($this->models as $model => $translation) {
+            $modelClass = 'App\Models\\' . $model;
+            $query      = $modelClass::query();
+
+            $fields = $modelClass::$searchable;
+
+            foreach ($fields as $field) {
+                $query->orWhere($field, 'LIKE', '%' . $term . '%');
+            }
+
+            $results = $query->take(20)
+                ->get();
+
+            foreach ($results as $result) {
+                $parsedData           = $result->only($fields);
+                $parsedData['model']  = trans($translation);
+                $parsedData['fields'] = $fields;
+                $formattedFields      = [];
+                foreach ($fields as $field) {
+                    $formattedFields[$field] = Str::title(str_replace('_', ' ', $field));
+                }
+                $parsedData['fields_formated'] = $formattedFields;
+                $parsedData['url'] = route('member.schoolProfile',[$result->id,Str::slug($result->name)]);
+                $searchableData[] = $parsedData;
+            }
+        }
+
+        return response()->json(['results' => $searchableData]);
+    }
+
+    private $tModels = [
+//        'School'        => 'cruds.school.title',
+        'User'        => 'cruds.user.title',
+    ];
+
+    public function memberSearch(Request $request)
+    {
+        $search = $request->input('search');
+
+        if ($search === null || !isset($search['term'])) {
+            abort(400);
+        }
+
+        $term           = $search['term'];
+        $searchableData = [];
+        foreach ($this->tModels as $model => $translation) {
+            $modelClass = 'App\Models\\' . $model;
+            $query      = $modelClass::query();
+
+            $fields = $modelClass::$searchable;
+
+            foreach ($fields as $field) {
+                $query->orWhere($field, 'LIKE', '%' . $term . '%');
+            }
+
+            $results = $query->take(20)
+                ->get();
+
+            foreach ($results as $result) {
+                $parsedData           = $result->only($fields);
+                $parsedData['model']  = trans($translation);
+                $parsedData['fields'] = $fields;
+                $formattedFields      = [];
+                foreach ($fields as $field) {
+                    $formattedFields[$field] = Str::title(str_replace('_', ' ', $field));
+                }
+                $parsedData['fields_formated'] = $formattedFields;
+                $parsedData['url'] = route('member.schoolProfile',[$result->id,'1111']);
+                $searchableData[] = $parsedData;
+            }
+        }
+
+        return response()->json(['results' => $searchableData]);
+    }
+
 }

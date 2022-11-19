@@ -218,44 +218,53 @@ class PermissionsTableSeeder extends Seeder
 //                'title' => 'schools_tow_access',
 //            ],
         //member permission
+//            [
+//                'title' => 'member_batch_mate_access',
+//            ],
+//            [
+//                'title' => 'member_batch_mate_profile',
+//            ],
+//            [
+//                'title' => 'member_dashboard',
+//            ],
+//            [
+//                'title' => 'member_batch_mate_access',
+//            ],
+//            [
+//                'title' => 'member_batch_mate_profile',
+//            ],
+//            [
+//                'title' => 'member_schools',
+//            ],
+//            [
+//                'title' => 'member_profile',
+//            ],
+//            [
+//                'title' => 'member_events_confirm',
+//            ],
+//            [
+//                'title' => 'member_reference_by',
+//            ],
+//            [
+//                'title' => 'member_events_registration',
+//            ],
+//            [
+//                'title' => 'member_events_details',
+//            ],
+//            [
+//                'title' => 'member_events',
+//            ],
+//            [
+//                'title' => 'member_school_profile',
+//            ],
+//            [
+//                'title' => 'member_settings',
+//            ],
             [
-                'title' => 'member_batch_mate_access',
+                'title' => 'member_new_user',
             ],
             [
-                'title' => 'member_batch_mate_profile',
-            ],
-            [
-                'title' => 'member_dashboard',
-            ],
-            [
-                'title' => 'member_batch_mate_access',
-            ],
-            [
-                'title' => 'member_batch_mate_profile',
-            ],
-            [
-                'title' => 'member_schools',
-            ],
-            [
-                'title' => 'member_profile',
-            ],
-            [
-                'title' => 'member_events_confirm',
-            ],
-            [
-                'title' => 'member_reference_by',
-            ],
-            [
-                'title' => 'member_events_registration',
-            ],
-            [
-                'title' => 'member_events_details',
-            ],
-            [
-                'title' => 'member_events',
-            ],
-            [
-                'title' => 'member_school_profile',
+                'title' => 'member_update_user',
             ],
 
         ];

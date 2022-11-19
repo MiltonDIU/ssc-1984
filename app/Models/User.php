@@ -91,6 +91,8 @@ class User extends Authenticatable implements HasMedia
         'deleted_at',
         'approved',
         'verified',
+        'is_hide_email',
+        'is_hide_mobile',
         'created_by_id'
     ];
 
@@ -198,4 +200,8 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->belongsTo(User::class, 'created_by_id');
     }
+    public const IS_HIDE = [
+        '1' => 'Yes',
+        '0' => 'No',
+    ];
 }

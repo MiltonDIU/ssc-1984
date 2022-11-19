@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\ProfessionsController;
 use App\Http\Controllers\Alumni\DashboardController as AlumniDashboardController;
 use App\Http\Controllers\Alumni\FrontendController;
 use App\Http\Controllers\Admin\SchoolsTowController;
-
+use App\Http\Controllers\Alumni\NewUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -171,7 +171,7 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
 Auth::routes([
     'register' => false, // Registration Routes...
 ]);
-
+Route::resource('member-user', NewUserController::class);
 Route::group(['prefix' => 'member',
     'as' => 'member.',
     'namespace' => 'Alumni',
@@ -190,12 +190,15 @@ Route::group(['prefix' => 'member',
     Route::get('/events/{id}/{name}', [AlumniDashboardController::class, 'eventDetails'])->name('eventDetails');
 
     Route::get('/settings', [AlumniDashboardController::class, 'settings'])->name('settings');
+    Route::post('/settings', [AlumniDashboardController::class, 'settingsUpdate'])->name('settings');
 
         // add new member
 
     Route::get('/my-reference-member', [AlumniDashboardController::class, 'myReferenceMember'])->name('my-reference-member');
     Route::get('/add-member', [AlumniDashboardController::class, 'addNewMember'])->name('add-new-member');
+
     Route::get('/{id}/edit', [AlumniDashboardController::class, 'editMember'])->name('edit-member');
+
 
 
 
@@ -216,6 +219,11 @@ Route::group(['prefix' => 'member',
     Route::get('district/get_by_division', [AlumniDashboardController::class,'get_by_division'])->name('district.get_by_division');
     Route::get('upazila/get_by_district', [AlumniDashboardController::class,'get_by_district'])->name('upazila.get_by_district');
     Route::get('school/get_by_upazila', [AlumniDashboardController::class,'school_get_by_upazila'])->name('schools.get_by_upazila');
+
+
+    //search
+    Route::get('member-school-search',[AlumniDashboardController::class, 'schoolSearch'])->name('schoolSearch');
+    Route::get('member-batch-mate-search',[AlumniDashboardController::class, 'memberSearch'])->name('memberSearch');
 
     });
 

@@ -2,7 +2,13 @@
 @section('content')
     <div class="event_box_main">
         <div class="event_box school_event_box">
-
+            @if(session('message'))
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+                    </div>
+                </div>
+            @endif
 
         <div class="btns_group" style="padding-bottom: 20px">
 

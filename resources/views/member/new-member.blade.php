@@ -13,7 +13,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="{{ route("admin.users.store") }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route("member-user.store") }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row bottom-padding-line">
                     <div class="col-md-12"><h4>Personal Information</h4></div>

@@ -1,9 +1,14 @@
 @extends('member.layouts.master')
 @section('top_content')
-    <h2 class="Welcome_message font_22">Hi, <span>{{ auth()->user()->name??'' }}</span>, We have found your <span>{{ $total_users??'' }}</span> friends 👋</h2>
+
 @endsection
 @section('content')
-    <div class="dashboard_tab d-flex">
+
+    <div class="dashboard_content_top">
+        <h2 class="Welcome_message font_22">Hi, <span>{{ auth()->user()->name??'' }}</span>, We have found your <span>{{ $total_users??'' }}</span> friends 👋</h2>
+    </div>
+
+    <div class="dashboard_tab">
         <a href="{{ route('member.batch-mate') }}">
             <div class="dashboard_tab_box dashboard_tab_friend">
                 <div class="dashboard_tab_icon">
@@ -46,7 +51,6 @@
             <p>Featured Events</p>
             <a href="{{ route('member.events') }}">See All</a>
         </div>
-
         @if(count($events)>0)
         @include('member.section.event')
         @endif
