@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
 //            UsersTableSeeder::class,
 //            RoleUserTableSeeder::class,
 //            SettingTableSeeder::class,
-//            SchoolsTableSeeder::class,
 //            UsersTable2Seeder::class,
 //            EventsTableSeeder::class
         ]);

@@ -1,12 +1,8 @@
 @extends('member.layouts.master')
-@section('top_content')
-    <div class="dashboard_search">
-        <input type="search" placeholder="Search among 3032 Schools">
-        <i class="bi bi-search"></i>
-    </div>
-@endsection
-@section('content')
 
+@section('content')
+    <div class="event_box_main">
+        <div class="event_box school_event_box">
 
     <div class="data_table">
         <table class="table table-borderless table-hover">
@@ -39,8 +35,14 @@
 
         {{ $schools->links('vendor.pagination.bootstrap-5')}}
     </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     @parent
 
 @endsection
+
+@push('style')
+    <link rel="stylesheet" href="{{ url('assets/alumni/css/custom.css') }}">
+@endpush

@@ -1,0 +1,21 @@
+.event_box{
+    width: 100%;
+    min-height: 280px;
+    height: auto;
+}
+.event_banner{
+    min-height: 179px;
+    height: auto;
+}
+.event_location{
+    text-align:left;
+}
+.data_table{
+    margin:20px !important;
+}
+.btns_group{
+    margin-left: 20px;
+}
+.event_box_main{
+    margin: 10px;
+}

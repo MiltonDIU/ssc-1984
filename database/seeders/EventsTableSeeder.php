@@ -54,7 +54,7 @@ class EventsTableSeeder extends Seeder
        $faker = Factory::create();
 
        $usersIds = array();
-       for ($i = 1; $i < 50; $i++) {
+       for ($i = 1; $i < 10; $i++) {
            $divisions_id = $faker->randomElement(Division::all()->pluck('id')->toArray());
            $district_id = $faker->randomElement(District::where('division_id',$divisions_id)->get()->pluck('id')->toArray());
            $upazila_id = $faker->randomElement(Upazila::where('district_id',$district_id)->get()->pluck('id')->toArray());

@@ -1,13 +1,8 @@
 @extends('member.layouts.master')
-@section('top_content')
-    <div class="dashboard_search">
-        <input type="search" placeholder="Search">
-        <i class="bi bi-search"></i>
-    </div>
-@endsection
 @section('content')
-
     <!-- ---------------------- Dashboard content end ---------------------- -->
+    <div class="event_box_main">
+        <div class="event_box school_event_box">
 
 
         <div class="data_table">
@@ -43,6 +38,11 @@
             </table>
             {{ $users->links('vendor.pagination.bootstrap-5')}}
         </div>
+        </div>
+    </div>
     <!-- ---------------------- Dashboard content end ---------------------- -->
 @endsection
 
+@push('style')
+    <link rel="stylesheet" href="{{ url('assets/alumni/css/custom.css') }}">
+@endpush

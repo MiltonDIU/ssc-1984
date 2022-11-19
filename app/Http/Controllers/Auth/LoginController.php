@@ -29,17 +29,6 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
 
 
-    /**
-     * Show the application's login form.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function showLoginForm()
-    {
-        //return view('auth.login');
-        return view('member.auth.login');
-    }
-
 
     /**
      * Create a new controller instance.
@@ -49,5 +38,27 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function redirectPath()
+    {
+        if (auth()->user()->is_admin) {
+            return route('admin.home');
+        }
+
+        return route('member.dashboard');
+    }
+
+
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        //return view('auth.login');
+        return view('member.auth.login');
     }
 }

@@ -36,18 +36,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Public News</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item nav_btn">
-                    <a class="btn_red" href="#">Sign Up</a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="#">Public News</a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="#">FAQ</a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="#">About</a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item nav_btn">--}}
+{{--                    <a class="btn_red" href="#">Sign Up</a>--}}
+{{--                </li>--}}
             </ul>
         </div>
     </div>

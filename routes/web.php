@@ -141,12 +141,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], 
     Route::get('global-search',[GlobalSearchController::class, 'search'])->name('globalSearch');
 
 
-    ///Ajax request method
-
-    Route::get('district/get_by_division', [DistrictsController::class,'get_by_division'])->name('district.get_by_division');
-    Route::get('upazila/get_by_district', [UpazilaController::class,'get_by_district'])->name('upazila.get_by_district');
-    Route::get('school/get_by_upazila', [UpazilaController::class,'school_get_by_upazila'])->name('schools.get_by_upazila');
-
     // Audit Logs
     Route::resource('audit-logs', AuditLogsController::class, ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
     //    Route::resources(['permissions' => SettingsController::class],['except' => ['create', 'store', 'show', 'destroy']]);
@@ -178,8 +172,14 @@ Auth::routes([
     'register' => false, // Registration Routes...
 ]);
 
-Route::group(['prefix' => 'member', 'as' => 'member.'], function () {
+Route::group(['prefix' => 'member',
+    'as' => 'member.',
+    'namespace' => 'Alumni',
+    'middleware' => ['auth']],
+    function () {
     Route::get('/', [AlumniDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/profile', [AlumniDashboardController::class, 'profile'])->name('profile');
+
     Route::get('/batch-mate', [AlumniDashboardController::class, 'batchMate'])->name('batch-mate');
     Route::get('/batch-mate/{profile}/{name}', [AlumniDashboardController::class, 'batchMateProfile'])->name('batch-mate.profile');
     Route::get('/schools', [AlumniDashboardController::class, 'schools'])->name('schools');
@@ -189,19 +189,35 @@ Route::group(['prefix' => 'member', 'as' => 'member.'], function () {
     Route::post('/events/{id}/confirm', [AlumniDashboardController::class, 'eventConfirmSubmit'])->name('eventConfirmSubmit');
     Route::get('/events/{id}/{name}', [AlumniDashboardController::class, 'eventDetails'])->name('eventDetails');
 
-    Route::get('/register', [FrontendController::class, 'register'])->name('register');
-    Route::get('/otp', [FrontendController::class, 'otp'])->name('otp');
-    Route::get('/otp-phone-signup', [FrontendController::class, 'otpVerify'])->name('otp-phone-signup');
-    Route::get('/registration-step1', [FrontendController::class, 'registration1'])->name('registration1');
-    Route::get('/registration-step2', [FrontendController::class, 'registration2'])->name('reg.step2');
-    Route::get('/profile', [FrontendController::class, 'profile'])->name('profile');
+    Route::get('/settings', [AlumniDashboardController::class, 'settings'])->name('settings');
+
+        // add new member
+
+    Route::get('/my-reference-member', [AlumniDashboardController::class, 'myReferenceMember'])->name('my-reference-member');
+    Route::get('/add-member', [AlumniDashboardController::class, 'addNewMember'])->name('add-new-member');
+    Route::get('/{id}/edit', [AlumniDashboardController::class, 'editMember'])->name('edit-member');
+
+
+
+//    Route::get('/register', [FrontendController::class, 'register'])->name('register');
+//    Route::get('/otp', [FrontendController::class, 'otp'])->name('otp');
+//    Route::get('/otp-phone-signup', [FrontendController::class, 'otpVerify'])->name('otp-phone-signup');
+//    Route::get('/registration-step1', [FrontendController::class, 'registration1'])->name('registration1');
+//    Route::get('/registration-step2', [FrontendController::class, 'registration2'])->name('reg.step2');
 
 
 
     //dropzone upload
-    Route::put('/spouse-picture-upload', [MemberController::class,'profilePictureUpdate'])->name('spouse-picture-upload');
-    Route::post('/spouse-picture-upload', [MemberController::class,'storeMedia'])->name('spouse.storeMedia');
-});
+    Route::post('/spouse/media', [\App\Http\Controllers\Alumni\SpouseController::class,'storeMedia'])->name('spouse.storeMedia');
+
+
+    ///Ajax request method
+
+    Route::get('district/get_by_division', [AlumniDashboardController::class,'get_by_division'])->name('district.get_by_division');
+    Route::get('upazila/get_by_district', [AlumniDashboardController::class,'get_by_district'])->name('upazila.get_by_district');
+    Route::get('school/get_by_upazila', [AlumniDashboardController::class,'school_get_by_upazila'])->name('schools.get_by_upazila');
+
+    });
 
 
 Auth::routes();

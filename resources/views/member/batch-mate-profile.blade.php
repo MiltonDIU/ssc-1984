@@ -1,10 +1,4 @@
 @extends('member.layouts.master')
-@section('top_content')
-    <div class="dashboard_search">
-        <input type="search" placeholder="Search">
-        <i class="bi bi-search"></i>
-    </div>
-@endsection
 @section('content')
 
     <!-- ---------------------- Dashboard content end ---------------------- -->
@@ -72,3 +66,8 @@
     @parent
 
 @endsection
+
+
+@push('style')
+    <link rel="stylesheet" href="{{ url('assets/alumni/css/custom.css') }}">
+@endpush

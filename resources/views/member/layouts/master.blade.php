@@ -25,14 +25,16 @@
     <link rel="stylesheet" href="{{ url('assets/alumni/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url('assets/alumni/css/style.css') }}">
     <!-- ---------------------- CSS end ---------------------- -->
-
+<style>
+    .dashboard_content{ padding: 25px}
+</style>
     @stack('style')
 </head>
 <body>
 <section id="dashboard" class="d-flex">
     <!-- ---------------------- side navbar start ---------------------- -->
     <div class="sidenav d-flex flex-column flex-shrink-0 bg-white" style="width: 278px; height: 100vh;">
-        <a href="{{ url('home') }}" class="d-flex align-items-center">
+        <a href="{{ route('member.dashboard') }}" class="d-flex align-items-center">
             <img src="{{ url('assets/alumni/images/logo.png') }}" alt="" class="logo_img">
             <div class="sidenav_top_text">
                 <p class="batch_name">SSC-1984 Bangladesh</p>
@@ -40,16 +42,16 @@
             </div>
         </a>
 
-        <div class="search">
-            <div class="search_wrap">
-                <i class="bi bi-search"></i>
-                <input type="search" placeholder="Search">
-            </div>
-        </div>
+{{--        <div class="search">--}}
+{{--            <div class="search_wrap">--}}
+{{--                <i class="bi bi-search"></i>--}}
+{{--                <input type="search" placeholder="Search">--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <ul class="nav nav-pills flex-column mb-auto">
-            <p class="sidenav_title">Menu</p>
-            <li class="nav-item">
+{{--            <p class="sidenav_title">Menu</p>--}}
+            <li class="nav-item" style="margin-top: 20px">
                 <a href="{{ route('member.dashboard') }}" class="nav-link active" aria-current="page">
                     <i class="bi bi-house"></i>
                     Home
@@ -79,12 +81,19 @@
                     My Profile
                 </a>
             </li>
+
+            <li>
+                <a href="{{ route('member.my-reference-member') }}" class="nav-link">
+                    <i class="bi bi-person-circle"></i>
+                    My Reference
+                </a>
+            </li>
         </ul>
 
         <div class="profile_part">
-            <p class="sidenav_title">Profile</p>
+{{--            <p class="sidenav_title">Profile</p>--}}
 
-            <a href="#" class="d-flex align-items-center">
+            <a href="{{ route('member.settings') }}" class="d-flex align-items-center">
 
                 @if(auth()->user()->avatar)
                     <img src="{{ auth()->user()->avatar->getUrl('thumb') }}" alt="{{ auth()->user()->name }}" class="profile_img">
@@ -98,7 +107,7 @@
 
                 <div class="sidenav_bottom_profile">
                     <p class="profile_name"> {{ auth()->user()->name??"" }}</p>
-                    <p class="profile_type font_14">Admin Account</p>
+                    <p class="profile_type font_14">Account Settings</p>
                 </div>
                 <span><i class="bi bi-three-dots"></i></span>
             </a>
@@ -121,19 +130,6 @@
 
     <!-- ---------------------- Dashboard content end ---------------------- -->
     <div class="dashboard_content {{ $page_class??'' }}">
-        <div class="dashboard_content_top ">
-           @yield('top_content')
-
-            <div class="profile_notification">
-                <div class="notification">
-                    <i class="bi bi-bell"></i>
-                </div>
-
-                <div class="dashboard_left_top_profile">
-                    <img src="{{ url('assets/alumni/images/img.png') }}" alt="">
-                </div>
-            </div>
-        </div>
 
       @yield('content')
     </div>
@@ -144,10 +140,12 @@
 <!-- ---------------------- JS start ---------------------- -->
 <script src="{{ url('assets/alumni/js/jquery-1.12.4.min.js') }}"></script>
 <script src="{{ url('assets/alumni/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ url('assets/alumni/js/script.js') }}"></script>
+
 <!-- ---------------------- JS end ---------------------- -->
 
 @stack('script')
+
+<script src="{{ url('assets/alumni/js/script.js') }}"></script>
 </body>
 </html>
 

@@ -32,7 +32,7 @@ class UsersTable2Seeder extends Seeder
         $faker = Factory::create();
 
 
-        for ($i = 1; $i < 20; $i++) {
+        for ($i = 1; $i < 2; $i++) {
             $divisions_id = $faker->randomElement(Division::all()->pluck('id')->toArray());
             $district_id = $faker->randomElement(District::where('division_id',$divisions_id)->get()->pluck('id')->toArray());
             $upazila_id = $faker->randomElement(Upazila::where('district_id',$district_id)->get()->pluck('id')->toArray());

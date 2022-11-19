@@ -33,8 +33,8 @@
     </form>
 
 
-    <a class="btn_red_large" href="{{ route('register') }}">Sign Up <i class="bi bi-chevron-right"></i></a>
+{{--    <a class="btn_red_large" href="{{ route('register') }}">Sign Up <i class="bi bi-chevron-right"></i></a>--}}
 
-    <p class="font_12">example form uses only the @ in its copyright notice</p>
+    <p class="font_12">ssc1984@copyright</p>
 
 @endsection

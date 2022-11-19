@@ -125,22 +125,5 @@ class DistrictsController extends Controller
         return response(null, Response::HTTP_NO_CONTENT);
     }
 
-    //return division wise district
-    public function get_by_division(Request $request)
-    {
-        abort_unless(\Gate::allows('division_access'), 401);
 
-        if (!$request->division_id) {
-            $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
-        } else {
-            $html = '';
-            $districts = District::where('division_id', $request->division_id)->get();
-            $html .= '<option value="">Please select district/city</option>';
-            foreach ($districts as $city) {
-                $html .= '<option value="'.$city->id.'">'.$city->name.'</option>';
-            }
-        }
-
-        return response()->json(['html' => $html]);
-    }
 }

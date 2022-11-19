@@ -1,0 +1,655 @@
+@media (min-width:320px) and (max-width:575.99px){
+    /* Dashboard Landing page start */
+    .sm_d_none {
+        display: none;
+    }
+
+    .logout_btn {
+        padding: 13px;
+    }
+
+    .sidenav .nav-link i {
+        margin-right: 0;
+    }
+
+    .logout_btn i {
+        margin-right: 0;
+    }
+
+    .sm_m_0 {
+        margin: 0 auto;
+    }
+
+    .dashboard_content_top {
+        flex-direction: column-reverse;
+        margin: 30px 0 35px 0;
+    }
+
+    .Welcome_message {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-top: 20px;
+    }
+
+    .dashboard_tab {
+        margin: 0;
+    }
+
+    .dashboard_tab_box {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    .dashboard_tab {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard_featured_event {
+        margin: 50px 0 0 0;
+    }
+
+    .featured_top {
+        padding: 10px 0 25px 10px;
+    }
+
+    .event_main {
+        padding: 0 10px 0 10px;
+        flex-direction: column;
+    }
+
+    .event_box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .dashboard_featured_event {
+        width: 100%;
+        height: auto;
+    }
+    
+    .py-3 {
+        width: calc(100% - 80px);
+    }
+
+    .profile_notification {
+        align-self: flex-end;
+    }
+
+    .featured_top p {
+        font-size: 15px;
+    }
+
+    .featured_top a {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+
+    .going_btn {
+        padding: 8px 13px;
+    }
+
+    .participant_img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .participant_count p {
+        font-size: 8px;
+    }
+
+    .going_btn_box {
+        align-items: flex-end;
+    }
+
+    .event_date {
+        margin-bottom: 12px;
+    }
+
+    .sidenav .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        background-color: transparent !important;
+    }
+
+    .a_center {
+        align-items: center;
+    }
+
+    .event_location {
+        font-size: 10px;
+    }
+    /* Dashboard Landing page end */
+
+    /* Event view page start */
+    .event_view .dashboard_content_top {
+        margin: 0 0 35px 0;
+    }
+
+    .event_box_large {
+        width: 100%;
+        margin: 20px 0 30px 0;
+        padding: 0 10px 10px 10px;
+    }
+
+    .event_page_title {
+        font-size: 14px;
+    }
+
+    .event_view .close_option {
+        padding: 16px 0 20px 24px;
+    }
+
+    .close_option a {
+        font-size: 14px;
+    }
+
+    .event_banner_img {
+        width: 100%;
+        height: 125px;
+    }
+
+    .event_info_box {
+        flex-direction: column;
+    }
+
+    .event_info_right {
+        width: 100%;
+    }
+
+    .event_creator_cost_box {
+        flex-direction: column;
+    }
+
+    .event_info_left {
+        margin-right: 0;
+    }
+
+    .event_date_location_box {
+        width: 100%;
+    }
+
+    .event_creator {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .event_cost {
+        margin-bottom: 20px;
+    }
+
+    .event_request_btn {
+        width: 100%;
+    }
+    /* Event view page end */
+}
+
+@media (min-width:576px) and (max-width:767.99px){
+    /* Dashboard Landing page start */
+    .sm_d_none {
+        display: none;
+    }
+
+    .logout_btn {
+        padding: 13px;
+    }
+
+    .sidenav .nav-link i {
+        margin-right: 0;
+    }
+
+    .logout_btn i {
+        margin-right: 0;
+    }
+
+    .sm_m_0 {
+        margin: 0 auto;
+    }
+
+    .dashboard_content_top {
+        flex-direction: column-reverse;
+        margin: 30px 0 35px 0;
+    }
+
+    .Welcome_message {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-top: 20px;
+    }
+
+    .dashboard_tab {
+        margin: 0;
+    }
+
+    .dashboard_tab_box {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    .dashboard_tab {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard_featured_event {
+        margin: 50px 0 0 0;
+    }
+
+    .featured_top {
+        padding: 10px 0 25px 10px;
+    }
+
+    .event_main {
+        padding: 0 10px 0 10px;
+        flex-direction: column;
+    }
+
+    .event_box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .dashboard_featured_event {
+        width: 100%;
+        height: auto;
+    }
+    
+    .py-3 {
+        width: calc(100% - 80px);
+    }
+
+    .profile_notification {
+        align-self: flex-end;
+    }
+
+    .featured_top p {
+        font-size: 15px;
+    }
+
+    .featured_top a {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+
+    .going_btn {
+        padding: 8px 13px;
+    }
+
+    .participant_img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .participant_count p {
+        font-size: 8px;
+    }
+
+    .going_btn_box {
+        align-items: flex-end;
+    }
+
+    .event_date {
+        margin-bottom: 12px;
+    }
+
+    .sidenav .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        background-color: transparent !important;
+    }
+
+    .a_center {
+        align-items: center;
+    }
+    /* Dashboard Landing page end */
+
+    /* Event view page start */
+    .event_view .dashboard_content_top {
+        margin: 0 0 35px 0;
+    }
+
+    .event_box_large {
+        width: 100%;
+        margin: 20px 0 30px 0;
+        padding: 0 10px 10px 10px;
+    }
+
+    .event_page_title {
+        font-size: 14px;
+    }
+
+    .event_view .close_option {
+        padding: 16px 0 20px 24px;
+    }
+
+    .close_option a {
+        font-size: 14px;
+    }
+
+    .event_banner_img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .event_info_box {
+        flex-direction: column;
+    }
+
+    .event_info_right {
+        width: 100%;
+    }
+
+    .event_info_left {
+        margin-right: 0;
+    }
+
+    .event_date_location_box {
+        width: 100%;
+    }
+
+    .event_creator_cost_box {
+        margin-bottom: 20px;
+    }
+    /* Event view page end */
+}
+
+@media (min-width:768px) and (max-width:991.99px){
+    /* Dashboard Landing page start */
+    .dashboard_content_top {
+        margin: 30px 0 35px 0;
+    }
+
+    .Welcome_message {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-right: 40px;
+    }
+
+    .dashboard_tab {
+        margin: 0;
+    }
+
+    .dashboard_tab_box {
+        width: 120px;
+        height: 110px;
+    }
+
+    .dashboard_tab {
+        flex-direction: row;
+    }
+
+    .dashboard_tab_icon img {
+        height: 35px;
+        width: auto;
+    }
+
+    .dashboard_tab_box .dashboard_tab_title {
+        font-size: 14px;
+    }
+
+    .dashboard_featured_event {
+        margin: 50px 0 0 0;
+    }
+
+    .featured_top {
+        padding: 10px 0 25px 10px;
+    }
+
+    .event_main {
+        padding: 0 10px 0 10px;
+        flex-direction: column;
+    }
+
+    .event_box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .dashboard_featured_event {
+        width: 100%;
+        height: auto;
+    }
+
+    .profile_notification {
+        align-self: flex-end;
+    }
+
+    .featured_top p {
+        font-size: 15px;
+    }
+
+    .featured_top a {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+
+    .going_btn {
+        padding: 8px 13px;
+    }
+
+    .participant_img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .participant_count p {
+        font-size: 8px;
+    }
+
+    .going_btn_box {
+        align-items: flex-end;
+    }
+
+    .event_date {
+        margin-bottom: 12px;
+    }
+
+    .sidenav .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        background-color: transparent !important;
+    }
+
+    .search_wrap {
+        width: 100%;
+        margin-right: 10px;
+    }
+
+    .search input {
+        width: 100%;
+    }
+
+    .sidenav {
+        margin-top: 20px;
+    }
+
+    .sidenav .logo_img {
+        margin-top: 0;
+    }
+
+    .dashboard_left_top_profile {
+        margin-right: 20px;
+    }
+    /* Dashboard Landing page end */
+
+    /* Event view page start */
+    .event_view .dashboard_content_top {
+        margin: 0 0 35px 0;
+    }
+
+    .event_box_large {
+        width: 100%;
+        margin: 20px 0 30px 0;
+        padding: 0 10px 10px 10px;
+    }
+
+    .event_page_title {
+        font-size: 14px;
+    }
+
+    .event_view .close_option {
+        padding: 16px 0 20px 24px;
+    }
+
+    .close_option a {
+        font-size: 14px;
+    }
+
+    .event_banner_img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .event_info_box {
+        flex-direction: column;
+    }
+
+    .event_info_right {
+        width: 100%;
+    }
+
+    .event_info_left {
+        margin-right: 0;
+    }
+
+    .event_date_location_box {
+        width: 100%;
+    }
+
+    .event_creator_cost_box {
+        margin-bottom: 20px;
+    }
+
+    .logout_btn {
+        padding: 13px 48px 13px 18px;
+    }
+    /* Event view page end */
+}
+
+@media (min-width:992px) and (max-width:1199.99px) {
+    /* Dashboard Landing page start */
+    .dashboard_content_top {
+        margin: 10px 20px 35px 0;
+    }
+
+    .dashboard_tab {
+        margin: 0;
+    }
+
+    .dashboard_tab_icon img {
+        height: 40px;
+        width: auto;
+    }
+
+    .dashboard_tab_box .dashboard_tab_title {
+        font-size: 16px;
+    }
+
+    .dashboard_tab_box {
+        width: 159px;
+        height: 131px;
+    }
+
+    .dashboard_featured_event {
+        margin: 50px 0 0 0;
+    }
+
+    .featured_top {
+        padding: 17px 60px 35px 18px;
+    }
+
+    .event_main {
+        padding: 5px;
+    }
+
+    .event_box {
+        width: 335px;
+    }
+    /* Dashboard Landing page end */
+
+    /* Event view page start */
+    .event_view .dashboard_content_top {
+        margin: 0 0 35px 0;
+    }
+
+    .event_box_large {
+        width: 100%;
+        margin: 20px 0 30px 0;
+        padding: 0 10px 10px 10px;
+    }
+
+    .event_page_title {
+        font-size: 14px;
+    }
+
+    .event_view .close_option {
+        padding: 16px 0 20px 24px;
+    }
+
+    .close_option a {
+        font-size: 14px;
+    }
+
+    .event_banner_img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .event_info_box {
+        flex-direction: column;
+    }
+
+    .event_info_right {
+        width: 100%;
+    }
+
+    .event_info_left {
+        margin-right: 0;
+    }
+
+    .event_creator_cost_box {
+        margin-bottom: 20px;
+    }
+
+    .logout_btn {
+        padding: 13px 48px 13px 18px;
+    }
+    /* Event view page end */
+}
+
+@media (min-width:1200px) and (max-width:1399.99px) {
+    /* Dashboard Landing page start */
+    .dashboard_content_top {
+        margin: 10px 20px 35px 0;
+    }
+
+    .dashboard_tab {
+        margin: 0;
+    }
+
+    .dashboard_tab_icon img {
+        height: 40px;
+        width: auto;
+    }
+
+    .dashboard_tab_box .dashboard_tab_title {
+        font-size: 16px;
+    }
+
+    .dashboard_featured_event {
+        margin: 50px 0 0 0;
+    }
+
+    .featured_top {
+        padding: 17px 60px 35px 18px;
+    }
+
+    .event_main {
+        padding: 5px;
+    }
+
+    .event_box {
+        width: 335px;
+    }
+
+    .logout_btn {
+        padding: 13px 55px 13px 18px;
+    }
+    /* Dashboard Landing page end */
+    
+}

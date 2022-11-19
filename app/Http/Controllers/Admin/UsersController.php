@@ -192,7 +192,14 @@ class UsersController extends Controller
         $address['created_by_id'] = Auth::id();
         $address['type_of_address'] = 'Present';
         Address::create($address);
-        return redirect()->route('admin.users.index');
+
+        if(auth()->user()->roles()->where('title', 'Admin')->exists()){
+            return redirect()->route('admin.users.index');
+        }
+       else{
+           return redirect()->route('member.my-reference-member');
+       }
+
     }
 
     public function edit(User $user)
@@ -268,7 +275,12 @@ class UsersController extends Controller
     Address::create($address);
 }
 
-        return redirect()->route('admin.users.index');
+        if(auth()->user()->roles()->where('title', 'Admin')->exists()){
+            return redirect()->route('admin.users.index');
+        }
+        else{
+            return redirect()->route('member.my-reference-member');
+        }
     }
 
     public function show(User $user)

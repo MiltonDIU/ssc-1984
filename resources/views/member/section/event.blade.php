@@ -64,19 +64,5 @@
 @endforeach
 
 @push('style')
-    <style>
-        .event_box{
-            width: 100%;
-            min-height: 280px;
-            height: auto;
-        }
-        .event_banner{
-            min-height: 179px;
-            height: auto;
-        }
-        .event_location{
-            text-align:left;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{ url('assets/alumni/css/custom.css') }}">
 @endpush

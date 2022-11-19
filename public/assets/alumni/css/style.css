@@ -15,11 +15,6 @@ body {
     background-color: #F7F7F7;
 }
 
-.container-fluid {
-    padding-left: 50px !important;
-    padding-right: 50px !important;
-}
-
 ul,
 ol {
     list-style: none;
@@ -661,18 +656,20 @@ input:focus::placeholder {
 
 /* ====================== Dashboard landing Page end ====================== */
 .sidenav {
-    padding: 38px 13px 45px 13px;
-    position: fixed;
+    margin-top: 20px;
 }
 
 .sidenav .logo_img {
     width: 56px;
     height: auto;
-    margin-left: 23px;
 }
 
 .sidenav_top_text {
     margin-left: 9px;
+}
+
+.w_100 {
+    width: 100%;
 }
 
 .batch_name {
@@ -695,7 +692,7 @@ input:focus::placeholder {
 }
 
 .search_wrap {
-    width: 216px;
+    width: 100%;
     height: 50px;
     border: 1px solid #EAEAEA;
     border-radius: 8px;
@@ -713,7 +710,7 @@ input:focus::placeholder {
     background: #FFFFFF;
     border: none;
     outline: none;
-    width: 150px;
+    width: 100%;
 }
 
 .sidenav_title {
@@ -764,6 +761,10 @@ input:focus::placeholder {
     color: rgba(0, 0, 0, .65);
 }
 
+.profile_part {
+    margin-top: 80px;
+}
+
 .profile_part i {
     margin-left: 36px;
     color: rgba(0, 0, 0, .5);
@@ -783,7 +784,7 @@ input:focus::placeholder {
     color: #fff;
     background-color: #FF2023;
     border-radius: 8px;
-    padding: 13px 112px 13px 18px;
+    padding: 13px 92px 13px 18px;
     text-transform: capitalize;
     transition: all linear .2s;
 }
@@ -797,13 +798,8 @@ input:focus::placeholder {
     background-color: #CD3C3E;
 }
 
-.dashboard_content {
-    width: calc(100vw - 278px);
-    margin-left: 278px;
-}
-
 .dashboard_content_top {
-    margin: 40px 39px 40px 105px;
+    margin: 30px 39px 35px 105px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -853,6 +849,7 @@ input:focus::placeholder {
 
 .dashboard_tab {
     margin: 0 105px;
+    display: flex;
 }
 
 .dashboard_tab_box {
@@ -900,11 +897,10 @@ input:focus::placeholder {
 }
 
 .dashboard_featured_event {
-    width: 880px;
-    height: 399px;
     background: #FFFFFF;
     border-radius: 8px;
-    margin: 66px 30px 0 65px;
+    margin: 50px 30px 0 65px;
+    padding-bottom: 15px;
 }
 
 .featured_top {
@@ -930,7 +926,6 @@ input:focus::placeholder {
 .event_main {
     padding: 0 75px 0 75px;
     display: flex;
-    justify-content: space-between;
 }
 
 .event_box {
@@ -940,6 +935,7 @@ input:focus::placeholder {
     background-color: #fff;
     box-shadow: 0px 2px 48px #0000000A;
     border-radius: 4px;
+    margin-right: 20px;
 }
 
 .event_banner {
@@ -1175,7 +1171,7 @@ input:focus::placeholder {
 /* ====================== Dashboard profile view Page start ====================== */
 .profile_view .dashboard_content_top {
     justify-content: flex-end;
-    margin: 40px 39px 5px 105px;
+    margin: 30px 39px 35px 105px;
 }
 
 .view_profile_box {
@@ -1511,16 +1507,17 @@ input:focus::placeholder {
 /* ====================== Event Request Page start ====================== */
 .event_view .dashboard_content_top {
     justify-content: flex-end;
-    margin: 40px 39px 5px 105px;
+    margin: 30px 39px 35px 42px;
+    width: 90%;
 }
 
 .event_box_large {
-    width: 1156px;
+    width: 90%;
     background: #FFFFFF;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 8px;
     margin: 20px 0 30px 45px;
-    padding: 0 30px 40px 30px;
+    padding: 0 30px 40px 20px;
 }
 
 .event_page_title {
@@ -1675,7 +1672,7 @@ input:focus::placeholder {
 }
 
 .event_banner_img {
-    width: 961px;
+    width: 100%;
     height: 223px;
     margin: 21px 0 25px 0;
 }

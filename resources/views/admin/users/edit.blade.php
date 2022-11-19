@@ -435,7 +435,7 @@
     <script type="text/javascript">
         $("#division_id").change(function(){
             $.ajax({
-                url: "{{ route('admin.district.get_by_division') }}?division_id=" + $(this).val(),
+                url: "{{ route('member.district.get_by_division') }}?division_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#district_id').html(data.html);
@@ -445,7 +445,7 @@
 
         $("#district_id").change(function(){
             $.ajax({
-                url: "{{ route('admin.upazila.get_by_district') }}?district_id=" + $(this).val(),
+                url: "{{ route('member.upazila.get_by_district') }}?district_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#upazila_id').html(data.html);
@@ -456,7 +456,7 @@
         //Address information
         $("#address_division_id").change(function(){
             $.ajax({
-                url: "{{ route('admin.district.get_by_division') }}?division_id=" + $(this).val(),
+                url: "{{ route('member.district.get_by_division') }}?division_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#address_district_id').html(data.html);
@@ -466,7 +466,7 @@
 
         $("#address_district_id").change(function(){
             $.ajax({
-                url: "{{ route('admin.upazila.get_by_district') }}?district_id=" + $(this).val(),
+                url: "{{ route('member.upazila.get_by_district') }}?district_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#address_upazila_id').html(data.html);
@@ -478,7 +478,7 @@
         //schools information
         $("#school_division_id").change(function(){
             $.ajax({
-                url: "{{ route('admin.district.get_by_division') }}?division_id=" + $(this).val(),
+                url: "{{ route('member.district.get_by_division') }}?division_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#school_district_id').html(data.html);
@@ -488,7 +488,7 @@
 
         $("#school_district_id").change(function(){
             $.ajax({
-                url: "{{ route('admin.upazila.get_by_district') }}?district_id=" + $(this).val(),
+                url: "{{ route('member.upazila.get_by_district') }}?district_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#school_upazila_id').html(data.html);
@@ -497,7 +497,7 @@
         });
         $("#school_upazila_id").change(function(){
             $.ajax({
-                url: "{{ route('admin.schools.get_by_upazila') }}?upazila_id=" + $(this).val(),
+                url: "{{ route('member.schools.get_by_upazila') }}?upazila_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#school_id').html(data.html);

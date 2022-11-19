@@ -219,10 +219,43 @@ class PermissionsTableSeeder extends Seeder
 //            ],
         //member permission
             [
-                'title' => 'batch_mate_access',
+                'title' => 'member_batch_mate_access',
             ],
             [
-                'title' => 'batch_mate_show',
+                'title' => 'member_batch_mate_profile',
+            ],
+            [
+                'title' => 'member_dashboard',
+            ],
+            [
+                'title' => 'member_batch_mate_access',
+            ],
+            [
+                'title' => 'member_batch_mate_profile',
+            ],
+            [
+                'title' => 'member_schools',
+            ],
+            [
+                'title' => 'member_profile',
+            ],
+            [
+                'title' => 'member_events_confirm',
+            ],
+            [
+                'title' => 'member_reference_by',
+            ],
+            [
+                'title' => 'member_events_registration',
+            ],
+            [
+                'title' => 'member_events_details',
+            ],
+            [
+                'title' => 'member_events',
+            ],
+            [
+                'title' => 'member_school_profile',
             ],
 
         ];

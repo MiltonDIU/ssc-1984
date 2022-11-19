@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div class="dashboard_tab d-flex">
-        <a href="#">
+        <a href="{{ route('member.batch-mate') }}">
             <div class="dashboard_tab_box dashboard_tab_friend">
                 <div class="dashboard_tab_icon">
                     <img src="{{ url('assets/alumni/images/friedns.png') }}" alt="">
@@ -13,7 +13,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="{{ route('member.schools') }}">
             <div class="dashboard_tab_box dashboard_tab_school">
                 <div class="dashboard_tab_icon">
                     <img src="{{ url('assets/alumni/images/school.png') }}" alt="">
@@ -22,7 +22,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="{{ route('member.events') }}">
             <div class="dashboard_tab_box dashboard_tab_event">
                 <div class="dashboard_tab_icon">
                     <img src="{{ url('assets/alumni/images/events.png') }}" alt="">
@@ -31,7 +31,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="{{ route('member.profile') }}">
             <div class="dashboard_tab_box dashboard_tab_profile">
                 <div class="dashboard_tab_icon">
                     <img src="{{ url('assets/alumni/images/My profile.png') }}" alt="">
@@ -47,46 +47,22 @@
             <a href="{{ route('member.events') }}">See All</a>
         </div>
 
-        <div class="event_main">
-            @foreach($events as $event)
-            <div class="event_box">
-                <div class="event_banner" style="background: url({{ url('assets/alumni/images/gray.png') }});">
-                    <div class="event_date">
-                        <p class="day"> {{ date('j ', strtotime($event->event_date))  }}</p>
-                        <p class="month">{{ date('M ', strtotime($event->event_date))  }}</p>
+        @if(count($events)>0)
+        @include('member.section.event')
+        @endif
 
-                    </div>
-                    <div class="event_details">
-                        <p class="event_title">{{ $event->event_category->name }}</p>
-                        <p class="event_location">{{ $event->address }}</p>
-                    </div>
-                </div>
-                <div class="going_box">
-                    <div class="participant_box">
-                        <p>Going</p>
-
-                        <div class="participant_img_count">
-                            @foreach($event->users as $user)
-                            <div class="participant_img">
-                                <img src="{{ url('assets/alumni/images/gray.png')}}" alt="">
-                            </div>
-                            @endforeach
-                            <div class="participant_img participant_count ml_negative">
-                                <p>{{ count($event->users) }}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="going_btn_box">
-                        <a href="#" class="going_btn">Going</a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
     </div>
 @endsection
 @section('scripts')
     @parent
 
 @endsection
+
+@push('style')
+    <style>
+        .dashboard_featured_event{
+            min-height: 399px;
+            height: auto;
+        }
+    </style>
+@endpush

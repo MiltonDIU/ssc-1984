@@ -72,42 +72,101 @@
                 </div>
 
                 <div class="event_info_right">
-                    <form class="profile_form mb_24" method="POST" action="{{ route('member.eventConfirmSubmit',[$event->id]) }}" enctype="multipart/form-data">
+{{--                    <form class="profile_form mb_24" method="POST" action="{{ route('member.eventConfirmSubmit',[$event->id]) }}" enctype="multipart/form-data">--}}
+{{--                        @method('POST')--}}
+{{--                        @csrf--}}
+{{--                        <div class="mb-3">--}}
+{{--                            <h4>Terms and Condition</h4>--}}
+{{--                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>--}}
+{{--                        </div>--}}
+
+{{--                        <div class="mb-3">--}}
+{{--                            <p>--}}
+{{--                                Are you coming with your spouse:  <input type="checkbox" name="spouseCheck" class="checkForm" id="spouseCheck" onclick="myFunction()">--}}
+{{--                            </p>--}}
+{{--                        </div>--}}
+{{--                        <div id="spouse">--}}
+{{--                            <div class="mb-3">--}}
+{{--                                <label for="exampleInputEmail1" class="form-label">Spouse Name</label>--}}
+{{--                                <input type="text" class="form-control " name="name" id="name">--}}
+{{--                            </div>--}}
+{{--                            <div class="mb-3">--}}
+{{--                                <label for="exampleInputEmail1" class="form-label">Spouse Picture</label>--}}
+{{--                               <div class="form_wrapper mb_24">--}}
+{{--                                <div class="needsclick dropzone {{ $errors->has('avatar') ? 'is-invalid' : '' }}" id="avatar-dropzone">--}}
+{{--                                </div>--}}
+{{--                                @if($errors->has('avatar'))--}}
+{{--                                    <span class="text-danger">{{ $errors->first('avatar') }}</span>--}}
+{{--                                @endif--}}
+{{--                                <span class="help-block">{{ trans('cruds.user.fields.avatar_helper') }}</span>--}}
+
+{{--                            </div>--}}
+
+
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <input type="hidden" class="form-control" value="{{ $event->id }}" name="event_id">--}}
+{{--                        <button type="submit" class="btn btn-primary">Confirm</button>--}}
+{{--                    </form>--}}
+
+                    <form method="POST" action="{{ route('member.eventConfirmSubmit',[$event->id]) }}" enctype="multipart/form-data">
                         @method('POST')
                         @csrf
-                        <div class="mb-3">
-                            <h4>Terms and Condition</h4>
-                            <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</p>
-                        </div>
+                        <div class="row bottom-padding-line">
 
-                        <div class="mb-3">
-                            <p>
-                                Are you coming with your spouse:  <input type="checkbox" name="spouseCheck" class="checkForm" id="spouseCheck" onclick="myFunction()">
-                            </p>
-                        </div>
-                        <div id="spouse">
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Spouse Name</label>
-                                <input type="text" class="form-control " name="name" id="name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Spouse Picture</label>
-                               <div class="form_wrapper mb_24">
-                                <div class="needsclick dropzone {{ $errors->has('avatar') ? 'is-invalid' : '' }}" id="avatar-dropzone">
+
+
+
+                                    <div class="col-md-12" style="padding: 20px 0px">
+                                        <div class="form-group">
+                                            <div for="name">
+                                                <span style="padding-right: 50px">Are you coming with your spouse?</span>
+                                            <input style="padding-left: 100px" type="checkbox" name="spouseCheck" class="checkForm" id="spouseCheck" onclick="myFunction()">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            <div id="spouse">
+                                <div class="col-md-12"><h4>Spouse Information</h4></div>
+                            <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="required" for="name">Spouse Name</label>
+                                            <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}">
+                                            @if($errors->has('name'))
+                                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                            @endif
+                                            <span class="help-block">{{ trans('cruds.user.fields.name_helper') }}</span>
+                                        </div>
+                                    </div>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="avatar">Spouse Picture</label>
+                                    <div class="needsclick dropzone {{ $errors->has('avatar') ? 'is-invalid' : '' }}" id="avatar-dropzone">
+                                    </div>
+                                    @if($errors->has('avatar'))
+                                        <span class="text-danger">{{ $errors->first('avatar') }}</span>
+                                    @endif
+                                    <span class="help-block">{{ trans('cruds.user.fields.avatar_helper') }}</span>
                                 </div>
-                                @if($errors->has('avatar'))
-                                    <span class="text-danger">{{ $errors->first('avatar') }}</span>
-                                @endif
-                                <span class="help-block">{{ trans('cruds.user.fields.avatar_helper') }}</span>
-
+                            </div>
                             </div>
 
-
+                            <div class="col-md-12" style="padding-top: 10px">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" value="{{ $event->id }}" name="event_id">
+                                    <button class="btn btn-primary" type="submit">
+                                        Confirm
+                                    </button>
+                                </div>
                             </div>
+
                         </div>
-                        <input type="hidden" class="form-control" value="{{ $event->id }}" name="event_id">
-                        <button type="submit" class="btn btn-primary">Confirm</button>
+
+
                     </form>
+
 
                 </div>
 
