@@ -14,7 +14,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Address extends Model implements HasMedia
 {
     use SoftDeletes;
-    use MultiTenantModelTrait;
+//    use MultiTenantModelTrait;
     use InteractsWithMedia;
     use HasFactory;
 

@@ -80,12 +80,14 @@
                             <span class="sm_d_none">My Profile</span>
                         </a>
                     </li>
-                    <li>
+                            @can('member_reference_by')
+                            <li>
                         <a href="{{ route('member.my-reference-member') }}" class="nav-link">
                             <i class="bi bi-people-fill"></i>
                             <span class="sm_d_none">  My Reference</span>
                         </a>
                     </li>
+                            @endcan
                 </ul>
 
                     </li>

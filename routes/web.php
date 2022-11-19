@@ -53,7 +53,7 @@ Route::get('/home', function () {
 
 
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','admin']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resources([
         'socials' => SocialsController::class,

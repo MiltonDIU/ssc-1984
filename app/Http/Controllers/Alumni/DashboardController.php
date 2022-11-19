@@ -177,12 +177,12 @@ class DashboardController extends Controller
                 if ($request->input('avatar', false)) {
                     $spouse->addMedia(storage_path('tmp/uploads/' . basename($request->input('avatar'))))->toMediaCollection('avatar');
                 }
-                $userData['user_id'] = auth()->id();
-                $userData['event_id'] = $event->id;
-
-                EventUser::create($userData);
-                $message = "Event registration successfully";
             }
+            $userData['user_id'] = auth()->id();
+            $userData['event_id'] = $event->id;
+            EventUser::create($userData);
+            $message = "Event registration successfully";
+
         } else {
             $message = "You are already registered in this event";
         }
