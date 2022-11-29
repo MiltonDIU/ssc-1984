@@ -29,7 +29,7 @@
 
 
         </div>
-        <input class="btn_green_large" type="submit" value="Sing In">
+        <input class="btn_green_large" type="submit" value="Sign In">
     </form>
 
 
@@ -38,3 +38,4 @@
     <p class="font_12">ssc1984@copyright</p>
 
 @endsection
+mysql -u diu -p project_ssc_1984 < webdiu_newdata.sql

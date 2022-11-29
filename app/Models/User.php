@@ -148,6 +148,10 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->belongsToMany(Profession::class);
     }
+    public function professions2()
+    {
+        return $this->belongsToMany(Profession::class)->where('profession_parrent',0);
+    }
 
     public function division()
     {

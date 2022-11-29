@@ -219,6 +219,7 @@ Route::group(['prefix' => 'member',
     Route::get('district/get_by_division', [AlumniDashboardController::class,'get_by_division'])->name('district.get_by_division');
     Route::get('upazila/get_by_district', [AlumniDashboardController::class,'get_by_district'])->name('upazila.get_by_district');
     Route::get('school/get_by_upazila', [AlumniDashboardController::class,'school_get_by_upazila'])->name('schools.get_by_upazila');
+        Route::get('get_by_profession', [AlumniDashboardController::class,'get_by_profession'])->name('get_by_profession');
 
 
     //search

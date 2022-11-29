@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Portal</title>
+    <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+
+    <!-- ---------------------- Google Fonts start ---------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- ---------------------- Google Fonts end ---------------------- -->
+
+    <!-- ---------------------- Bootstrap icon start ---------------------- -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- ---------------------- Bootstrap icon end ---------------------- -->
+
+    <!-- ---------------------- CSS start ---------------------- -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- ---------------------- CSS end ---------------------- -->
+</head>
+<body>
+    <!-- ---------------------- navbar start ---------------------- -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Public News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item nav_btn">
+                        <a class="btn_red" href="registartion-1.html">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- ---------------------- navbar end ---------------------- -->
+
+    <!-- ---------------------- login end ---------------------- -->
+    <section id="registration_page_1" class="mtn_white_box">
+        <div class="container">
+            <div class="registration_box white_box ">
+                <form action="">
+                    <div class="personal_info">
+                        <p class="font_22">Personal Information</p>
+
+                        <div class="input_box">
+                            <div class="personal_info_top">
+                                <div class="input_group">
+                                    <label for="name" class="font_14">Name</label>
+                                    <input type="text" name="name" id="name" placeholder="Enter name">
+                                </div>
+    
+                                <div class="input_group">
+                                    <label for="mobile" class="font_14">Mobile Number</label>
+                                    <input type="number" name="mobile" id="mobile" placeholder="+880">
+                                </div>
+                            </div>
+    
+                            <div class="personal_info_bottom">
+                                <div class="input_group">
+                                    <label for="email" class="font_14">Email</label>
+                                    <input type="email" name="email" id="email" placeholder="Enter email">
+                                </div>
+        
+                                <div class="input_group">
+                                    <label for="telephone" class="font_14">Telephone Number</label>
+                                    <input type="number" name="telephone" id="telephone" placeholder="+880">
+                                </div>
+                            </div>
+    
+                            <div class="input_group">
+                                <label for="photo-upload" class="font_14">Upload Profile Photo</label>
+                                <div class="img_preview_box">
+                                    <div class="imgUp">
+                                        <div class="img_group">
+                                            <div class="imagePreview"></div>
+                                            <i class="bi bi-x del"></i>
+                                            <p class="font_14">image src here</p>
+                                        </div>
+    
+                                        <div class="upload_btn_group">
+                                            <label class="btn btn-primary">Upload
+                                                <input type="file" class="uploadFile img" value="Upload Photo" name="photo-upload" accept="image/png, image/jpeg">
+                                            </label>
+                                            <p class="font_14">File Format:</p>
+                                            <p class="font_14">jpg, png only</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="input_box">
+                            <div class="input_group">
+                                <div class="input_wrap">
+                                    <div class="gender_input">
+                                        <label for="gender" class="font_14">Gender</label>
+                                        <select class="form-select gender_select" aria-label="Default select example" name="gender">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                    </div>
+        
+                                    <div class="birth_date_input">
+                                        <label for="birth_date" class="font_14">Date of birth</label>
+                                        <input type="date" id="birth_date" name="birth_date">
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="input_group">
+                                <div class="bllod_group_input">
+                                    <label for="city" class="font_14">Blood Group</label>
+                                    <select class="form-select" aria-label="Default select example" name="city">
+                                        <option selected>Please Select</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="school_info">
+                        <p class="font_22">School Information</p>
+
+                        <div class="input_box">
+                            <div class="place_input">
+                                <label for="division" class="font_14">Division</label>
+                                <select class="form-select js-example-basic-single" aria-label="Default select example" name="division">
+                                    <option selected>Please Select</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="place_input">
+                                <label for="district" class="font_14">District</label>
+                                <select class="form-select js-example-basic-single" aria-label="Default select example" name="district">
+                                    <option selected>Please Select</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="place_input">
+                                <label for="upazila" class="font_14">Upazila</label>
+                                <select class="form-select js-example-basic-single" aria-label="Default select example" name="upazila">
+                                    <option selected>Please Select</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="place_input">
+                                <label for="school" class="font_14">School</label>
+                                <select class="form-select js-example-basic-single" aria-label="Default select example" name="school">
+                                    <option selected>Please Select</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="professional_info">
+                        <p class="font_22">Professional Information <span class="font_14">(You can select multiple profession)</span></p>
+
+                        <div class="input_group">
+                            <label for="profession" class="font_14">Profession</label>
+                            <select class="form-select js-example-basic-multiple" aria-label="Default select example" name="profession[]" multiple="multiple">
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                                <option value="4">Four</option>
+                                <option value="5">Five</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="represent_info">
+                        <p class="font_22">Represent Information</p>
+
+                        <div class="input_box">
+                            <div class="place_input">
+                                <label for="division" class="font_14">Division</label>
+                                <select class="form-select js-example-basic-single" aria-label="Default select example" name="division">
+                                    <option selected>Dhaka</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="place_input">
+                                <label for="district" class="font_14">District</label>
+                                <select class="form-select js-example-basic-single" aria-label="Default select example" name="district">
+                                    <option selected>Dhaka</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="place_input">
+                                <label for="upazila" class="font_14">Upazila</label>
+                                <select class="form-select js-example-basic-single" aria-label="Default select example" name="upazila">
+                                    <option selected>Dhaka</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user_info">
+                        <p class="font_22">User Information</p>
+
+                        <div class="input_box">
+                            <div class="place_input">
+                                <label for="user" class="font_14">User Type</label>
+                                <select class="form-select" aria-label="Default select example" name="user">
+                                    <option selected>Alumni</option>
+                                    <option value="1">Spouse</option>
+                                    <option value="2">Others</option>
+                                </select>
+                            </div>
+
+                            <div class="input_group">
+                                <div class="password_box toggle_box">
+                                    <label for="password" class="font_14">Password</label>
+                                    <input type="password" name="password" id="password" placeholder="Enter password">
+                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="submit_btn">
+                        <button type="submit" class="save_btn">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- ---------------------- login end ---------------------- -->
+
+    <!-- ---------------------- JS start ---------------------- -->
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- ---------------------- JS end ---------------------- -->
+</body>
+</html>

@@ -174,13 +174,13 @@ p {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 .mt_15 {
@@ -210,17 +210,17 @@ label {
 }
 
 .form-select {
-	width: 327px;
-	height: 48px;
-	background: #FFFFFF;
-	color: #7F8E9D;
-	border: 0.70px solid #C7CAD9;
-	border-radius: 4px;
-	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-	background-repeat: no-repeat;
-	background-position: right .75rem center;
-	background-size: 16px 12px;
-	margin: 22px 0 21px 0;
+    width: 327px;
+    height: 48px;
+    background: #FFFFFF;
+    color: #7F8E9D;
+    border: 0.70px solid #C7CAD9;
+    border-radius: 4px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    margin: 22px 0 21px 0;
 }
 /* ---------------------- common css end ---------------------- */
 
@@ -630,27 +630,27 @@ input:focus::placeholder {
 }
 
 .select2-container--default .select2-selection--single {
-	height: 48px;
-	background: #FFFFFF;
-	color: #7F8E9D;
-	border: 0.70px solid #C7CAD9;
-	border-radius: 4px;
-	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-	background-repeat: no-repeat;
-	background-position: right .75rem center;
-	background-size: 16px 12px;
+    height: 48px;
+    background: #FFFFFF;
+    color: #7F8E9D;
+    border: 0.70px solid #C7CAD9;
+    border-radius: 4px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-	line-height: 48px;
+    line-height: 48px;
 }
 
 .select2-container--default .select2-selection--multiple {
-	height: 48px;
-	background: #FFFFFF;
-	border: 0.71px solid #C7CAD9;
-	border-radius: 4px;
-	padding: 8px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 0.71px solid #C7CAD9;
+    border-radius: 4px;
+    padding: 8px;
 }
 /* ====================== Registration-1 Page end ====================== */
 
@@ -1379,7 +1379,7 @@ input:focus::placeholder {
 }
 
 .school_profile .dashboard_content_top {
-	margin: 40px 39px 40px 45px !important;
+    margin: 40px 39px 40px 45px !important;
 }
 /* ====================== Dashboard school profile Page end ====================== */
 
@@ -1591,38 +1591,38 @@ input:focus::placeholder {
 }
 
 .event_box_large .imgUp {
-	margin-bottom: 15px;
-	position: relative;
-	display: block;
+    margin-bottom: 15px;
+    position: relative;
+    display: block;
 }
 
 .event_box_large .imagePreview {
-	width: 371px;
-	height: 145px;
-	background-position: center center;
-	background-color: #fff;
-	background-size: cover;
-	background-repeat: no-repeat;
-	display: inline-block;
-	border: 0.71px solid #C7CAD9;
-	margin-right: 0;
-	margin-bottom: 10px;
+    width: 371px;
+    height: 145px;
+    background-position: center center;
+    background-color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    border: 0.71px solid #C7CAD9;
+    margin-right: 0;
+    margin-bottom: 10px;
 }
 
 .event_box_large .del {
-	position: absolute;
-	top: -12px;
-	right: -12px;
-	width: 24px;
-	height: 24px;
-	background-color: #fff;
-	border-radius: 50%;
-	border: 0.71px solid #C7CAD9;
-	font-size: 25px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 0.71px solid #C7CAD9;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .event_box_large .upload_btn_group {

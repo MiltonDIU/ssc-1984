@@ -178,26 +178,32 @@
 
                 <div class="row bottom-padding-line">
                     <div class="col-md-12"><h4>Professional Information</h4></div>
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <label class="required" for="professions">{{ trans('cruds.user.fields.profession') }}</label>
+
+                            <label class="required" style="margin-bottom: 38px" for="professions">Select Profession Category</label>
+
+                            <select class=" form-control select2 {{ $errors->has('professions') ? 'is-invalid' : '' }}" name="professions[]" id="profession_id" required>
+                                <option value="">{{ trans('global.pleaseSelect') }}</option>
+                                @foreach($professions as $id => $profession)
+                                    <option value="{{ $id }}" {{ in_array($id, old('professions', [])) ? 'selected' : '' }}>{{ $profession }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('professions'))
+                                <span class="text-danger">{{ $errors->first('professions') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.profession_helper') }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label  for="professions">{{ trans('cruds.user.fields.profession') }}</label>
                             <div style="padding-bottom: 4px">
                                 <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
                                 <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
                             </div>
-                            <select class="form-control select2 {{ $errors->has('professions') ? 'is-invalid' : '' }}" name="professions[]" id="professions" multiple required>
-                                @foreach($professions as $id => $profession)
+                            <select class="form-control select2 {{ $errors->has('professions') ? 'is-invalid' : '' }}" name="professions[]" id="professions" multiple>
 
-
-                                    <option value="{{ $id }}" {{ in_array($id, old('professions', [])) ? 'selected' : '' }}>{{ $profession }}</option>
-
-                                    @if(count(\App\Models\Profession::parentProfession($id))>0)
-                                        @include('admin.professions.parent-profession',['id'=>$id,'profession'=>$profession,'user'=>null])
-                                    @endif
-
-
-
-                                @endforeach
                             </select>
                             @if($errors->has('professions'))
                                 <span class="text-danger">{{ $errors->first('professions') }}</span>
@@ -500,6 +506,15 @@
                 method: 'GET',
                 success: function(data) {
                     $('#school_id').html(data.html);
+                }
+            });
+        });
+        $("#profession_id").change(function(){
+            $.ajax({
+                url: "{{ route('member.get_by_profession') }}?profession_id=" + $(this).val(),
+                method: 'GET',
+                success: function(data) {
+                    $('#professions').html(data.html);
                 }
             });
         });

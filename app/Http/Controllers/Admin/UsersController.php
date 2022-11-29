@@ -144,7 +144,6 @@ class UsersController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-
         $totalUsers = User::where('id_ssc_bd','!=',null)->where('id_ssc_district','!=',null)->get()->count();
         $dis_user = User::where('district_id',$request->input('district_id'))->get()->count();
 
@@ -204,9 +203,11 @@ class UsersController extends Controller
 
     public function edit(User $user)
     {
+
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $professions = Profession::where('profession_parrent',0)->pluck('name', 'id');
+        $selectedProfessions = Profession::where('profession_parrent',$user->professions2[0]->id)->pluck('name', 'id');
 
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -218,7 +219,7 @@ class UsersController extends Controller
 
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
 
-        return view('admin.users.edit', compact('districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
+        return view('admin.users.edit', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)

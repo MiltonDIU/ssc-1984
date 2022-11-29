@@ -149,6 +149,7 @@ class DashboardController extends Controller
         $user = User::findorFail($id);
 
         $professions = Profession::where('profession_parrent', 0)->pluck('name', 'id');
+        $selectedProfessions = Profession::where('profession_parrent',$user->professions2[0]->id)->pluck('name', 'id');
 
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -159,7 +160,7 @@ class DashboardController extends Controller
 
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
 
-        return view('member.edit-member', compact('districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
+        return view('member.edit-member', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
     }
 
     public function eventConfirmSubmit(Request $request)
@@ -271,6 +272,23 @@ class DashboardController extends Controller
             $html .= '<option value="">Please select district/city</option>';
             foreach ($districts as $city) {
                 $html .= '<option value="'.$city->id.'">'.$city->name.'</option>';
+            }
+        }
+        return response()->json(['html' => $html]);
+    }
+
+    //return profession
+    public function get_by_profession(Request $request)
+    {
+
+        if (!$request->profession_id) {
+            $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
+        } else {
+            $html = '';
+            $professions = Profession::where('profession_parrent', $request->profession_id)->where('is_active','1')->get();
+            $html .= '<option value="">Please select Profession</option>';
+            foreach ($professions as $profession) {
+                $html .= '<option value="'.$profession->id.'">'.$profession->name.'</option>';
             }
         }
         return response()->json(['html' => $html]);
