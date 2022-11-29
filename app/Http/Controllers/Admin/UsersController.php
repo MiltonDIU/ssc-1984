@@ -207,7 +207,7 @@ class UsersController extends Controller
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $professions = Profession::where('profession_parrent',0)->pluck('name', 'id');
-        $selectedProfessions = Profession::where('profession_parrent',$user->professions2[0]->id)->pluck('name', 'id');
+        $selectedProfessions = Profession::where('profession_parrent',count($user->professions2)>0?$user->professions2[0]->id:'')->pluck('name', 'id');
 
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 

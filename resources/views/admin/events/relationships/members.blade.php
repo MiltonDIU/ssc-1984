@@ -18,10 +18,13 @@
                         <th>
                             {{ trans('cruds.user.fields.name') }}
                         </th>
-
                         <th>
-                            {{ "Approved" }}
+                            Are You Coming With Spouse?
                         </th>
+
+{{--                        <th>--}}
+{{--                            {{ "Approved" }}--}}
+{{--                        </th>--}}
                         <th>
                             {{ trans('cruds.user.fields.email') }}
                         </th>
@@ -75,10 +78,23 @@
                             <td>
                                 {{ $user->name ?? '' }}
                             </td>
-
                             <td>
-                                {{ $user->event->pivot ?? '' }}
+                                @if($user->spouse!=null)
+                                   Yes
+                                    <br>
+                                   {{ $user->spouse->name }}
+                                    <br>
+                                    @if($user->spouse->avatar)
+                                            <img src="{{ $user->spouse->avatar->getUrl('thumb') }}">
+                                    @endif
+                                @else
+                                    No
+                                @endif
                             </td>
+
+{{--                            <td>--}}
+{{--                                {{ $user->event->pivot ?? '' }}--}}
+{{--                            </td>--}}
                             <td>
                                 {{ $user->email ?? '' }}
                             </td>

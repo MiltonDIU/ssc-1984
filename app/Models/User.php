@@ -208,4 +208,8 @@ class User extends Authenticatable implements HasMedia
         '1' => 'Yes',
         '0' => 'No',
     ];
+
+    public function spouse(){
+        return $this->hasOne(Spouse::class,'user_id','id');
+    }
 }
