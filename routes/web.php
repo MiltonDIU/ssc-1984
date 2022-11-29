@@ -23,6 +23,7 @@ use App\Http\Controllers\Alumni\DashboardController as AlumniDashboardController
 use App\Http\Controllers\Alumni\FrontendController;
 use App\Http\Controllers\Admin\SchoolsTowController;
 use App\Http\Controllers\Alumni\NewUserController;
+use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -150,8 +151,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::put('settings', [SettingsController::class, 'update'])->name('settings.update');
 
 
+// Data Book and event ticket list
 
-
+    Route::get('data-book',[DashboardController::class, 'dataBook'])->name('dataBook');
 
 });
 
