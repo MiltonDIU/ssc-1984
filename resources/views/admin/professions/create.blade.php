@@ -40,7 +40,18 @@
                 </div>
                 <div class="form-group">
                     <label for="profession_parrent">{{ trans('cruds.profession.fields.profession_parrent') }}</label>
-                    <input class="form-control {{ $errors->has('profession_parrent') ? 'is-invalid' : '' }}" type="number" name="profession_parrent" id="profession_parrent" value="{{ old('profession_parrent', '0') }}" step="1">
+{{--                    <input class="form-control {{ $errors->has('profession_parrent') ? 'is-invalid' : '' }}" type="number" name="profession_parrent" id="profession_parrent" value="{{ old('profession_parrent', '0') }}" step="1">--}}
+
+
+                    <select class="form-control select2 {{ $errors->has('profession') ? 'is-invalid' : '' }}" name="profession_parrent" id="profession_parrent" required>
+                        <option value disabled {{ old('profession_parrent', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                        @foreach($professions as $id => $entry)
+                            <option value="{{ $id }}" {{ old('profession_parrent') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                        @endforeach
+                    </select>
+
+
+
                     @if($errors->has('profession_parrent'))
                         <span class="text-danger">{{ $errors->first('profession_parrent') }}</span>
                     @endif
