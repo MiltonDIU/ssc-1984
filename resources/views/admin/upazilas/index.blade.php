@@ -34,6 +34,7 @@
                     <th>
                         {{ trans('cruds.upazila.fields.name') }}
                     </th>
+                    <th>Schools</th>
                     <th>
                         {{ trans('cruds.upazila.fields.is_active') }}
                     </th>
@@ -96,12 +97,14 @@
                     { data: 'id', name: 'id' },
                     { data: 'district_name', name: 'district.name' },
                     { data: 'name', name: 'name' },
+                    { data: 'schools', name: 'schools' },
                     { data: 'is_active', name: 'is_active' },
                     { data: 'actions', name: '{{ trans('global.actions') }}' }
                 ],
                 orderCellsTop: true,
                 order: [[ 1, 'desc' ]],
                 pageLength: 100,
+                lengthMenu: [[10, 25, 50,100, -1], [10, 25,50, 100, 'all']]
             };
             let table = $('.datatable-Upazila').DataTable(dtOverrideGlobals);
             $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){

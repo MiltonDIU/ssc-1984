@@ -28,9 +28,7 @@
                     <th>
                         {{ trans('cruds.schoolsTow.fields.id') }}
                     </th>
-                    <th>
-                        {{ trans('cruds.schoolsTow.fields.name') }}
-                    </th>
+
                     <th>
                         {{ trans('cruds.schoolsTow.fields.district') }}
                     </th>
@@ -41,6 +39,15 @@
                         {{ trans('cruds.schoolsTow.fields.eiin') }}
                     </th>
                     <th>
+                        {{ trans('cruds.schoolsTow.fields.name') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.schoolsTow.fields.address') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.schoolsTow.fields.post_office') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.schoolsTow.fields.mobile') }}
                     </th>
                     <th>
@@ -49,12 +56,8 @@
                     <th>
                         {{ trans('cruds.schoolsTow.fields.mpo') }}
                     </th>
-                    <th>
-                        {{ trans('cruds.schoolsTow.fields.post_office') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.schoolsTow.fields.address') }}
-                    </th>
+
+
                     <th>
                         {{ trans('cruds.schoolsTow.fields.is_approve') }}
                     </th>
@@ -118,15 +121,16 @@
                 columns: [
                     { data: 'placeholder', name: 'placeholder' },
                     { data: 'id', name: 'id' },
-                    { data: 'name', name: 'name' },
+
                     { data: 'district', name: 'district' },
                     { data: 'upazila', name: 'upazila' },
                     { data: 'eiin', name: 'eiin' },
+                    { data: 'name', name: 'name' },
+                    { data: 'address', name: 'address' },
+                    { data: 'post_office', name: 'post_office' },
                     { data: 'mobile', name: 'mobile' },
                     { data: 'management', name: 'management' },
                     { data: 'mpo', name: 'mpo' },
-                    { data: 'post_office', name: 'post_office' },
-                    { data: 'address', name: 'address' },
                     { data: 'is_approve', name: 'is_approve' },
                     { data: 'is_active', name: 'is_active' },
                     { data: 'actions', name: '{{ trans('global.actions') }}' }

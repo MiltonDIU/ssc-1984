@@ -42,6 +42,11 @@ class Upazila extends Model
         return $this->hasMany(School::class, 'upazila_id', 'id');
     }
 
+    public function schools()
+    {
+        return $this->hasMany(School::class, 'upazila_id', 'id');
+    }
+
     public function upazilaAddresses()
     {
         return $this->hasMany(Address::class, 'upazila_id', 'id');
@@ -51,7 +56,6 @@ class Upazila extends Model
     {
         return $this->hasMany(User::class, 'upazila_id', 'id');
     }
-
     public function district()
     {
         return $this->belongsTo(District::class, 'district_id');

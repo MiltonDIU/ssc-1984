@@ -41,6 +41,17 @@
                         {{ trans('cruds.district.fields.is_active') }}
                     </th>
                     <th>
+                        Upazila
+                    </th>
+
+                    <th>
+                        Schools
+                    </th>
+
+                    <th>
+                        Users
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
@@ -101,6 +112,9 @@
                     { data: 'name', name: 'name' },
                     { data: 'bn_name', name: 'bn_name' },
                     { data: 'is_active', name: 'is_active' },
+                    { data: 'total_upazila', name: 'total_upazila' },
+                    { data: 'total_school', name: 'total_school' },
+                    { data: 'total_users', name: 'total_users' },
                     { data: 'actions', name: '{{ trans('global.actions') }}' }
                 ],
                 orderCellsTop: true,

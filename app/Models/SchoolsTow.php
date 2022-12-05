@@ -39,6 +39,7 @@ class SchoolsTow extends Model
     protected $fillable = [
         'name',
         'slug',
+        'division_id',
         'district',
         'upazila',
         'eiin',

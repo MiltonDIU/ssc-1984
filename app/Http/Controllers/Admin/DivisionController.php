@@ -27,7 +27,17 @@ class DivisionController extends Controller
 
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('actions', '&nbsp;');
+            $table->addColumn('total_school', function ($row) {
+                return count($row->divisionSchools)??'';
+            });
 
+            $table->addColumn('total_district', function ($row) {
+                return count($row->divisionDistricts)??'';
+            });
+
+            $table->addColumn('total_users', function ($row) {
+                return count($row->divisionUsers)??'';
+            });
             $table->editColumn('actions', function ($row) {
                 $viewGate = 'division_show';
                 $editGate = 'division_edit';
@@ -59,7 +69,9 @@ class DivisionController extends Controller
                 return $row->is_active ? Division::IS_ACTIVE_SELECT[$row->is_active] : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder']);
+
+
+            $table->rawColumns(['actions', 'placeholder','total_school','total_district','total_users']);
 
             return $table->make(true);
         }

@@ -58,7 +58,10 @@ class District extends Model
     {
         return $this->belongsTo(Division::class, 'division_id');
     }
-
+    public function districtSchools()
+    {
+        return $this->hasMany(School::class, 'district_id', 'id');
+    }
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');

@@ -69,22 +69,24 @@ class HomeController extends Controller
         $primary = array();
 
         if (($handle = fopen($filename, 'r')) !== false) {
-            while (($row = fgetcsv($handle, 1000, $delimiter)) !== false) {
+            while (($row = fgetcsv($handle, 20000, $delimiter)) !== false) {
+
                 if (!$header)
                     $header = $row;
                 else{
+//                    if ( strstr( $row[7], 'PRIMARY' ) ) {
+//                        $primary[] = array_combine($header, $row);
+//                    } else {
 
-
-                    if ( strstr( $row[7], 'PRIMARY' ) ) {
-                        $primary[] = array_combine($header, $row);
-                    } else {
-                        $upazila = Upazila:: where('name', 'LIKE', '%'.$row[1].'%')->first();
-                        if ($upazila){
-                            $find = School::where('name',$row[3])->first();
+                    $district = District:: where('name', 'LIKE', '%'.$row[0].'%')->first();
+                    if ($district){
+                        $upazila = Upazila:: where('name', 'LIKE', '%'.$row[1].'%')->where('district_id',$district->id)->first();
+                        if ($upazila) {
+                            $find = School::where('name', $row[3])->first();
                             if ($find == null){
                                 $schools = [
-                                    'division_id'=> $upazila->district->division->id,
-                                    'district_id'=> $upazila->district->id,
+                                    'division_id'=> $district->division->id,
+                                    'district_id'=> $district->id,
                                     'upazila_id'=> $upazila->id,
                                     'eiin'=> $row[2],
                                     'name'=> $row[3],
@@ -96,12 +98,29 @@ class HomeController extends Controller
                                     'mpo'=> $row[8],
                                 ];
                                 array_push($valid,$schools);
-                            }else{
-                                $data2['allready']= $row[1];
                             }
                         }else{
                             $find = SchoolsTow::where('name',$row[3])->first();
                             if ($find == null){
+                                $schools = [
+                                    'division_id'=> $district->division->id,
+                                    'district'=> $district->id,
+                                    'upazila'=> $row[1],
+                                    'eiin'=> $row[2],
+                                    'name'=> $row[3],
+                                    'slug'=> Str::slug($row[3]),
+                                    'address'=> $row[4],
+                                    'post_office'=> $row[5],
+                                    'mobile'=> $row[6],
+                                    'management'=> $row[7],
+                                    'mpo'=> $row[8],
+                                ];
+                                array_push($invalid,$schools);
+                            }
+                        }
+                    }else{
+                        $find = SchoolsTow::where('name',$row[3])->first();
+                        if ($find == null){
                             $schools = [
                                 'district'=> $row[0],
                                 'upazila'=> $row[1],
@@ -115,9 +134,10 @@ class HomeController extends Controller
                                 'mpo'=> $row[8],
                             ];
                             array_push($invalid,$schools);
-                            }
                         }
                     }
+
+//                    }
 
                 }
             }

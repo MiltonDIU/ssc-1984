@@ -25,7 +25,7 @@ class UpazilaController extends Controller
         abort_if(Gate::denies('upazila_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Upazila::with(['district'])->select(sprintf('%s.*', (new Upazila())->table));
+            $query = Upazila::with(['district','schools'])->select(sprintf('%s.*', (new Upazila())->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -53,6 +53,9 @@ class UpazilaController extends Controller
                 return $row->district ? $row->district->name : '';
             });
 
+            $table->addColumn('schools', function ($row) {
+                return $row->schools->count()?$row->schools->count():'0';
+            });
             $table->editColumn('name', function ($row) {
                 return $row->name ? $row->name : '';
             });
@@ -60,8 +63,7 @@ class UpazilaController extends Controller
                 return $row->is_active ? Upazila::IS_ACTIVE_SELECT[$row->is_active] : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'district']);
-
+            $table->rawColumns(['actions', 'placeholder', 'district','schools']);
             return $table->make(true);
         }
 

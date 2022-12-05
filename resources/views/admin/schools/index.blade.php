@@ -134,6 +134,7 @@
                 orderCellsTop: true,
                 order: [[ 1, 'desc' ]],
                 pageLength: 100,
+                lengthMenu: [[10, 25, 50,100, -1], [10, 25,50, 100, 'all']]
             };
             let table = $('.datatable-School').DataTable(dtOverrideGlobals);
             $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){

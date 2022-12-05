@@ -29,6 +29,17 @@ class DistrictsController extends Controller
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('actions', '&nbsp;');
 
+            $table->addColumn('total_upazila', function ($row) {
+                return count($row->districtUpazilas)??'';
+            });
+            $table->addColumn('total_school', function ($row) {
+                return count($row->districtSchools)??'';
+            });
+
+            $table->addColumn('total_users', function ($row) {
+                return count($row->districtUsers)??'';
+            });
+
             $table->editColumn('actions', function ($row) {
                 $viewGate = 'district_show';
                 $editGate = 'district_edit';
