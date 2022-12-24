@@ -24,6 +24,7 @@
     <!-- ---------------------- CSS start ---------------------- -->
     <link rel="stylesheet" href="{{ url('assets/alumni/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url('assets/alumni/css/style.css')}}">
+       <link rel="stylesheet" href="{{ url('assets/alumni/css/responsive.css')}}">
     <!-- ---------------------- CSS end ---------------------- -->
 </head>
 <body>

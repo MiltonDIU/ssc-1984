@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Auditable;
 use \DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +12,7 @@ class Upazila extends Model
 {
     use SoftDeletes;
     use HasFactory;
-
+use Auditable;
     public const IS_ACTIVE_SELECT = [
         '1' => 'Yes',
         '0' => 'No',

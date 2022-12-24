@@ -59,7 +59,7 @@
                                 {{ $auditLog->subject_type ?? '' }}
                             </td>
                             <td>
-                                {{ $auditLog->user_id ?? '' }}
+                                {{ $auditLog->user->name ?? '' }}
                             </td>
                             <td>
                                 {{ $auditLog->host ?? '' }}

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Auditable;
 use \DateTimeInterface;
 use App\Traits\MultiTenantModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +18,7 @@ class Address extends Model implements HasMedia
 //    use MultiTenantModelTrait;
     use InteractsWithMedia;
     use HasFactory;
-
+use Auditable;
     public const TYPE_OF_ADDRESS_SELECT = [
         'Present'   => 'Present',
         'Permanent' => 'Permanent',

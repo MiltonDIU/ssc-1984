@@ -23,7 +23,6 @@ use App\Http\Controllers\Alumni\DashboardController as AlumniDashboardController
 use App\Http\Controllers\Alumni\FrontendController;
 use App\Http\Controllers\Admin\SchoolsTowController;
 use App\Http\Controllers\Alumni\NewUserController;
-use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -151,9 +150,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::put('settings', [SettingsController::class, 'update'])->name('settings.update');
 
 
-// Data Book and event ticket list
 
-    Route::get('data-book',[DashboardController::class, 'dataBook'])->name('dataBook');
+
 
 });
 
@@ -179,6 +177,10 @@ Route::group(['prefix' => 'member',
     'namespace' => 'Alumni',
     'middleware' => ['auth']],
     function () {
+        
+           Route::post('users/media', [NewUserController::class,'storeMedia'])->name('users.storeMedia');
+        Route::post('users/ckmedia', [NewUserController::class,'storeCKEditorImages'])->name('users.storeCKEditorImages');
+
     Route::get('/', [AlumniDashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [AlumniDashboardController::class, 'profile'])->name('profile');
 

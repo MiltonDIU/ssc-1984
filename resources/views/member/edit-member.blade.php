@@ -431,7 +431,7 @@
     <script src="{{ url('assets/alumni/js/select2.min.js') }}"></script>
     <script>
         Dropzone.options.avatarDropzone = {
-            url: '{{ route('admin.users.storeMedia') }}',
+            url: '{{ route('member.users.storeMedia') }}',
             maxFilesize: 2, // MB
             acceptedFiles: '.jpeg,.jpg,.png,.gif',
             maxFiles: 1,

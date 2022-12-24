@@ -106,7 +106,7 @@ class DashboardController extends Controller
         return view('member.events-details', compact('event'));
     }
 
-    public function eventConfirm($id,)
+    public function eventConfirm($id)
     {
         abort_if(Gate::denies('member_events_registration'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $event = Event::findOrFail($id);
@@ -191,13 +191,41 @@ class DashboardController extends Controller
     }
 
 
+    // public function profile()
+    // {
+    //     abort_if(Gate::denies('member_profile'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+    //     $user = User::findorFail(auth()->id());
+
+    //     $professions = Profession::where('profession_parrent', 0)->pluck('name', 'id');
+
+    //     $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+    //     $districts = District::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+    //     $upazilas = Upazila::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+    //     $roles = Role::where('id', 2)->pluck('title', 'id');
+
+    //     $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
+
+    //     return view('member.profile', compact('districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
+
+
+
+    // }
+
     public function profile()
     {
         abort_if(Gate::denies('member_profile'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $user = User::findorFail(auth()->id());
 
-        $professions = Profession::where('profession_parrent', 0)->pluck('name', 'id');
+
+        $professions = Profession::where('profession_parrent', 0)->where('is_active','1')->pluck('name', 'id');
+
+
+        $selectedProfessions = Profession::where('profession_parrent',count($user->professions2)>0?$user->professions2[0]->id:'')->pluck('name', 'id');
 
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -209,11 +237,12 @@ class DashboardController extends Controller
 
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
 
-        return view('member.profile', compact('districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
+        return view('member.profile', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
 
 
 
     }
+
 
 
     //return district wise upazila

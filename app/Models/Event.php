@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Auditable;
 use \DateTimeInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +17,7 @@ class Event extends Model implements HasMedia
     use SoftDeletes;
     use InteractsWithMedia;
     use HasFactory;
-
+use Auditable;
     public const IS_FREE_SELECT = [
         '1' => 'Yes',
         '0' => 'No',

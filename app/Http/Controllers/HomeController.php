@@ -104,7 +104,7 @@ class HomeController extends Controller
                             if ($find == null){
                                 $schools = [
                                     'division_id'=> $district->division->id,
-                                    'district'=> $district->id,
+                                    'district'=> $row[0],
                                     'upazila'=> $row[1],
                                     'eiin'=> $row[2],
                                     'name'=> $row[3],

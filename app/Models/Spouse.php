@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -13,7 +14,7 @@ class Spouse extends Model implements HasMedia
     use HasFactory;
     use HasFactory;
     use InteractsWithMedia;
-
+use Auditable;
     protected $appends = [
         'avatar',
     ];

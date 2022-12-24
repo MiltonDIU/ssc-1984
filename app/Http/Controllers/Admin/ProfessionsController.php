@@ -70,7 +70,7 @@ class ProfessionsController extends Controller
     public function create()
     {
         abort_if(Gate::denies('profession_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $professions = Profession::where('is_active','1')->pluck('name','id');
+        $professions = Profession::where('is_active','1')->where('profession_parrent','0')->pluck('name','id');
 
         return view('admin.professions.create',compact('professions'));
     }
@@ -85,7 +85,7 @@ class ProfessionsController extends Controller
     public function edit(Profession $profession)
     {
         abort_if(Gate::denies('profession_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $professions = Profession::where('is_active','1')->pluck('name','id');
+        $professions = Profession::where('is_active','1')->where('profession_parrent','0')->pluck('name','id');
         return view('admin.professions.edit', compact('profession','professions'));
     }
 

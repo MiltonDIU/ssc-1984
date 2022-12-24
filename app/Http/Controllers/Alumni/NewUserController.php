@@ -85,7 +85,7 @@ class NewUserController extends Controller
         return redirect()->route('member.my-reference-member')->with('message','New User Create Successfully');
     }
 
-    public function update(UpdateUserRequest $request,$id )
+    public function update(Request $request,$id )
     {
 
        $user  = User::findOrFail($id);
@@ -110,7 +110,7 @@ class NewUserController extends Controller
 
         $user->update($userData);
         $user->professions()->sync($request->input('professions', []));
-        $user->roles()->sync($request->input('roles', []));
+        //$user->roles()->sync($request->input('roles', []));
 
         if ($request->input('avatar', false)) {
             if (!$user->avatar || $request->input('avatar') !== $user->avatar->file_name) {
@@ -137,13 +137,23 @@ class NewUserController extends Controller
             Address::create($address);
         }
 
-//        if(auth()->user()->roles()->where('title', 'Admin')->exists()){
-//            return redirect()->route('admin.users.index');
-//        }
-//        else{
-//            return redirect()->route('member.my-reference-member');
-//        }
-        return redirect()->route('member.my-reference-member')->with('message','Profile Update Successfully');
+        if(auth()->id() == $id){
+            return redirect()->route('member.profile')->with('message','Profile Update Successfully');
+        }
+        else{
+            return redirect()->route('member.my-reference-member')->with('message','Profile Update Successfully');
+        }
+        // return redirect()->route('member.my-reference-member')->with('message','Profile Update Successfully');
     }
+    public function storeCKEditorImages(Request $request)
+    {
+//        abort_if(Gate::denies('user_create') && Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $model         = new User();
+        $model->id     = $request->input('crud_id', 0);
+        $model->exists = true;
+        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+
+        return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    }
 }

@@ -38,4 +38,3 @@
     <p class="font_12">ssc1984@copyright</p>
 
 @endsection
-mysql -u diu -p project_ssc_1984 < webdiu_newdata.sql

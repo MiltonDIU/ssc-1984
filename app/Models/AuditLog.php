@@ -28,4 +28,8 @@ class AuditLog extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+      protected function user()
+    {
+         return $this->belongsTo(User::class, 'user_id');
+    }
 }

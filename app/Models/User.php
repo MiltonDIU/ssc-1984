@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Auditable;
 use \DateTimeInterface;
 use Carbon\Carbon;
 use Hash;
@@ -21,7 +22,7 @@ class User extends Authenticatable implements HasMedia
     use Notifiable;
     use InteractsWithMedia;
     use HasFactory;
-
+use Auditable;
     public const GENDER_SELECT = [
         'Male'   => 'Male',
         'Female' => 'Female',

@@ -22,8 +22,13 @@
 
         <div class="profile_contact_info">
             <div class="Contact_box">
+                @if($user->is_hide_email==0)
                 <a href="mailto:{{ $user->email??"" }}" class="white_btn"><i class="bi bi-envelope-paper"></i>{{ $user->email??"" }}</a>
-                <a href="tel:{{ $user->mobile??"" }}" class="white_btn"><i class="bi bi-telephone"></i>{{ $user->mobile??"" }}</a>
+                @endif
+                @if($user->is_hide_mobile==0)
+                    <a href="tel:{{ $user->mobile??"" }}" class="white_btn"><i class="bi bi-telephone"></i>{{ $user->mobile??"" }}</a>
+                @endif
+
             </div>
 
 {{--            <div class="social_box">--}}

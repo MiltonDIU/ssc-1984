@@ -136,7 +136,7 @@
                         <div class="form-group">
                             <label class="required" for="ddistrict_id">{{ trans('cruds.user.fields.district') }}</label>
                             <select class="form-control select2 {{ $errors->has('school_district') ? 'is-invalid' : '' }}" name="school_district_id" id="school_district_id" required>
-                                <option value="{{ $user->school->district_id }}" {{ (old('school_district_id') ? old('school_district_id') : $user->school->district_id ?? '') == $id ? 'selected' : '' }}>{{ $user->school->district->name }}</option>
+                                <option value="{{ $user->school->district_id??'' }}" {{ (old('school_district_id') ? old('school_district_id') : $user->school->district_id ?? '') == $id ? 'selected' : '' }}>{{ $user->school->district->name??'' }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
@@ -150,7 +150,7 @@
                         <div class="form-group">
                             <label class="required" for="school_upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
                             <select class="form-control select2 {{ $errors->has('school_upazila') ? 'is-invalid' : '' }}" name="school_upazila_id" id="school_upazila_id" required>
-                                <option value="{{ $user->school->upazila_id }}" {{ (old('school_upazila_id') ? old('school_upazila_id') : $user->school->upazila_id ?? '') == $id ? 'selected' : '' }}>{{ $user->school->upazila->name }}</option>
+                                <option value="{{ $user->school->upazila_id??'' }}" {{ (old('school_upazila_id') ? old('school_upazila_id') : $user->school->upazila_id ?? '') == $id ? 'selected' : '' }}>{{ $user->school->upazila->name??'' }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
@@ -166,7 +166,7 @@
 
                             <select class="form-control select2 {{ $errors->has('school') ? 'is-invalid' : '' }}" name="school_id" id="school_id" required>
 
-                                <option value="{{ $user->school->id }}" {{ (old('school_id') ? old('school_id') : $user->school->id ?? '') == $id ? 'selected' : '' }}>{{ $user->school->name }}</option>
+                                <option value="{{ $user->school->id??'' }}" {{ (old('school_id') ? old('school_id') : $user->school->id ?? '') == $id ? 'selected' : '' }}>{{ $user->school->name??'' }}</option>
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
                             @if($errors->has('school'))
@@ -241,7 +241,7 @@
                         <div class="form-group">
                             <label class="required" for="district_id">{{ trans('cruds.user.fields.district') }}</label>
                             <select class="form-control select2 {{ $errors->has('district') ? 'is-invalid' : '' }}" name="district_id" id="district_id" required>
-                                <option value="{{ $user->district->id }}" {{ (old('district_id') ? old('district_id') : $user->district->id ?? '') == $id ? 'selected' : '' }}>{{ $user->district->name }}</option>
+                                <option value="{{ $user->district->id??'' }}" {{ (old('district_id') ? old('district_id') : $user->district->id ?? '') == $id ? 'selected' : '' }}>{{ $user->district->name??'' }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
@@ -255,7 +255,7 @@
                         <div class="form-group">
                             <label class="required" for="upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
                             <select class="form-control select2 {{ $errors->has('upazila') ? 'is-invalid' : '' }}" name="upazila_id" id="upazila_id" required>
-                                <option value="{{ $user->upazila->id }}" {{ (old('upazila_id') ? old('upazila_id') : $user->upazila->id ?? '') == $id ? 'selected' : '' }}>{{ $user->upazila->name }}</option>
+                                <option value="{{ $user->upazila->id??'' }}" {{ (old('upazila_id') ? old('upazila_id') : $user->upazila->id ?? '') == $id ? 'selected' : '' }}>{{ $user->upazila->name??'' }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
@@ -286,7 +286,7 @@
                         <div class="form-group">
                             <label class="required" for="address_district_id">{{ trans('cruds.user.fields.district') }}</label>
                             <select class="form-control select2 {{ $errors->has('address_district') ? 'is-invalid' : '' }}" name="address_district_id" id="address_district_id" required>
-                                <option value="{{ $user->userAddresses[0]->district_id }}" {{ (old('address_district_id') ? old('address_district_id') : $user->userAddresses[0]->district_id ?? '') == $id ? 'selected' : '' }}>{{ $user->userAddresses[0]->district->name }}</option>
+                                <option value="{{ $user->userAddresses[0]->district_id??'' }}" {{ (old('address_district_id') ? old('address_district_id') : $user->userAddresses[0]->district_id ?? '') == $id ? 'selected' : '' }}>{{ $user->userAddresses[0]->district->name??'' }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
@@ -300,7 +300,7 @@
                         <div class="form-group">
                             <label class="required" for="upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
                             <select class="form-control select2 {{ $errors->has('address_upazila') ? 'is-invalid' : '' }}" name="address_upazila_id" id="address_upazila_id" required>
-                                <option value="{{ $user->upazila->id }}" {{ (old('address_upazila_id') ? old('address_upazila_id') : $user->userAddresses[0]->upazila_id ?? '') == $id ? 'selected' : '' }}>{{ $user->userAddresses[0]->upazila->name }}</option>
+                                <option value="{{ $user->userAddresses[0]->upazila_id??'' }}" {{ (old('address_upazila_id') ? old('address_upazila_id') : $user->userAddresses[0]->upazila_id ?? '') == $id ? 'selected' : '' }}>{{ $user->userAddresses[0]->upazila->name??'' }}</option>
 
                                 <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
@@ -313,7 +313,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="area">{{ trans('cruds.address.fields.area') }}</label>
-                            <textarea class="form-control ckeditor {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{!! old('area', $user->userAddresses[0]->area) !!}</textarea>
+                            <textarea class="form-control ckeditor {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{!! old('area', $user->userAddresses[0]->area??'') !!}</textarea>
                             @if($errors->has('area'))
                                 <span class="text-danger">{{ $errors->first('area') }}</span>
                             @endif

@@ -148,18 +148,18 @@
                             </ul>
                         </li>
                     @endcan
-                    @can('address_access')
-                        <li class="nav-item">
-                            <a href="{{ route("admin.addresses.index") }}" class="nav-link {{ request()->is("admin/addresses") || request()->is("admin/addresses/*") ? "active" : "" }}">
-                                <i class="fa-fw nav-icon fas fa-cogs">
+                    <!--@can('address_access')-->
+                    <!--    <li class="nav-item">-->
+                    <!--        <a href="{{ route("admin.addresses.index") }}" class="nav-link {{ request()->is("admin/addresses") || request()->is("admin/addresses/*") ? "active" : "" }}">-->
+                    <!--            <i class="fa-fw nav-icon fas fa-cogs">-->
 
-                                </i>
-                                <p>
-                                    {{ trans('cruds.address.title') }}
-                                </p>
-                            </a>
-                        </li>
-                    @endcan
+                    <!--            </i>-->
+                    <!--            <p>-->
+                    <!--                {{ trans('cruds.address.title') }}-->
+                    <!--            </p>-->
+                    <!--        </a>-->
+                    <!--    </li>-->
+                    <!--@endcan-->
                     @can('event_access')
                         <li class="nav-item">
                             <a href="{{ route("admin.events.index") }}" class="nav-link {{ request()->is("admin/events") || request()->is("admin/events/*") ? "active" : "" }}">
