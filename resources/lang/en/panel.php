@@ -1,4 +1,4 @@
 <?php
 return [
-    'site_title' => 'Laravel9Admin',
+    'site_title' => 'SSC-1984',
 ];

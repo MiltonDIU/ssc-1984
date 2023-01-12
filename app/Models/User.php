@@ -46,8 +46,8 @@ use Auditable;
 
     public static $searchable = [
         'name',
-        'mobile',
-        'email',
+        // 'mobile',
+        // 'email',
         'blood_group',
         'id_ssc_bd',
         'id_ssc_district',
@@ -101,7 +101,10 @@ use Auditable;
     {
         return $this->roles()->where('id', 1)->exists();
     }
-
+    public function residence()
+    {
+        return $this->hasOne(Residence::class, 'user_id');
+    }
     public function registerMediaConversions(Media $media = null): void
     {
         $this->addMediaConversion('thumb')->fit('crop', 50, 50);

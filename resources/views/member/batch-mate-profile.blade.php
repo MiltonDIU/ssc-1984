@@ -4,10 +4,10 @@
     <!-- ---------------------- Dashboard content end ---------------------- -->
 
     <div class="view_profile_box">
-        <div class="profile_basic_info">
-            <div class="profile_img">
+        <div class="profile_basic_info" style="padding-top:30px">
+            <div class="profile_img" >
                 @if($user->avatar)
-                    <img src="{{ $user->avatar->getUrl('thumb') }}" alt="{{ $user->name }}">
+                    <img src="{{ $user->avatar->getUrl() }}" alt="{{ $user->name }}">
                 @else
                     <img src="{{ url('assets/alumni/images/My profile.png') }}" alt="">
                 @endif
@@ -21,15 +21,15 @@
         </div>
 
         <div class="profile_contact_info">
-            <div class="Contact_box">
-                @if($user->is_hide_email==0)
-                <a href="mailto:{{ $user->email??"" }}" class="white_btn"><i class="bi bi-envelope-paper"></i>{{ $user->email??"" }}</a>
-                @endif
-                @if($user->is_hide_mobile==0)
-                    <a href="tel:{{ $user->mobile??"" }}" class="white_btn"><i class="bi bi-telephone"></i>{{ $user->mobile??"" }}</a>
-                @endif
+            <!--<div class="Contact_box">-->
+            <!--    @if($user->is_hide_email==0)-->
+            <!--    <a href="mailto:{{ $user->email??"" }}" class="white_btn"><i class="bi bi-envelope-paper"></i>{{ $user->email??"" }}</a>-->
+            <!--    @endif-->
+            <!--    @if($user->is_hide_mobile==0)-->
+            <!--        <a href="tel:{{ $user->mobile??"" }}" class="white_btn"><i class="bi bi-telephone"></i>{{ $user->mobile??"" }}</a>-->
+            <!--    @endif-->
 
-            </div>
+            <!--</div>-->
 
 {{--            <div class="social_box">--}}
 {{--                <div class="s_box">--}}
@@ -51,7 +51,14 @@
 
             <div class="current_location_box">
                 <p class="location_title">Current Location:</p>
-                <p class="location_text">   {{ $user->userAddresses[0]->area?? '' }}, {{ $user->userAddresses[0]->upazila->name ?? '' }}, {{ $user->userAddresses[0]->district->name ?? '' }}</p>
+                <p class="location_text">
+
+                    {{ $user->residence->area ?? '' }},
+                    {{ $user->residence->city->name ?? '' }},
+                    {{ $user->residence->state->name ?? '' }},
+                    {{ $user->residence->country->name ?? '' }}
+
+                </p>
                 <hr>
             </div>
 

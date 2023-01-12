@@ -168,44 +168,43 @@
                             {{ $user->upazila->name ?? '' }}
                         </td>
                     </tr>
-
                     <tr style="background: #6f42c1">
                         <td colspan="2" style="color: white; font-weight: bolder"> Member Present Address</td>
                     </tr>
 
                     <tr>
                         <th>
-                            {{ trans('cruds.address.fields.division') }}
+                            {{ trans('cruds.residence.fields.country') }}
                         </th>
                         <td>
-                            {{ $user->userAddresses[0]->division->name ?? '' }}
+                            {{ $user->residence->country->name ?? '' }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.address.fields.district') }}
+                            {{ trans('cruds.residence.fields.state') }}
                         </th>
                         <td>
-                            {{ $user->userAddresses[0]->district->name ?? '' }}
+                            {{ $user->residence->state->name ?? '' }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.address.fields.upazila') }}
+                            {{ trans('cruds.residence.fields.city') }}
                         </th>
                         <td>
-                            {{ $user->userAddresses[0]->upazila->name ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.address.fields.area') }}
-                        </th>
-                        <td>
-                            {!! $user->userAddresses[0]->area !!}
+                            {{ $user->residence->city->name ?? '' }}
                         </td>
                     </tr>
 
+                    <tr>
+                        <th>
+                            {{ trans('cruds.residence.fields.area') }}
+                        </th>
+                        <td>
+                            {{ $user->residence->area ?? '' }}
+                        </td>
+                    </tr>
 
                     <tr style="background: #6f42c1">
                         <td colspan="2" style="color: white; font-weight: bolder"> User Roll</td>

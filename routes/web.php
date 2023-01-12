@@ -23,6 +23,10 @@ use App\Http\Controllers\Alumni\DashboardController as AlumniDashboardController
 use App\Http\Controllers\Alumni\FrontendController;
 use App\Http\Controllers\Admin\SchoolsTowController;
 use App\Http\Controllers\Alumni\NewUserController;
+use App\Http\Controllers\Admin\CountriesController;
+use App\Http\Controllers\Admin\StatesController;
+use App\Http\Controllers\Admin\CitiesController;
+use App\Http\Controllers\Admin\ResidencesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +39,9 @@ use App\Http\Controllers\Alumni\NewUserController;
 */
 
 
+
+Route::get('admin/city-migrate', [CitiesController::class,'cityMigrate'])->name('admin.cityMigrate');
+Route::get('admin/city-duplicate-delete', [CitiesController::class,'duplicateDelete'])->name('admin.duplicateDelete');
 
 Route::get('admin/csv', [\App\Http\Controllers\HomeController::class,'readCsbForm'])->name('admin.csv');
 Route::post('admin/csv', [\App\Http\Controllers\HomeController::class,'readCsb'])->name('admin.csv');
@@ -66,6 +73,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
         'events' => EventsController::class,
         'upazilas' => UpazilaController::class,
         'professions' => ProfessionsController::class,
+        'countries' => CountriesController::class,
+        'states' => StatesController::class,
+        'cities' => CitiesController::class,
+        'residences' => ResidencesController::class,
     ]);
 
     // Permissions
@@ -136,6 +147,30 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::post('events/ckmedia',[EventsController::class, 'storeCKEditorImages'])->name('events.storeCKEditorImages');
 
 
+
+    // Countries
+    Route::delete('countries/destroy', [CountriesController::class,'massDestroy'])->name('countries.massDestroy');
+    Route::post('countries/parse-csv-import', [CountriesController::class,'parseCsvImport'])->name('countries.parseCsvImport');
+    Route::post('countries/process-csv-import', [CountriesController::class,'processCsvImport'])->name('countries.processCsvImport');
+
+    // States
+    Route::delete('states/destroy', [StatesController::class,'massDestroy'])->name('states.massDestroy');
+    Route::post('states/parse-csv-import', [StatesController::class,'parseCsvImport'])->name('states.parseCsvImport');
+    Route::post('states/process-csv-import', [StatesController::class,'processCsvImport'])->name('states.processCsvImport');
+
+
+    // Cities
+    Route::delete('cities/destroy', [CitiesController::class,'massDestroy'])->name('cities.massDestroy');
+    Route::post('cities/parse-csv-import', [CitiesController::class,'parseCsvImport'])->name('cities.parseCsvImport');
+    Route::post('cities/process-csv-import', [CitiesController::class,'processCsvImport'])->name('cities.processCsvImport');
+
+
+    // Residences
+    Route::post('residences/parse-csv-import', [ResidencesController::class,'parseCsvImport'])->name('residences.parseCsvImport');
+    Route::post('residences/process-csv-import', [ResidencesController::class,'processCsvImport'])->name('residences.processCsvImport');
+    Route::delete('residences/destroy', [ResidencesController::class,'massDestroy'])->name('residences.massDestroy');
+
+
     // Global Search
 
     Route::get('global-search',[GlobalSearchController::class, 'search'])->name('globalSearch');
@@ -177,7 +212,7 @@ Route::group(['prefix' => 'member',
     'namespace' => 'Alumni',
     'middleware' => ['auth']],
     function () {
-        
+
            Route::post('users/media', [NewUserController::class,'storeMedia'])->name('users.storeMedia');
         Route::post('users/ckmedia', [NewUserController::class,'storeCKEditorImages'])->name('users.storeCKEditorImages');
 
@@ -223,10 +258,9 @@ Route::group(['prefix' => 'member',
     Route::get('district/get_by_division', [AlumniDashboardController::class,'get_by_division'])->name('district.get_by_division');
     Route::get('upazila/get_by_district', [AlumniDashboardController::class,'get_by_district'])->name('upazila.get_by_district');
     Route::get('school/get_by_upazila', [AlumniDashboardController::class,'school_get_by_upazila'])->name('schools.get_by_upazila');
-        Route::get('get_by_profession', [AlumniDashboardController::class,'get_by_profession'])->name('get_by_profession');
+    Route::get('get_by_profession', [AlumniDashboardController::class,'get_by_profession'])->name('get_by_profession');
 
-
-    //search
+        //search
     Route::get('member-school-search',[AlumniDashboardController::class, 'schoolSearch'])->name('schoolSearch');
     Route::get('member-batch-mate-search',[AlumniDashboardController::class, 'memberSearch'])->name('memberSearch');
 
@@ -236,3 +270,7 @@ Route::group(['prefix' => 'member',
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//residence
+Route::get('get_by_state', [ResidencesController::class,'getByState'])->name('getByState');
+Route::get('get_by_city', [ResidencesController::class,'getByCity'])->name('getByCity');
+

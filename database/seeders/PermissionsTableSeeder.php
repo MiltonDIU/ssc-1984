@@ -260,11 +260,73 @@ class PermissionsTableSeeder extends Seeder
 //            [
 //                'title' => 'member_settings',
 //            ],
+//            [
+//                'title' => 'member_new_user',
+//            ],
+//            [
+//                'title' => 'member_update_user',
+//            ],
+
             [
-                'title' => 'member_new_user',
+                'title' => 'country_create',
             ],
             [
-                'title' => 'member_update_user',
+                'title' => 'country_edit',
+            ],
+            [
+                'title' => 'country_show',
+            ],
+            [
+                'title' => 'country_delete',
+            ],
+            [
+                'title' => 'country_access',
+            ],
+            [
+                'title' => 'state_create',
+            ],
+            [
+                'title' => 'state_edit',
+            ],
+            [
+                'title' => 'state_show',
+            ],
+            [
+                'title' => 'state_delete',
+            ],
+            [
+                'title' => 'state_access',
+            ],
+            [
+                'title' => 'city_create',
+            ],
+            [
+                'title' => 'city_edit',
+            ],
+            [
+                'title' => 'city_show',
+            ],
+            [
+                'title' => 'city_delete',
+            ],
+            [
+                'title' => 'city_access',
+            ],
+            [
+                'title' => 'residence_edit',
+            ],
+            [
+                'title' => 'residence_access',
+            ],
+            [
+                'title' => 'residence_create',
+            ],
+
+            [
+                'title' => 'residence_show',
+            ],
+            [
+                'title' => 'residence_delete',
             ],
 
         ];

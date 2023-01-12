@@ -8,11 +8,15 @@ use App\Http\Requests\MassDestroyUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Address;
+use App\Models\City;
+use App\Models\Country;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\Profession;
+use App\Models\Residence;
 use App\Models\Role;
 use App\Models\School;
+use App\Models\State;
 use App\Models\Upazila;
 use App\Models\User;
 use Gate;
@@ -139,7 +143,13 @@ class UsersController extends Controller
 
         $roles = Role::pluck('title', 'id');
 
-        return view('admin.users.create', compact('districts', 'divisions', 'professions', 'roles', 'upazilas'));
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $states = State::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $cities = City::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.users.create', compact('districts', 'divisions', 'professions', 'roles', 'upazilas','countries','states','cities'));
     }
 
     public function store(StoreUserRequest $request)
@@ -183,14 +193,12 @@ class UsersController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $user->id]);
         }
 
-        $address['division_id'] = $request->input('address_division_id');
-        $address['district_id'] = $request->input('address_district_id');
-        $address['upazila_id'] = $request->input('address_upazila_id');
-        $address['area'] = $request->input('area');
-        $address['user_id'] = $user->id;
-        $address['created_by_id'] = Auth::id();
-        $address['type_of_address'] = 'Present';
-        Address::create($address);
+        $residence['country_id'] = $request->input('country_id');
+        $residence['state_id'] = $request->input('state_id');
+        $residence['city_id'] = $request->input('city_id');
+        $residence['area'] = $request->input('area');
+        $residence['user_id'] = $user->id;
+        Residence::create($residence);
 
         if(auth()->user()->roles()->where('title', 'Admin')->exists()){
             return redirect()->route('admin.users.index');
@@ -198,7 +206,6 @@ class UsersController extends Controller
        else{
            return redirect()->route('member.my-reference-member');
        }
-
     }
 
     public function edit(User $user)
@@ -218,8 +225,15 @@ class UsersController extends Controller
         $roles = Role::pluck('title', 'id');
 
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.users.edit', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
+        $states = State::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $cities = City::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+
+
+        return view('admin.users.edit', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user','countries','states','cities'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -229,22 +243,22 @@ class UsersController extends Controller
 //        $user->roles()->sync($request->input('roles', []));
 //
 
-        $userData = $request->only(['name','email','mobile','telephone_number','gender','date_of_birth','blood_group','division_id',
-            'district_id','upazila_id','password']);
+        $userData = $request->only(['name', 'email', 'mobile', 'telephone_number', 'gender', 'date_of_birth', 'blood_group', 'division_id',
+            'district_id', 'upazila_id', 'password']);
 
-        $school = School::where('division_id',$request->input('school_division_id'))
-            ->where('district_id',$request->input('school_district_id'))
-            ->where('upazila_id',$request->input('school_upazila_id'))
-            ->where('id',$request->input('school_id'))
+        $school = School::where('division_id', $request->input('school_division_id'))
+            ->where('district_id', $request->input('school_district_id'))
+            ->where('upazila_id', $request->input('school_upazila_id'))
+            ->where('id', $request->input('school_id'))
             ->first();
 
 
-        if ($school){
-            $userData['school_id']=$request->input('school_id');
-        }else{
-            $schools = $request->input(['school_division_id','school_district_id','school_upazila_id','school_id']);
+        if ($school) {
+            $userData['school_id'] = $request->input('school_id');
+        } else {
+            $schools = $request->input(['school_division_id', 'school_district_id', 'school_upazila_id', 'school_id']);
             $school = School::create($schools);
-            $userData['school_id']=$school->id;
+            $userData['school_id'] = $school->id;
         }
 
         $user->update($userData);
@@ -262,24 +276,20 @@ class UsersController extends Controller
             $user->avatar->delete();
         }
 
-        $existingAddress = Address::where('user_id',$user->id)->where('type_of_address','Present')->first();
-        $address['division_id'] = $request->input('address_division_id');
-        $address['district_id'] = $request->input('address_district_id');
-        $address['upazila_id'] = $request->input('address_upazila_id');
-        $address['area'] = $request->input('area');
-        $address['user_id'] = $user->id;
-        $address['created_by_id'] = $existingAddress?$existingAddress->created_by_id:Auth::id();
-        $address['type_of_address'] = 'Present';
-    if ($existingAddress){
-    $existingAddress->update($address);
-    }else{
-    Address::create($address);
-}
-
-        if(auth()->user()->roles()->where('title', 'Admin')->exists()){
-            return redirect()->route('admin.users.index');
+        $existingAddress = Residence::where('user_id', $user->id)->first();
+        $residence['country_id'] = $request->input('country_id');
+        $residence['state_id'] = $request->input('state_id');
+        $residence['city_id'] = $request->input('city_id');
+        $residence['area'] = $request->input('area');
+        $residence['user_id'] = $user->id;
+        if ($existingAddress) {
+            $existingAddress->update($residence);
+        } else {
+            Residence::create($residence);
         }
-        else{
+        if (auth()->user()->roles()->where('title', 'Admin')->exists()) {
+            return redirect()->route('admin.users.index');
+        } else {
             return redirect()->route('member.my-reference-member');
         }
     }
@@ -296,9 +306,7 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         abort_if(Gate::denies('user_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
         $user->delete();
-
         return back();
     }
 
