@@ -157,6 +157,7 @@ class ResidencesController extends Controller
         } else {
             $html = '';
             $states = State::where('country_id', $request->country_id)->get();
+//            $states = State::withCount('cities')->having('cities_count', '>', 0)->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
             $html .= '<option value="">Please select District/State</option>';
             foreach ($states as $state) {
 

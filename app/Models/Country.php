@@ -68,7 +68,10 @@ class Country extends Model
     {
         return $this->hasMany(State::class, 'country_id', 'id');
     }
-
+    public function states()
+    {
+        return $this->hasMany(State::class, 'country_id', 'id');
+    }
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');

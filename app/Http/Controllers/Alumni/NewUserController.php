@@ -10,6 +10,7 @@ use App\Models\Address;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\Profession;
+use App\Models\Residence;
 use App\Models\Role;
 use App\Models\School;
 use App\Models\Upazila;
@@ -67,14 +68,22 @@ class NewUserController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $user->id]);
         }
 
-        $address['division_id'] = $request->input('address_division_id');
-        $address['district_id'] = $request->input('address_district_id');
-        $address['upazila_id'] = $request->input('address_upazila_id');
-        $address['area'] = $request->input('area');
-        $address['user_id'] = $user->id;
-        $address['created_by_id'] = Auth::id();
-        $address['type_of_address'] = 'Present';
-        Address::create($address);
+//        $address['division_id'] = $request->input('address_division_id');
+//        $address['district_id'] = $request->input('address_district_id');
+//        $address['upazila_id'] = $request->input('address_upazila_id');
+//        $address['area'] = $request->input('area');
+//        $address['user_id'] = $user->id;
+//        $address['created_by_id'] = Auth::id();
+//        $address['type_of_address'] = 'Present';
+//        Address::create($address);
+
+        $residence['country_id'] = $request->input('country_id');
+        $residence['state_id'] = $request->input('state_id');
+        $residence['city_id'] = $request->input('city_id');
+        $residence['area'] = $request->input('area');
+        $residence['user_id'] = $user->id;
+        Residence::create($residence);
+
 
 //        if(auth()->user()->roles()->where('title', 'Admin')->exists()){
 //            return redirect()->route('admin.users.index');
@@ -87,7 +96,6 @@ class NewUserController extends Controller
 
     public function update(Request $request,$id )
     {
-
        $user  = User::findOrFail($id);
 
         $userData = $request->only(['name','email','mobile','telephone_number','gender','date_of_birth','blood_group','division_id',
@@ -123,19 +131,31 @@ class NewUserController extends Controller
             $user->avatar->delete();
         }
 
-        $existingAddress = Address::where('user_id',$user->id)->where('type_of_address','Present')->first();
-        $address['division_id'] = $request->input('address_division_id');
-        $address['district_id'] = $request->input('address_district_id');
-        $address['upazila_id'] = $request->input('address_upazila_id');
-        $address['area'] = $request->input('area');
-        $address['user_id'] = $user->id;
-        $address['created_by_id'] = $existingAddress?$existingAddress->created_by_id:Auth::id();
-        $address['type_of_address'] = 'Present';
-        if ($existingAddress){
-            $existingAddress->update($address);
-        }else{
-            Address::create($address);
+//        $existingAddress = Address::where('user_id',$user->id)->where('type_of_address','Present')->first();
+//        $address['division_id'] = $request->input('address_division_id');
+//        $address['district_id'] = $request->input('address_district_id');
+//        $address['upazila_id'] = $request->input('address_upazila_id');
+//        $address['area'] = $request->input('area');
+//        $address['user_id'] = $user->id;
+//        $address['created_by_id'] = $existingAddress?$existingAddress->created_by_id:Auth::id();
+//        $address['type_of_address'] = 'Present';
+//        if ($existingAddress){
+//            $existingAddress->update($address);
+//        }else{
+//            Address::create($address);
+//        }
+        $existingAddress = Residence::where('user_id', $user->id)->first();
+        $residence['country_id'] = $request->input('country_id');
+        $residence['state_id'] = $request->input('state_id');
+        $residence['city_id'] = $request->input('city_id');
+        $residence['area'] = $request->input('area');
+        $residence['user_id'] = $user->id;
+        if ($existingAddress) {
+            $existingAddress->update($residence);
+        } else {
+            Residence::create($residence);
         }
+
 
         if(auth()->id() == $id){
             return redirect()->route('member.profile')->with('message','Profile Update Successfully');

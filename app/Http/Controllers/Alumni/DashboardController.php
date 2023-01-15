@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Alumni;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Models\City;
+use App\Models\Country;
 use App\Models\District;
 use App\Models\Division;
 use App\Models\Event;
@@ -11,6 +13,7 @@ use App\Models\EventUser;
 use App\Models\Profession;
 use App\Models\Role;
 use App\Models\School;
+use App\Models\State;
 use App\Models\Upazila;
 use App\Models\User;
 use Carbon\Carbon;
@@ -55,7 +58,7 @@ class DashboardController extends Controller
     {
         abort_if(Gate::denies('member_dashboard'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $events = Event::where('is_active', '1')->where('event_date', '<', date('Y-m-d', strtotime(Carbon::now())))->get();
+        $events = Event::where('is_active', '1')->where('event_date', '>', date('Y-m-d', strtotime(Carbon::now())))->get();
         $total_users = count(User::where('id_ssc_bd','!=',null)->where('id_ssc_district','!=',null)->get());
         return view('member.dashboard', compact('events','total_users'));
     }
@@ -95,7 +98,7 @@ class DashboardController extends Controller
     public function events()
     {
         abort_if(Gate::denies('member_events'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-        $events = Event::where('is_active', '1')->where('event_date', '<', date('Y-m-d', strtotime(Carbon::now())))->get();
+        $events = Event::where('is_active', '1')->where('event_date', '>', date('Y-m-d', strtotime(Carbon::now())))->get();
         return view('member.events', compact('events'));
     }
 
@@ -133,10 +136,14 @@ class DashboardController extends Controller
         $districts = District::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $upazilas = Upazila::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
+        $states = State::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $cities = City::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
         $roles = Role::where('id', 2)->pluck('title', 'id');
 
-        return view('member.new-member', compact('districts', 'divisions', 'professions', 'roles', 'upazilas'));
+        return view('member.new-member', compact('districts', 'divisions', 'professions', 'roles', 'upazilas' ,'countries','states','cities'));
 
         // return view('member.new-member');
     }
@@ -147,20 +154,20 @@ class DashboardController extends Controller
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $user = User::findorFail($id);
-
         $professions = Profession::where('profession_parrent', 0)->where('is_active','1')->pluck('name', 'id');
         $selectedProfessions = Profession::where('profession_parrent',count($user->professions2)>0?$user->professions2[0]->id:'')->pluck('name', 'id');
-
         $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
         $districts = District::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
         $upazilas = Upazila::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
         $roles = Role::where('id', 2)->pluck('title', 'id');
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $states = State::where('country_id',$user->residence->country->id)->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $cities = City::where('state_id',$user->residence->state->id)->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
 
-        return view('member.edit-member', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
+        return view('member.edit-member', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user' ,'countries','states','cities' ));
     }
 
     public function eventConfirmSubmit(Request $request)
@@ -191,30 +198,6 @@ class DashboardController extends Controller
     }
 
 
-    // public function profile()
-    // {
-    //     abort_if(Gate::denies('member_profile'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
-    //     $user = User::findorFail(auth()->id());
-
-    //     $professions = Profession::where('profession_parrent', 0)->pluck('name', 'id');
-
-    //     $divisions = Division::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-    //     $districts = District::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-    //     $upazilas = Upazila::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-    //     $roles = Role::where('id', 2)->pluck('title', 'id');
-
-    //     $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
-
-    //     return view('member.profile', compact('districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
-
-
-
-    // }
-
     public function profile()
     {
         abort_if(Gate::denies('member_profile'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -234,11 +217,17 @@ class DashboardController extends Controller
         $upazilas = Upazila::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $roles = Role::where('id', 2)->pluck('title', 'id');
+        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+
+        $states = State::where('country_id',$user->residence->country->id)->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $cities = City::where('state_id',$user->residence->state->id)->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+
 
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
 
-        return view('member.profile', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user'));
-
+        return view('member.profile', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user','countries','states','cities' ));
 
 
     }

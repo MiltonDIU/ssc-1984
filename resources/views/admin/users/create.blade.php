@@ -281,7 +281,7 @@
                             <span class="help-block">{{ trans('cruds.residence.fields.state_helper') }}</span>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-6">
                         <div class="form-group">
                             <label class="required" for="city_id">{{ trans('cruds.residence.fields.city') }}</label>
                             <select class="form-control select2 {{ $errors->has('city') ? 'is-invalid' : '' }}" name="city_id" id="city_id" required>
@@ -297,7 +297,7 @@
                             <span class="help-block">{{ trans('cruds.residence.fields.city_helper') }}</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="area">{{ trans('cruds.residence.fields.area') }}</label>
                             <textarea class="form-control {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{{ old('area') }}</textarea>

@@ -143,10 +143,9 @@ class UsersController extends Controller
 
         $roles = Role::pluck('title', 'id');
 
-        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
+//        $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $countries = Country::withCount('states')->having('states_count', '>', 0)->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
         $states = State::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
         $cities = City::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.users.create', compact('districts', 'divisions', 'professions', 'roles', 'upazilas','countries','states','cities'));
@@ -227,10 +226,8 @@ class UsersController extends Controller
         $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles');
         $countries = Country::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $states = State::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $cities = City::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
-
+        $states = State::where('country_id',$user->residence->country->id)->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $cities = City::where('state_id',$user->residence->state->id)->pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
 
         return view('admin.users.edit', compact('selectedProfessions','districts', 'divisions', 'professions', 'roles', 'upazilas', 'user','countries','states','cities'));
@@ -298,7 +295,7 @@ class UsersController extends Controller
     {
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles', 'userAddresses', 'userEvents');
+        $user->load('school', 'professions', 'division', 'district', 'upazila', 'roles', 'userEvents');
 
         return view('admin.users.show', compact('user'));
     }

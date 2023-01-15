@@ -289,11 +289,11 @@
                         <div class="form-group">
                             <label class="required" for="state_id">{{ trans('cruds.residence.fields.state') }}</label>
                             <select class="form-control select2 {{ $errors->has('state') ? 'is-invalid' : '' }}" name="state_id" id="state_id" required>
-                                <option value="{{ $id }}" {{ (old('state_id') ? old('state_id') : $user->residence->state->id ?? '') == $id ? 'selected' : '' }}>{{ $user->residence->state->name }}</option>
+                                {{--                                <option value="{{ $user->residence->state->id }}" {{ (old('state_id') ? old('state_id') : $user->residence->state->id ?? '') == $id ? 'selected' : '' }}>{{ $user->residence->state->name }}</option>--}}
+                                @foreach($states as $id => $entry)
+                                    <option value="{{ $id }}" {{ (old('state_id') ? old('state_id') : $user->residence->state->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
 
-                                {{--                                @foreach($states as $id => $entry)--}}
-                                {{--                                    <option value="{{ $id }}" {{ old('state_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>--}}
-                                {{--                                @endforeach--}}
+                                @endforeach
                             </select>
                             @if($errors->has('state'))
                                 <div class="invalid-feedback">
@@ -303,15 +303,16 @@
                             <span class="help-block">{{ trans('cruds.residence.fields.state_helper') }}</span>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-6">
                         <div class="form-group">
                             <label class="required" for="city_id">{{ trans('cruds.residence.fields.city') }}</label>
                             <select class="form-control select2 {{ $errors->has('city') ? 'is-invalid' : '' }}" name="city_id" id="city_id" required>
-                                <option value="{{ $id }}" {{ (old('city_id') ? old('city_id') : $user->residence->city->id ?? '') == $id ? 'selected' : '' }}>{{ $user->residence->city->name }}</option>
+                                {{--                                <option value="{{ $user->residence->city->id }}" {{ (old('city_id') ? old('city_id') : $user->residence->city->id ?? '') == $id ? 'selected' : '' }}>{{ $user->residence->city->name }}</option>--}}
 
-                                {{--                                @foreach($cities as $id => $entry)--}}
-                                {{--                                    <option value="{{ $id }}" {{ old('city_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>--}}
-                                {{--                                @endforeach--}}
+                                @foreach($cities as $id => $entry)
+                                    <option value="{{ $id }}" {{ (old('city_id') ? old('city_id') : $user->residence->city->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+
+                                @endforeach
                             </select>
                             @if($errors->has('city'))
                                 <div class="invalid-feedback">
@@ -321,7 +322,7 @@
                             <span class="help-block">{{ trans('cruds.residence.fields.city_helper') }}</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="form-group">
                             <label for="area">{{ trans('cruds.residence.fields.area') }}</label>
                             <textarea class="form-control {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{{ old('area', $user->residence->area) }}</textarea>
@@ -337,32 +338,25 @@
 
 
 
-
-
-
-
-
-
-
                 <div class="row">
                     <div class="col-md-12"><h4>User Information</h4></div>
                     <div class="col-md-3">
-                    <div class="form-group">
-                        <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
-                        <div style="padding-bottom: 4px">
-                            <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
-                            <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                        <div class="form-group">
+                            <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
+                            <div style="padding-bottom: 4px">
+                                <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
+                                <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
+                            </div>
+                            <select class="form-control select2 {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles[]" id="roles" multiple required>
+                                @foreach($roles as $id => $role)
+                                    <option value="{{ $id }}" {{ (in_array($id, old('roles', [])) || $user->roles->contains($id)) ? 'selected' : '' }}>{{ $role }}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('roles'))
+                                <span class="text-danger">{{ $errors->first('roles') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
                         </div>
-                        <select class="form-control select2 {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles[]" id="roles" multiple required>
-                            @foreach($roles as $id => $role)
-                                <option value="{{ $id }}" {{ (in_array($id, old('roles', [])) || $user->roles->contains($id)) ? 'selected' : '' }}>{{ $role }}</option>
-                            @endforeach
-                        </select>
-                        @if($errors->has('roles'))
-                            <span class="text-danger">{{ $errors->first('roles') }}</span>
-                        @endif
-                        <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
-                    </div>
                     </div>
 
                     <div class="col-md-3">

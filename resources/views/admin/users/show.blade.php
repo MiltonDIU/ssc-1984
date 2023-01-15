@@ -185,6 +185,7 @@
                             {{ trans('cruds.residence.fields.state') }}
                         </th>
                         <td>
+                            {{ $user->residence->state->name ?? '' }},
                             {{ $user->residence->state->name ?? '' }}
                         </td>
                     </tr>

@@ -186,6 +186,16 @@
                         @endcan
                     @endif
                     <li class="nav-item">
+                        <a href="{{ url("member") }}" class="nav-link }}">
+                            <i class="fas fa-fw fa-tachometer-alt nav-icon">
+
+                            </i>
+                            <p>
+                              Member Dashboard
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                             <p>
                                 <i class="fas fa-fw fa-sign-out-alt nav-icon">

@@ -257,52 +257,113 @@
                     <div class="col-md-12"><h4>Present Address Information</h4></div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="required" for="division_id">{{ trans('cruds.user.fields.division') }}</label>
-                            <select class="form-control select2 {{ $errors->has('address_division') ? 'is-invalid' : '' }}" name="address_division_id" id="address_division_id" required>
-                                @foreach($divisions as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('division_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                            <label class="required" for="country_id">{{ trans('cruds.residence.fields.country') }}</label>
+                            <select class="form-control select2 {{ $errors->has('country') ? 'is-invalid' : '' }}" name="country_id" id="country_id" required>
+                                @foreach($countries as $id => $entry)
+                                    <option value="{{ $id }}" {{ old('country_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                                 @endforeach
                             </select>
-                            @if($errors->has('address_division'))
-                                <span class="text-danger">{{ $errors->first('address_division') }}</span>
+                            @if($errors->has('country'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('country') }}
+                                </div>
                             @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.division_helper') }}</span>
+                            <span class="help-block">{{ trans('cruds.residence.fields.country_helper') }}</span>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="required" for="address_district_id">{{ trans('cruds.user.fields.district') }}</label>
-                            <select class="form-control select2 {{ $errors->has('address_district') ? 'is-invalid' : '' }}" name="address_district_id" id="address_district_id" required>
-                                <option value="">{{ trans('global.pleaseSelect') }}</option>
+                            <label class="required" for="state_id">{{ trans('cruds.residence.fields.state') }}</label>
+                            <select class="form-control select2 {{ $errors->has('state') ? 'is-invalid' : '' }}" name="state_id" id="state_id" required>
+                                {{--                                @foreach($states as $id => $entry)--}}
+                                {{--                                    <option value="{{ $id }}" {{ old('state_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>--}}
+                                {{--                                @endforeach--}}
                             </select>
-                            @if($errors->has('address_district'))
-                                <span class="text-danger">{{ $errors->first('address_district') }}</span>
+                            @if($errors->has('state'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('state') }}
+                                </div>
                             @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.district_helper') }}</span>
+                            <span class="help-block">{{ trans('cruds.residence.fields.state_helper') }}</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6">
                         <div class="form-group">
-                            <label class="required" for="upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>
-                            <select class="form-control select2 {{ $errors->has('address_upazila') ? 'is-invalid' : '' }}" name="address_upazila_id" id="address_upazila_id" required>
-                                <option value="">{{ trans('global.pleaseSelect') }}</option>
+                            <label class="required" for="city_id">{{ trans('cruds.residence.fields.city') }}</label>
+                            <select class="form-control select2 {{ $errors->has('city') ? 'is-invalid' : '' }}" name="city_id" id="city_id" required>
+                                {{--                                @foreach($cities as $id => $entry)--}}
+                                {{--                                    <option value="{{ $id }}" {{ old('city_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>--}}
+                                {{--                                @endforeach--}}
                             </select>
-                            @if($errors->has('address_upazila'))
-                                <span class="text-danger">{{ $errors->first('address_upazila') }}</span>
+                            @if($errors->has('city'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('city') }}
+                                </div>
                             @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.upazila_helper') }}</span>
+                            <span class="help-block">{{ trans('cruds.residence.fields.city_helper') }}</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label for="area">{{ trans('cruds.address.fields.area') }}</label>
-                            <textarea class="form-control ckeditor {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{!! old('area') !!}</textarea>
+                            <label for="area">{{ trans('cruds.residence.fields.area') }}</label>
+                            <textarea class="form-control {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{{ old('area') }}</textarea>
                             @if($errors->has('area'))
-                                <span class="text-danger">{{ $errors->first('area') }}</span>
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('area') }}
+                                </div>
                             @endif
-                            <span class="help-block">{{ trans('cruds.address.fields.area_helper') }}</span>
+                            <span class="help-block">{{ trans('cruds.residence.fields.area_helper') }}</span>
                         </div>
                     </div>
+{{--                    <div class="col-md-12"><h4>Present Address Information</h4></div>--}}
+{{--                    <div class="col-md-3">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="required" for="division_id">{{ trans('cruds.user.fields.division') }}</label>--}}
+{{--                            <select class="form-control select2 {{ $errors->has('address_division') ? 'is-invalid' : '' }}" name="address_division_id" id="address_division_id" required>--}}
+{{--                                @foreach($divisions as $id => $entry)--}}
+{{--                                    <option value="{{ $id }}" {{ old('division_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                            @if($errors->has('address_division'))--}}
+{{--                                <span class="text-danger">{{ $errors->first('address_division') }}</span>--}}
+{{--                            @endif--}}
+{{--                            <span class="help-block">{{ trans('cruds.user.fields.division_helper') }}</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-3">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="required" for="address_district_id">{{ trans('cruds.user.fields.district') }}</label>--}}
+{{--                            <select class="form-control select2 {{ $errors->has('address_district') ? 'is-invalid' : '' }}" name="address_district_id" id="address_district_id" required>--}}
+{{--                                <option value="">{{ trans('global.pleaseSelect') }}</option>--}}
+{{--                            </select>--}}
+{{--                            @if($errors->has('address_district'))--}}
+{{--                                <span class="text-danger">{{ $errors->first('address_district') }}</span>--}}
+{{--                            @endif--}}
+{{--                            <span class="help-block">{{ trans('cruds.user.fields.district_helper') }}</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-3">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label class="required" for="upazila_id">{{ trans('cruds.user.fields.upazila') }}</label>--}}
+{{--                            <select class="form-control select2 {{ $errors->has('address_upazila') ? 'is-invalid' : '' }}" name="address_upazila_id" id="address_upazila_id" required>--}}
+{{--                                <option value="">{{ trans('global.pleaseSelect') }}</option>--}}
+{{--                            </select>--}}
+{{--                            @if($errors->has('address_upazila'))--}}
+{{--                                <span class="text-danger">{{ $errors->first('address_upazila') }}</span>--}}
+{{--                            @endif--}}
+{{--                            <span class="help-block">{{ trans('cruds.user.fields.upazila_helper') }}</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-3">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label for="area">{{ trans('cruds.address.fields.area') }}</label>--}}
+{{--                            <textarea class="form-control ckeditor {{ $errors->has('area') ? 'is-invalid' : '' }}" name="area" id="area">{!! old('area') !!}</textarea>--}}
+{{--                            @if($errors->has('area'))--}}
+{{--                                <span class="text-danger">{{ $errors->first('area') }}</span>--}}
+{{--                            @endif--}}
+{{--                            <span class="help-block">{{ trans('cruds.address.fields.area_helper') }}</span>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
 
                 <div class="row bottom-padding-line">
@@ -518,5 +579,28 @@
                 }
             });
         });
+
+
+        $("#country_id").change(function(){
+            $.ajax({
+                url: "{{ route('getByState') }}?country_id=" + $(this).val(),
+                method: 'GET',
+                success: function(data) {
+                    $('#state_id').html(data.html);
+                }
+            });
+        });
+
+        $("#state_id").change(function(){
+            $.ajax({
+                url: "{{ route('getByCity') }}?state_id=" + $(this).val(),
+                method: 'GET',
+                success: function(data) {
+                    $('#city_id').html(data.html);
+                }
+            });
+        });
+
+
     </script>
 @endpush

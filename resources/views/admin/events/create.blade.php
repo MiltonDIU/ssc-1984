@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="required" for="event_category_id">{{ trans('cruds.event.fields.event_category') }}</label>
                                     <select class="form-control select2 {{ $errors->has('event_category') ? 'is-invalid' : '' }}" name="event_category_id" id="event_category_id" required>
@@ -26,7 +26,7 @@
                                     <span class="help-block">{{ trans('cruds.event.fields.event_category_helper') }}</span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="required" for="name">{{ trans('cruds.event.fields.name') }}</label>
                                     <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
@@ -35,6 +35,18 @@
                                     @endif
                                     <span class="help-block">{{ trans('cruds.event.fields.name_helper') }}</span>
                                 </div>
+                            </div>
+                            <div class="col-md-4">
+
+                            <div class="form-group">
+                                <label class="required" for="slug">{{ trans('cruds.event.fields.slug') }}</label>
+                                <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}" required>
+                                @if($errors->has('slug'))
+                                    <span class="text-danger">{{ $errors->first('slug') }}</span>
+                                @endif
+                                <span class="help-block">{{ trans('cruds.event.fields.slug_helper') }}</span>
+                            </div>
+
                             </div>
 
                             <div class="col-md-4">
@@ -173,14 +185,7 @@
                 </div>
 
 
-{{--                <div class="form-group">--}}
-{{--                    <label class="required" for="slug">{{ trans('cruds.event.fields.slug') }}</label>--}}
-{{--                    <input class="form-control {{ $errors->has('slug') ? 'is-invalid' : '' }}" type="text" name="slug" id="slug" value="{{ old('slug', '') }}" required>--}}
-{{--                    @if($errors->has('slug'))--}}
-{{--                        <span class="text-danger">{{ $errors->first('slug') }}</span>--}}
-{{--                    @endif--}}
-{{--                    <span class="help-block">{{ trans('cruds.event.fields.slug_helper') }}</span>--}}
-{{--                </div>--}}
+
 
 
 

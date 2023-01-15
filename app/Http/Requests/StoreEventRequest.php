@@ -27,7 +27,6 @@ class StoreEventRequest extends FormRequest
             ],
             'slug' => [
                 'string',
-                'required',
                 'unique:events',
             ],
             'banner' => [
