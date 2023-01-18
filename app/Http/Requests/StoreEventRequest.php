@@ -52,8 +52,13 @@ class StoreEventRequest extends FormRequest
                 'integer',
             ],
             'price' => [
-                'string',
-                'nullable',
+                'required','numeric',
+            ],
+            'spouse_amount' => [
+                'required','numeric',
+            ],
+            'driver_amount' => [
+                'required','numeric',
             ],
             'users.*' => [
                 'integer',

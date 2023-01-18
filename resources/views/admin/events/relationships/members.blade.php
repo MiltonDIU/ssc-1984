@@ -19,7 +19,13 @@
                             {{ trans('cruds.user.fields.name') }}
                         </th>
                         <th>
-                            Are You Coming With Spouse?
+                            Payment Status
+                        </th>
+                        <th>
+                            Are you coming with  Spouse?
+                        </th>
+                        <th>
+                          Are you coming with  Driver?
                         </th>
 
 {{--                        <th>--}}
@@ -61,25 +67,38 @@
                         <th>
                             {{ trans('cruds.user.fields.id_ssc_district') }}
                         </th>
-                        <th>
-                            &nbsp;
-                        </th>
+{{--                        <th>--}}
+{{--                            &nbsp;--}}
+{{--                        </th>--}}
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $key => $user)
+
+
+
+
+                    @foreach($event->users as $key => $user)
+
                         <tr data-entry-id="{{ $user->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $user->id ?? '' }}
+                                {{ $key+1 }}
                             </td>
                             <td>
                                 {{ $user->name ?? '' }}
                             </td>
                             <td>
-                                @if($user->spouse!=null)
+                                @if($user->pivot->payment_status==1)
+                                    Paid
+                                    <br>
+                                @else
+                                    Unpaid
+                                @endif
+                            </td>
+                            <td>
+                                @if($user->pivot->spouse==1)
                                    Yes
                                     <br>
                                    {{ $user->spouse->name }}
@@ -87,6 +106,13 @@
                                     @if($user->spouse->avatar)
                                             <img src="{{ $user->spouse->avatar->getUrl('thumb') }}">
                                     @endif
+                                @else
+                                    No
+                                @endif
+                            </td>
+                            <td>
+                                @if($user->pivot->driver==1)
+                                    Yes
                                 @else
                                     No
                                 @endif
@@ -139,28 +165,28 @@
                             <td>
                                 {{ $user->id_ssc_district ?? '' }}
                             </td>
-                            <td>
-                                @can('user_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.users.show', $user->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
+{{--                            <td>--}}
+{{--                                @can('user_show')--}}
+{{--                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.users.show', $user->id) }}">--}}
+{{--                                        {{ trans('global.view') }}--}}
+{{--                                    </a>--}}
+{{--                                @endcan--}}
 
-                                @can('user_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.users.edit', $user->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
+{{--                                @can('user_edit')--}}
+{{--                                    <a class="btn btn-xs btn-info" href="{{ route('admin.users.edit', $user->id) }}">--}}
+{{--                                        {{ trans('global.edit') }}--}}
+{{--                                    </a>--}}
+{{--                                @endcan--}}
 
-                                @can('user_delete')
-                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                                @endcan
+{{--                                @can('user_delete')--}}
+{{--                                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">--}}
+{{--                                        <input type="hidden" name="_method" value="DELETE">--}}
+{{--                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+{{--                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">--}}
+{{--                                    </form>--}}
+{{--                                @endcan--}}
 
-                            </td>
+{{--                            </td>--}}
 
                         </tr>
                     @endforeach

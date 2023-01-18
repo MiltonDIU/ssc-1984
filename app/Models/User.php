@@ -120,7 +120,10 @@ use Auditable;
     {
         return $this->belongsToMany(Event::class)->withPivot('approved_by');;
     }
-
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
     public function getDateOfBirthAttribute($value)
     {
         return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;

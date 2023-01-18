@@ -57,6 +57,9 @@ use Auditable;
         'district_id',
         'is_free',
         'price',
+        'spouse_amount',
+        'driver_amount',
+        'venue',
         'created_at',
         'is_active',
         'updated_at',
@@ -103,17 +106,24 @@ use Auditable;
 
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('approved_by');
+        return $this->belongsToMany(User::class)->withPivot('approved_by','amount','driver','spouse','driver_amount','spouse_amount','payment_status');
     }
     public function lastFiveusers()
     {
-        return $this->belongsToMany(User::class)->orderBy('id','desc')->take(10);
+        return $this->belongsToMany(User::class)->orderBy('id','asc')->take(10);
     }
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
     }
-
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
+    }
+    public function eventUser()
+    {
+        return $this->hasMany(EventUser::class);
+    }
 //    public static function enrollment($event_id){
 //
 //        if (count(auth()->user()->userEvents()->where('id', $event_id)->get())>0){

@@ -57,6 +57,27 @@ class EventsController extends Controller
             $table->editColumn('name', function ($row) {
                 return $row->name ? $row->name : '';
             });
+            $table->editColumn('total_member', function ($row) {
+                return count($row->users)>0?count($row->users): 0;
+            });
+            $table->editColumn('spouse', function ($row) {
+                $spouse = 0;
+                foreach ($row->users as $user){
+                    if($user->pivot->spouse==1){
+                        $spouse+=1;
+                    }
+                }
+               return $spouse;
+            });
+            $table->editColumn('driver', function ($row) {
+                $driver = 0;
+                foreach ($row->users as $user){
+                    if($user->pivot->driver==1){
+                        $driver+=1;
+                    }
+                }
+                return $driver;
+            });
             $table->editColumn('banner', function ($row) {
                 if ($photo = $row->banner) {
                     return sprintf(

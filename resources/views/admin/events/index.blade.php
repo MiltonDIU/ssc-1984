@@ -31,6 +31,16 @@
                         {{ trans('cruds.event.fields.name') }}
                     </th>
                     <th>
+                       Total Registered Member
+                    </th>
+                    <th>
+                        Total Registered Spouse
+                    </th>
+                    <th>
+                        Total Registered Driver
+                    </th>
+
+                    <th>
                         {{ trans('cruds.event.fields.banner') }}
                     </th>
                     <th>
@@ -116,6 +126,9 @@
                     { data: 'id', name: 'id' },
                     { data: 'event_category_name', name: 'event_category.name' },
                     { data: 'name', name: 'name' },
+                    { data: 'total_member', name: 'name' },
+                    { data: 'spouse', name: 'name' },
+                    { data: 'driver', name: 'name' },
                     { data: 'banner', name: 'banner', sortable: false, searchable: false },
                     { data: 'event_date', name: 'event_date' },
                     { data: 'event_time', name: 'event_time' },

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->time('event_end_time');
             $table->longText('address')->nullable();
             $table->string('is_free')->nullable();
-            $table->string('price')->nullable();
+            $table->float('price',20,2)->default(0);
             $table->string('is_active');
             $table->timestamps();
             $table->softDeletes();

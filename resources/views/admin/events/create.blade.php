@@ -125,6 +125,16 @@
                                         <span class="help-block">{{ trans('cruds.event.fields.is_free_helper') }}</span>
                                     </div>
                                 </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="required" for="name">{{ trans('cruds.event.fields.venue') }}</label>
+                                            <input class="form-control {{ $errors->has('venue') ? 'is-invalid' : '' }}" type="text" name="venue" id="venue" value="{{ old('venue', '') }}" required>
+                                            @if($errors->has('venue'))
+                                                <span class="text-danger">{{ $errors->first('venue') }}</span>
+                                            @endif
+                                            <span class="help-block">{{ trans('cruds.event.fields.venue_helper') }}</span>
+                                        </div>
+                                    </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="address">{{ trans('cruds.event.fields.address') }}</label>
@@ -142,13 +152,36 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="price">{{ trans('cruds.event.fields.price') }}</label>
-                                            <input class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" type="text" name="price" id="price" value="{{ old('price', '') }}">
+                                            <input class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" type="number" step="0.01" name="price" id="price" value="{{ old('price', 0) }}">
                                             @if($errors->has('price'))
                                                 <span class="text-danger">{{ $errors->first('price') }}</span>
                                             @endif
                                             <span class="help-block">{{ trans('cruds.event.fields.price_helper') }}</span>
                                         </div>
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="price">{{ trans('cruds.event.fields.spouse_amount') }}</label>
+                                            <input class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" type="number" step="0.01" name="spouse_amount" id="spouse_amount" value="{{ old('spouse_amount', 0) }}">
+                                            @if($errors->has('spouse_amount'))
+                                                <span class="text-danger">{{ $errors->first('spouse_amount') }}</span>
+                                            @endif
+                                            <span class="help-block">{{ trans('cruds.event.fields.spouse_amount_helper') }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="price">{{ trans('cruds.event.fields.driver_amount') }}</label>
+                                            <input class="form-control {{ $errors->has('driver_amount') ? 'is-invalid' : '' }}" type="number" step="0.01" name="driver_amount" id="driver_amount" value="{{ old('driver_amount', 0) }}">
+                                            @if($errors->has('driver_amount'))
+                                                <span class="text-danger">{{ $errors->first('driver_amount') }}</span>
+                                            @endif
+                                            <span class="help-block">{{ trans('cruds.event.fields.driver_amount_helper') }}</span>
+                                        </div>
+                                    </div>
+
+
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="required">{{ trans('cruds.event.fields.is_active') }}</label>
