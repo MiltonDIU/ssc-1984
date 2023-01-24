@@ -1,4 +1,32 @@
-@media (min-width:320px) and (max-width:575.99px){
+@media (min-width:320px) and (max-width:575.98px){
+    /* Sign in page start */
+    nav .nav-item {
+        padding-left: 16px !important;
+    }
+
+    .content_box {
+        width: 100%;
+    }
+
+    .input-box, .btn_green_large, .btn_red_large {
+        width: 272px !important;
+    }
+
+    #login form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-box {
+        margin: 0 auto;
+    }
+
+    .mtn_white_box {
+        margin-top: 0px;
+    }
+
     /* Dashboard Landing page start */
     .sm_d_none {
         display: none;
@@ -67,7 +95,7 @@
         width: 100%;
         height: auto;
     }
-    
+
     .py-3 {
         width: calc(100% - 80px);
     }
@@ -181,9 +209,93 @@
         width: 100%;
     }
     /* Event view page end */
+
+    /* Dashboard Event page start */
+    .school_profile .dashboard_content_top {
+        margin: 20px 0 30px 0 !important;
+    }
+
+    .school_profile .dashboard_search {
+        width: 100% !important;
+        margin-top: 20px;
+    }
+
+    .dashboard_search input::placeholder {
+        font-size: 12px;
+    }
+
+    .btns_group {
+        margin-left: 0;
+        flex-direction: column;
+    }
+
+    .btn_wrap {
+        background-color: transparent;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .mid_btn::before, .mid_btn::after {
+        display: none;
+    }
+
+    .group_btn {
+        font-size: 12px;
+        padding: 7px 8px;
+        margin-bottom: 7px;
+    }
+
+    .event_box_main {
+        margin: 28px 0 20px 0;
+    }
+
+    .event_box_main .event_box {
+        margin-right: 0;
+    }
+    /* Dashboard Event page end */
+
+    /* ID page start */
+    .event_banner_img.school_event_box {
+        height: auto;
+    }
+
+    .id_box {
+        margin-top: 20px;
+    }
+
+    .going_box {
+        flex-direction: column;
+    }
+
+    .going_box .participant_box {
+        margin-bottom: 30px;
+    }
+
+    .btn_box {
+        flex-direction: column;
+    }
+
+    .btn_box .btn_red_large {
+        margin-left: 0;
+    }
+
+    .btn_box .btn_green_large, .btn_box .btn_red_large {
+        width: auto !important;
+        margin-bottom: 30px;
+    }
+    /* ID page end */
 }
 
-@media (min-width:576px) and (max-width:767.99px){
+@media (min-width:576px) and (max-width:767.98px){
+    /* Sign in page start */
+    nav .nav-item {
+        padding-left: 16px !important;
+    }
+
+    .content_box {
+        width: 100%;
+    }
+
     /* Dashboard Landing page start */
     .sm_d_none {
         display: none;
@@ -252,7 +364,7 @@
         width: 100%;
         height: auto;
     }
-    
+
     .py-3 {
         width: calc(100% - 80px);
     }
@@ -348,9 +460,82 @@
         margin-bottom: 20px;
     }
     /* Event view page end */
+
+    /* Dashboard Event page start */
+    .school_profile .dashboard_content_top {
+        margin: 20px 0 30px 0 !important;
+    }
+
+    .school_profile .dashboard_search {
+        width: 100% !important;
+        margin-top: 20px;
+    }
+
+    .btns_group {
+        margin-left: 0;
+        flex-direction: column;
+    }
+
+    .btn_wrap {
+        background-color: transparent;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .mid_btn::before, .mid_btn::after {
+        display: none;
+    }
+
+    .group_btn {
+        margin-bottom: 7px;
+    }
+
+    .event_box_main {
+        margin: 28px 0 20px 0;
+    }
+
+    .event_box_main .event_box {
+        margin-right: 0;
+    }
+    /* Dashboard Event page end */
+
+    /* ID page start */
+    .event_banner_img.school_event_box {
+        height: auto;
+    }
+
+    .id_box {
+        margin-top: 20px;
+    }
+
+    .going_box {
+        flex-direction: column;
+    }
+
+    .going_box .participant_box {
+        margin-bottom: 30px;
+    }
+
+    .btn_box {
+        flex-direction: column;
+    }
+
+    .btn_box .btn_red_large {
+        margin-left: 0;
+    }
+
+    .btn_box .btn_green_large, .btn_box .btn_red_large {
+        width: auto !important;
+        margin-bottom: 30px;
+    }
+    /* ID page end */
 }
 
-@media (min-width:768px) and (max-width:991.99px){
+@media (min-width:768px) and (max-width:991.98px){
+    nav .nav-item {
+        padding-left: 16px !important;
+    }
+
     /* Dashboard Landing page start */
     .dashboard_content_top {
         margin: 30px 0 35px 0;
@@ -519,9 +704,53 @@
         padding: 13px 48px 13px 18px;
     }
     /* Event view page end */
+
+    /* Dashboard Event page start */
+    .school_profile .dashboard_content_top {
+        margin: 40px 0 40px 45px !important;
+    }
+
+    .school_profile .dashboard_search {
+        width: 70% !important;
+    }
+
+    .btns_group {
+        margin-left: 45px;
+        flex-direction: column;
+    }
+
+    .btn_wrap {
+        background-color: transparent;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .mid_btn::before, .mid_btn::after {
+        display: none;
+    }
+
+    .group_btn {
+        margin-bottom: 7px;
+    }
+    /* Dashboard Event page end */
+
+    /* ID page start */
+    .id_box {
+        margin-top: 50px;
+    }
+
+    .going_box .participant_box {
+        margin-bottom: 30px;
+    }
+
+    .btn_box .btn_green_large, .btn_box .btn_red_large {
+        width: 200px;
+        margin-bottom: 30px;
+    }
+    /* ID page end */
 }
 
-@media (min-width:992px) and (max-width:1199.99px) {
+@media (min-width:992px) and (max-width:1199.98px) {
     /* Dashboard Landing page start */
     .dashboard_content_top {
         margin: 10px 20px 35px 0;
@@ -610,9 +839,70 @@
         padding: 13px 48px 13px 18px;
     }
     /* Event view page end */
+
+    /* Dashboard Event page start */
+    .school_profile .dashboard_content_top {
+        margin: 40px 0 40px 5px !important;
+    }
+
+    .btns_group {
+        margin-left: 5px;
+    }
+
+    .group_btn {
+        font-size: 12px;
+        padding: 7px 13px;
+        margin-right: 7px;
+    }
+
+    .btns_group .r_btn_wrap .group_btn_green {
+        padding: 9px 13px;
+    }
+
+    .btns_group .r_btn_wrap {
+        margin-top: 5px;
+    }
+
+    .school_profile .dashboard_search {
+        width: 79% !important;
+    }
+
+    .btn_wrap {
+        background-color: transparent;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .mid_btn::before, .mid_btn::after {
+        display: none;
+    }
+
+    .event_box_main {
+        margin: 28px 0 20px 5px;
+    }
+
+    .event_box_main .event_box {
+        margin-right: 21px;
+    }
+    /* Dashboard Event page end */
+
+    /* ID page start */
+    .id_box {
+        margin-top: 50px;
+    }
+
+    .going_box .participant_box {
+        margin-bottom: 30px;
+    }
+
+    .btn_box .btn_green_large, .btn_box .btn_red_large {
+        width: 200px;
+        margin-bottom: 30px;
+    }
+    /* ID page end */
 }
 
-@media (min-width:1200px) and (max-width:1399.99px) {
+@media (min-width:1200px) and (max-width:1399.98px) {
     /* Dashboard Landing page start */
     .dashboard_content_top {
         margin: 10px 20px 35px 0;
@@ -651,5 +941,10 @@
         padding: 13px 55px 13px 18px;
     }
     /* Dashboard Landing page end */
-    
+
+    /* Dashboard Event page start */
+    .school_profile .dashboard_search {
+        width: 84% !important;
+    }
+    /* Dashboard Event page end */
 }

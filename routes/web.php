@@ -42,18 +42,15 @@ use App\Http\Controllers\PaymentController;
 
 
 
-    Route::post('event-payment', [PaymentController::class,'eventPayment'])->name('event-payment');
+
+
+Route::group(['middleware' => ['auth']], function () {
     Route::get('payment-history', [PaymentController::class,'paymentHistory'])->name('payment-history');
+    Route::post('event-payment', [PaymentController::class,'eventPayment'])->name('event-payment');
     Route::get('admin/city-migrate', [CitiesController::class,'cityMigrate'])->name('admin.cityMigrate');
 
-//Route::group(['middleware' => ['auth']], function () {
-//
-//    Route::post('event-payment', [PaymentController::class,'eventPayment'])->name('event-payment');
-//    Route::get('success-payment', [PaymentController::class,'successPayment'])->name('success-payment');
-//    Route::get('payment-history', [PaymentController::class,'paymentHistory'])->name('payment-history');
-//
-//    Route::get('admin/city-migrate', [CitiesController::class,'cityMigrate'])->name('admin.cityMigrate');
-//});
+    Route::get('member/card', [AlumniDashboardController::class,'cardDownload'])->name('member.cardDownload');
+});
 
 
 

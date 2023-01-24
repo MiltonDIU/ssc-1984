@@ -53,22 +53,55 @@
                     </div>
                 </div>
 
-                <div class="event_creator_cost_box">
-                    <div class="event_creator">
-                        <div class="creator_img">
-                            <img src="http://ssc-1984.test/assets/alumni/images/logo.png">
+                <div class="event_date_location_box">
+
+                    <div class="event_info_inner">
+                        <div class="event_info_text">
+                            <p class="info_title">{{ "Single:" }}
+                                <span class="info_text">{{ $event->price }}tk</span>
+                            </p>
                         </div>
-                        <div class="creator_text">
-                            <p class="creator_title">Created By</p>
-                            <p class="info_text">Spruce Springclean</p>
+                    </div>
+                    <div class="event_info_inner">
+                        <div class="event_info_text">
+                            <p class="info_title">{{ "With Spouse: " }}
+                                <span class="info_text">{{ $event->price+$event->spouse_amount }}tk</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="event_info_inner">
+                        <div class="event_info_text">
+                            <p class="info_title">{{ "With Driver: " }}
+                                <span class="info_text">{{ $event->price+$event->driver_amount }}tk</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="event_info_inner">
+                        <div class="event_info_text">
+                            <p class="info_title">{{ "With Spouse & Driver: " }}
+                                <span class="info_text">{{ $event->price+$event->driver_amount+$event->spouse_amount }}tk</span>
+                            </p>
                         </div>
                     </div>
 
-                    <div class="event_cost">
-                        <p class="cost_title">Cost</p>
-                        <p class="cost_category">{{ $event->is_free=='0'?$event->price." tk":"Free" }}</p>
-                    </div>
                 </div>
+
+{{--                <div class="event_creator_cost_box">--}}
+{{--                    <div class="event_creator">--}}
+{{--                        <div class="creator_img">--}}
+{{--                            <img src="http://ssc-1984.test/assets/alumni/images/logo.png">--}}
+{{--                        </div>--}}
+{{--                        <div class="creator_text">--}}
+{{--                            <p class="creator_title">Created By</p>--}}
+{{--                            <p class="info_text">Spruce Springclean</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+{{--                    <div class="event_cost">--}}
+{{--                        <p class="cost_title">Cost</p>--}}
+{{--                        <p class="cost_category">{{ $event->is_free=='0'?$event->price." tk":"Free" }}</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
 
             <div class="event_info_right">

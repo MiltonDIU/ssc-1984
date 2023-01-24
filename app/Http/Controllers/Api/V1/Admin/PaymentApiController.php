@@ -20,13 +20,23 @@ class PaymentApiController extends Controller
             if($payment->trans_id){
                 $event_user = EventUser::where('user_id',$payment->user_id)->where('event_id',$payment->event_id)->first();
                 $validation_result = $this->validationCheck($payment->trans_id);
-                if(isset($validation_result['data']['status']) == "VALIDATED"){
-                    $payment->status = 1;
-                    $payment->save();
-                    $event_user->payment_status = '1';
-                    $event_user->save();
+                if ($validation_result['data']['status']){
+                    if($validation_result['data']['status']=="VALIDATED"){
+                        $payment->payment_response = $validation_result;
+                        $payment->status = 1;
+                        $payment->save();
+                        $event_user->payment_status = '1';
+                        $event_user->save();
+                    }else{
+                        $payment->status = 2;
+                        $payment->payment_response = $validation_result;
+                        $payment->save();
+                        $event_user->payment_status = '2';
+                        $event_user->save();
+                    }
                 }else{
                     $payment->status = 2;
+                    $payment->payment_response = $validation_result;
                     $payment->save();
                     $event_user->payment_status = '2';
                     $event_user->save();
@@ -34,9 +44,6 @@ class PaymentApiController extends Controller
             }
         }
     }
-
-
-
     function validationCheck($reff_id){
         $verifyUrl = "https://api.1card.com.bd/ssc1984-bangladesh/validationserverapi";
         $crl = curl_init();

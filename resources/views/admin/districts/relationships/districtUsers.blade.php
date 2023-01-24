@@ -27,6 +27,7 @@
                         <th>
                             {{ trans('cruds.user.fields.name') }}
                         </th>
+
                         <th>
                             {{ trans('cruds.user.fields.email') }}
                         </th>
@@ -50,6 +51,9 @@
                         </th>
                         <th>
                             {{ trans('cruds.user.fields.district') }}
+                        </th>
+                        <th>
+                            Represent District
                         </th>
                         <th>
                             {{ trans('cruds.user.fields.upazila') }}
@@ -106,6 +110,9 @@
                                 @foreach($user->professions as $key => $item)
                                     <span class="badge badge-info">{{ $item->name }}</span>
                                 @endforeach
+                            </td>
+                            <td>
+                                {{ $user->district->name ?? '' }}
                             </td>
                             <td>
                                 {{ $user->district->name ?? '' }}

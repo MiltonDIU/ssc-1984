@@ -2029,3 +2029,165 @@ input:focus::placeholder {
 .spouse_info .upload_btn_group {
     margin-top: 0;
 }
+/* ====================== ID start ====================== */
+.id_box {
+    width: 400px;
+    height: auto;
+    background-color: #fff;
+    margin: 40px auto;
+    padding: 15px;
+}
+
+.id_box_main {
+    background-color: rgb(206, 241, 255);
+    border: 1px dashed rgb(158, 158, 158);
+}
+
+.spouse_id .id_box_main {
+    background-color: #ffdfea;
+}
+
+.id_logo{
+    height: 120px;
+    margin: 15px 0 10px 0;
+}
+
+.id_logo img {
+    display: block;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+}
+
+.id_heading {
+    background-color: #008220;
+}
+
+.id_heading p {
+    font-size: 35px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.id_img_main {
+    background-color: #f9ffaf;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.spouse_main {
+    padding: 20px 20px 10px 20px;
+}
+
+.id_img {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 12px 0 12px 0;
+    width: 113px;
+    height: 130px;
+    margin-right: 20px;
+    -webkit-box-shadow: 0px 0px 32px 2px rgba(0,0,0,0.23);
+    -moz-box-shadow: 0px 0px 32px 2px rgba(0,0,0,0.23);
+    box-shadow: 0px 0px 32px 2px rgba(0,0,0,0.23);
+}
+
+.id_img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 8px 0 8px 0;
+}
+
+.id_event_heading {
+    font-size: 30px;
+    color: #ed1216;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.id_event_heading span {
+    display: block;
+}
+
+.id_event_date {
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 4px;
+    text-align: center;
+}
+
+.participant_info {
+    text-align: center;
+    color: #000;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 0 10px;
+}
+
+.spouse_info {
+    border-bottom: none;
+    padding: 8px;
+}
+
+.spouse_info p {
+    font-size: 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.id_name {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.id_school {
+    font-size: 16px;
+}
+
+.id_district {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 10px;
+}
+
+.id_venue {
+    background-color: #fff;
+    padding: 3px;
+    border: 1px solid #000;
+}
+
+.id_venue p {
+    background-color: #3070a9;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 3px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.btn_box {
+    display: flex;
+    margin-top: 20px;
+}
+
+.btn_box .btn_red_large {
+    margin-left: 30px;
+}
+
+.spouse_img_box p {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+/* ====================== ID end ====================== */
