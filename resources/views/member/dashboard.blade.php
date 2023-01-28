@@ -51,8 +51,9 @@
             <p>Featured Events</p>
             <a href="{{ route('member.events') }}">See All</a>
         </div>
+
         @if(count($events)>0)
-        @include('member.section.event')
+        @include('member.section.event-card')
         @endif
 
     </div>

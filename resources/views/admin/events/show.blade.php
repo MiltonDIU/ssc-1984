@@ -12,6 +12,9 @@
                     <a class="btn btn-default" href="{{ route('admin.events.index') }}">
                         {{ trans('global.back_to_list') }}
                     </a>
+                    <a class="btn btn-default" href="{{ route('admin.payment.listOfPayment',[$event->id,$event->slug]) }}">
+                        {{ " List of Payment " }}
+                    </a>
                 </div>
                 <table class="table table-bordered table-striped">
                     <tbody>
@@ -167,6 +170,8 @@
                 @includeIf('admin.events.relationships.members', ['users' => $event->users])
             </div>
         </div>
+
+
     </div>
 
 

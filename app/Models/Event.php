@@ -108,9 +108,13 @@ use Auditable;
     {
         return $this->belongsToMany(User::class)->withPivot('approved_by','amount','driver','spouse','driver_amount','spouse_amount','payment_status');
     }
-    public function lastFiveusers()
+    public static function lastFiveusers()
     {
-        return $this->belongsToMany(User::class)->orderBy('id','asc')->take(10);
+       // return $this->belongsToMany(User::class)->orderBy('id','asc')->take(10);
+//        $users = EventUser::orderBy('id','desc')->get()->take(2);
+        $users = EventUser::orderBy('id','desc')->get()->take(10);
+
+        return $users->reverse();
     }
     protected function serializeDate(DateTimeInterface $date)
     {

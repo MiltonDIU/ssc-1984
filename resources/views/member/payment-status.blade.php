@@ -6,37 +6,37 @@
     <div class="event_box_main">
         <div class="event_box school_event_box">
 
-            <div class="data_table">
-                <table class="table table-borderless table-hover">
-                    <thead class="datalist_heading">
-                    <tr>
-                        <th scope="col">Event Name</th>
-                        <th scope="col">Payment Status</th>
+    <div class="data_table">
+        <table class="table table-borderless table-hover">
+            <thead class="datalist_heading">
+            <tr>
+                <th scope="col">Event Name</th>
+                <th scope="col">Payment Status</th>
 
-                    </tr>
-                    </thead>
+            </tr>
+            </thead>
 
-                    <tbody>
+            <tbody>
 
-                    @foreach($eventUsers as $ventUser)
-                        <tr>
-                            <td class="data_name">
-                                {{  $ventUser->event?$ventUser->event->name:""}}
-                            </td>
-                            <td>
-                                @if($ventUser->payment_status=='1')
-                                    {{ "Paid" }}
-                                @else
-                                    {{ "Unpaid" }}
-                                @endif
-                            </td>
-                        </tr>
+            @foreach($eventUsers as $ventUser)
+                <tr>
+                    <td class="data_name">
+                        {{  $ventUser->event?$ventUser->event->name:""}}
+                    </td>
+                    <td>
+                        @if($ventUser->payment_status=='1')
+                            {{ "Paid" }}
+                        @else
+                            {{ "Unpaid" }}
+                        @endif
+                    </td>
+                </tr>
 
-                    @endforeach
+            @endforeach
 
-                    </tbody>
-                </table>
-            </div>
+            </tbody>
+        </table>
+    </div>
         </div>
     </div>
 @endsection

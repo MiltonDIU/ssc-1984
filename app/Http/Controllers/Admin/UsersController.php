@@ -241,7 +241,7 @@ class UsersController extends Controller
 //
 
         $userData = $request->only(['name', 'email', 'mobile', 'telephone_number', 'gender', 'date_of_birth', 'blood_group', 'division_id',
-            'district_id', 'upazila_id', 'password']);
+            'district_id', 'upazila_id', 'password','id_ssc_district']);
 
         $school = School::where('division_id', $request->input('school_division_id'))
             ->where('district_id', $request->input('school_district_id'))

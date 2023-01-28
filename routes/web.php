@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\StatesController;
 use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\ResidencesController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Api\V1\Admin\PaymentApiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,7 +41,13 @@ use App\Http\Controllers\PaymentController;
 */
 
 
-
+// Route::get('/clear-cache', function() {
+//       Artisan::call('storage:link');
+//     // Artisan::call('cache:clear');
+//     // Artisan::call('view:clear');
+//     // Artisan::call('config:cache');
+//     // return '<h1>Cache facade value cleared</h1>';
+// });
 
 
 
@@ -51,6 +58,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('member/card', [AlumniDashboardController::class,'cardDownload'])->name('member.cardDownload');
 });
+
 
 
 
@@ -197,7 +205,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::get('settings', [SettingsController::class, 'edit'])->name('settings.edit');
     Route::put('settings', [SettingsController::class, 'update'])->name('settings.update');
 
-
+// payment check method
+    Route::get('list-of-payment/{idddd}/{title}', [PaymentController::class,'listOfPayment'])->name('payment.listOfPayment');
+    Route::post('paymentCheck', [PaymentApiController::class,'paymentCheck'])->name('payment.paymentCheck');
 
 
 

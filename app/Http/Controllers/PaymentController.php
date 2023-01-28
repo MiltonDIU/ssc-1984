@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\EventUser;
 use App\Models\Payment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use Symfony\Component\HttpFoundation\Response;
+use Gate;
 class PaymentController extends Controller
 {
     public function eventPayment(Request $request){
@@ -64,6 +66,13 @@ class PaymentController extends Controller
 //        $payments = Payment::where('user_id',auth()->id())->orderBy('id','desc')->get();
         $eventUsers = EventUser::where('user_id',auth()->id())->orderBy('id','desc')->get();
         return view('member.payment-status',compact('eventUsers'));
+    }
+
+
+    public function listOfPayment($id,$title){
+        abort_if(Gate::denies('event_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $event = Event::find($id);
+        return view('admin.events.payments', compact('event'));
     }
 
 }

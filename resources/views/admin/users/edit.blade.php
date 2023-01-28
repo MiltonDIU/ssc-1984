@@ -383,7 +383,12 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="id_ssc_district">{{ trans('cruds.user.fields.id_ssc_district') }}</label>
+                            @can('update_district_id')
+                                <input style="margin-top:29px" class="form-control {{ $errors->has('id_ssc_district') ? 'is-invalid' : '' }}" type="text" name="id_ssc_district" id="id_ssc_district" value="{{ old('id_ssc_district', $user->id_ssc_district) }}">
+                            @else
                             <input style="margin-top:29px" class="form-control {{ $errors->has('id_ssc_district') ? 'is-invalid' : '' }}" disabled type="text" name="id_ssc_district" id="id_ssc_district" value="{{ old('id_ssc_district', $user->id_ssc_district) }}">
+                            @endcan
+
                             @if($errors->has('id_ssc_district'))
                                 <span class="text-danger">{{ $errors->first('id_ssc_district') }}</span>
                             @endif
