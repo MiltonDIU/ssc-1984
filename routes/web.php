@@ -29,6 +29,7 @@ use App\Http\Controllers\Admin\CitiesController;
 use App\Http\Controllers\Admin\ResidencesController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Api\V1\Admin\PaymentApiController;
+use App\Http\Controllers\Admin\SpouseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -98,6 +99,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
         'states' => StatesController::class,
         'cities' => CitiesController::class,
         'residences' => ResidencesController::class,
+        'spouses' => SpouseController::class,
     ]);
 
     // Permissions
@@ -166,7 +168,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::delete('events/destroy',[EventsController::class, 'massDestroy'])->name('events.massDestroy');
     Route::post('events/media', [EventsController::class, 'storeMedia'])->name('events.storeMedia');
     Route::post('events/ckmedia',[EventsController::class, 'storeCKEditorImages'])->name('events.storeCKEditorImages');
-
+    Route::get('list-of-payment/{reg_id}/{event_id}/{user_id}/{title}',[EventsController::class, 'eventRegistrationEdit'])->name('edit-registration-event');
+    Route::put('registration-update',[EventsController::class, 'registrationUpdate'])->name('registrationUpdate');
 
 
     // Countries
@@ -190,6 +193,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth','ad
     Route::post('residences/parse-csv-import', [ResidencesController::class,'parseCsvImport'])->name('residences.parseCsvImport');
     Route::post('residences/process-csv-import', [ResidencesController::class,'processCsvImport'])->name('residences.processCsvImport');
     Route::delete('residences/destroy', [ResidencesController::class,'massDestroy'])->name('residences.massDestroy');
+
+    // Spouse
+    Route::delete('spouses/destroy', [SpouseController::class,'massDestroy'])->name('spouses.massDestroy');
+    Route::post('spouses/media', [SpouseController::class,'storeMedia'])->name('spouses.storeMedia');
+    Route::post('spouses/ckmedia', [SpouseController::class,'storeCKEditorImages'])->name('spouses.storeCKEditorImages');
+
 
 
     // Global Search
@@ -272,8 +281,10 @@ Route::group(['prefix' => 'member',
 
 
 
-    //dropzone upload
+    //dropzone upload frontend
     Route::post('/spouse/media', [\App\Http\Controllers\Alumni\SpouseController::class,'storeMedia'])->name('spouse.storeMedia');
+
+
 
 
     ///Ajax request method

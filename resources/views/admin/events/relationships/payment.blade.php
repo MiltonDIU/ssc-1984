@@ -41,10 +41,16 @@
                         <th>
                             {{ "Check Payment" }}
                         </th>
+                        @can('event_registration_update')
+                        <th>
+                            {{ "Action" }}
+                        </th>
+                        @endcan
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($event->users as $key => $user)
+                        @if($user->pivot->payment_status!=1)
                         <tr data-entry-id="{{ $user->id }}">
                             <td>
 
@@ -127,7 +133,15 @@
 
 
                             </td>
+                            @can('event_registration_update')
+                                <td><a href="{{ route('admin.edit-registration-event',[$user->pivot->id,$event->id,$user->id,$event->name]) }}" class="btn btn-danger">Edit Event Registration</a></td>
+
+                            @endcan
+
+
+
                         </tr>
+                        @endif
                     @endforeach
                     </tbody>
                 </table>

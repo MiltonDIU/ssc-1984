@@ -10,10 +10,12 @@ use App\Http\Requests\UpdateEventRequest;
 use App\Models\District;
 use App\Models\Event;
 use App\Models\EventCategory;
+use App\Models\EventUser;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -218,4 +220,33 @@ class EventsController extends Controller
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
+
+    public function eventRegistrationEdit($reg_id,$event_id,$user_id){
+
+        abort_if(Gate::denies('event_registration_update'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $eventUser = EventUser::find($reg_id);
+        if ($eventUser->payment_status==1){
+            return view('admin.events.payment-status', compact('eventUser'));
+        }else{
+            return view('admin.events.editRegistration', compact('eventUser','reg_id'));
+        }
+
+    }
+    public function registrationUpdate(Request $request){
+        $event = Event::find($request->input('event_id'));
+        $data = $request->only('spouse','driver');
+        $eventUser = EventUser::find($request->input('id'));
+       if ($request->input('spouse')==1){
+           $data['spouse_amount'] = $event->spouse_amount;
+       }else{
+           $data['spouse_amount'] = 0.00;
+       }
+       if ($request->input('driver')==1){
+           $data['driver_amount']  = $event->driver_amount;
+       }else{
+           $data['driver_amount']  = 0.00;
+       }
+        $eventUser->update($data);
+       return redirect(route('admin.payment.listOfPayment',[$event->id,$event->slug]))->with('message','Registration Update');
+}
 }

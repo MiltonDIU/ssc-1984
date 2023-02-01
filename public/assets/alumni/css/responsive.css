@@ -9,7 +9,7 @@
     }
 
     .input-box, .btn_green_large, .btn_red_large {
-        width: 272px !important;
+	    width: 272px !important;
     }
 
     #login form {
@@ -95,7 +95,7 @@
         width: 100%;
         height: auto;
     }
-
+    
     .py-3 {
         width: calc(100% - 80px);
     }
@@ -295,7 +295,7 @@
     .content_box {
         width: 100%;
     }
-
+    
     /* Dashboard Landing page start */
     .sm_d_none {
         display: none;
@@ -364,7 +364,7 @@
         width: 100%;
         height: auto;
     }
-
+    
     .py-3 {
         width: calc(100% - 80px);
     }
@@ -535,7 +535,7 @@
     nav .nav-item {
         padding-left: 16px !important;
     }
-
+    
     /* Dashboard Landing page start */
     .dashboard_content_top {
         margin: 30px 0 35px 0;
@@ -941,7 +941,7 @@
         padding: 13px 55px 13px 18px;
     }
     /* Dashboard Landing page end */
-
+    
     /* Dashboard Event page start */
     .school_profile .dashboard_search {
         width: 84% !important;

@@ -106,7 +106,7 @@ use Auditable;
 
     public function users()
     {
-        return $this->belongsToMany(User::class)->withPivot('approved_by','amount','driver','spouse','driver_amount','spouse_amount','payment_status');
+        return $this->belongsToMany(User::class)->withPivot('id','approved_by','amount','driver','spouse','driver_amount','spouse_amount','payment_status');
     }
     public static function lastFiveusers()
     {
