@@ -39,11 +39,11 @@ class DashboardController extends Controller
     {
         $this->middleware('auth');
     }
-public function cardDownload(){
-    $events = Event::where('is_active', '1')->where('event_date', '>', date('Y-m-d', strtotime(Carbon::now())))->get();
-    $total_users = count(User::where('id_ssc_bd', '!=', null)->where('id_ssc_district', '!=', null)->get());
-    return view('member.card',compact('events','total_users'));
-}
+    public function cardDownload(){
+        $events = Event::where('is_active', '1')->where('event_date', '>', date('Y-m-d', strtotime(Carbon::now())))->get();
+        $total_users = count(User::where('id_ssc_bd', '!=', null)->where('id_ssc_district', '!=', null)->get());
+        return view('member.card',compact('events','total_users'));
+    }
     public function settings()
     {
         abort_if(Gate::denies('member_settings'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -263,7 +263,7 @@ public function cardDownload(){
     //return district wise upazila
     public function get_by_district(Request $request)
     {
-        abort_unless(\Gate::allows('district_access'), 401);
+       // abort_unless(\Gate::allows('district_access'), 401);
 
         if (!$request->district_id) {
             $html = '<option value="">' . trans('global.pleaseSelect') . '</option>';
@@ -283,7 +283,7 @@ public function cardDownload(){
     //return district wise upazila
     public function school_get_by_upazila(Request $request)
     {
-        abort_unless(\Gate::allows('school_access'), 401);
+       // abort_unless(\Gate::allows('school_access'), 401);
 
         if (!$request->upazila_id) {
             $html = '<option value="">' . trans('global.pleaseSelect') . '</option>';
@@ -304,7 +304,7 @@ public function cardDownload(){
     //return division wise district
     public function get_by_division(Request $request)
     {
-        abort_unless(\Gate::allows('division_access'), 401);
+       // abort_unless(\Gate::allows('division_access'), 401);
 
         if (!$request->division_id) {
             $html = '<option value="">' . trans('global.pleaseSelect') . '</option>';

@@ -1,4 +1,4 @@
-@if(auth()->id()===2)
+@if(auth()->id()===2 || auth()->id()===7 || auth()->id()===28)
 
 @foreach($events as $event)
     @if(\App\Models\EventUser::getRegisterUser($event->id)!=false)
@@ -88,7 +88,7 @@
             @if($registerUser->payment_status==1)
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 ">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
                 <div class="id_box" id="member_id">
                     <div class="id_box_main">
                         <div class="id_logo">
@@ -139,7 +139,7 @@
                 <button style="margin-left: 32px" class="going_btn" id="doPrint">Download</button>
             </div>
             @if($registerUser->spouse==1)
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div id="wrapper">
                 <div class="id_box spouse_id" id="spouse_id">
                     <div class="id_box_main">
