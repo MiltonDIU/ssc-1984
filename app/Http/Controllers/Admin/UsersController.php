@@ -241,15 +241,16 @@ class UsersController extends Controller
 //
 
         $userData = $request->only(['name', 'email', 'mobile', 'telephone_number', 'gender', 'date_of_birth', 'blood_group', 'division_id',
-            'district_id', 'upazila_id', 'password','id_ssc_district']);
+            'district_id', 'upazila_id','id_ssc_district']);
+        if (!empty($request->input('password'))){
+            $userData['password'] = $request->input('password');
+        }
 
         $school = School::where('division_id', $request->input('school_division_id'))
             ->where('district_id', $request->input('school_district_id'))
             ->where('upazila_id', $request->input('school_upazila_id'))
             ->where('id', $request->input('school_id'))
             ->first();
-
-
         if ($school) {
             $userData['school_id'] = $request->input('school_id');
         } else {

@@ -361,8 +361,8 @@
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
-                            <input style="margin-top:29px" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password" required>
+                            <label for="password">{{ trans('cruds.user.fields.password') }}</label>
+                            <input style="margin-top:29px" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password">
                             @if($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif

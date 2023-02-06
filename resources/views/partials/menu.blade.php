@@ -61,6 +61,43 @@
                             </a>
                         </li>
                     @endcan
+
+                    @can('country_access')
+                        <li class="nav-item">
+                            <a href="{{ route("admin.countries.index") }}" class="nav-link {{ request()->is("admin/countries") || request()->is("admin/countries/*") ? "active" : "" }}">
+                                <i class="fa-fw nav-icon fas fa-cogs">
+
+                                </i>
+                                <p>
+                                    {{ trans('cruds.country.title') }}
+                                </p>
+                            </a>
+                        </li>
+                    @endcan
+
+                    @can('state_access')
+                        <li class="nav-item">
+                            <a href="{{ route("admin.states.index") }}" class="nav-link {{ request()->is("admin/states") || request()->is("admin/states/*") ? "active" : "" }}">
+                                <i class="fa-fw nav-icon fas fa-cogs">
+
+                                </i>
+                                <p>
+                                    {{ trans('cruds.state.title') }}
+                                </p>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('city_access')
+                        <li class="nav-item">
+                            <a href="{{ route("admin.cities.index") }}" class="nav-link {{ request()->is("admin/cities") || request()->is("admin/cities/*") ? "active" : "" }}">
+                                <i class="fa-fw nav-icon fas fa-cogs">
+                                </i>
+                                <p>
+                                    {{ trans('cruds.city.title') }}
+                                </p>
+                            </a>
+                        </li>
+                    @endcan
                     @can('profession_access')
                         <li class="nav-item">
                             <a href="{{ route("admin.professions.index") }}" class="nav-link {{ request()->is("admin/professions") || request()->is("admin/professions/*") ? "active" : "" }}">
